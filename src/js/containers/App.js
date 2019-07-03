@@ -2,13 +2,11 @@ import React from 'react';
 import '../../css/App.css';
 
 // import components
-import Map from '../components/Map/';
+import Home from '../components/Home';
 
 const App = () => {
   return (
-    <div className='container'>
-      <Map />
-    </div>
+      <Home />
   );
 }
 
