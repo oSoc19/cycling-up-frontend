@@ -13,8 +13,8 @@ const QuestionItem = ({ question }) => (
             {
                 question.choices.map((value, index) => {
                     return (
-                        <li>
-                            <button key={index}>{value}</button>
+                        <li className={css['choice-item']}>
+                            <button className={css['choice-btn']} key={index}>{value}</button>
                         </li>
                     )
                 })
@@ -45,7 +45,7 @@ class Question extends Component {
                             return <QuestionItem question={item} />
                         })
                     }
-                    
+
                 </article>
                 <div className={css['next-button']}>
                     <button>Next</button>

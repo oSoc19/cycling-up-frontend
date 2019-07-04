@@ -16,12 +16,25 @@
 .title {
     font-size: 36px;
     font-family: Circular-Std-Bold;
+    line-height: 50px;
 }
 
 .choices {
     text-align: center;
     column-count: 2;
-    font-size: 16px;
+    font-size: 15px;
+    display: inline-flex;
+    margin-top: 25px;
+}
+
+.choice-item {
+    margin-right: 25px;
+
+}
+
+.choice-btn {
+    
+
 }
 
 .next-button {
