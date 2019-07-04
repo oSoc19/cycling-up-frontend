@@ -8,6 +8,15 @@
     "image statistics";
 }
 
+.halfScreen {
+    display: grid;
+    grid-template-columns: auto 0.5fr;
+
+    grid-template-areas: 
+    "image description"
+    "image statistics";
+}
+
 .image {
     grid-area: span 2;
     background-image: url("./../assets/img/Artboard1.jpg");
