@@ -1,0 +1,8 @@
+.image {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url("./../assets/img/Artboard1.jpg");
+    background-position: center;
+    background-size: 100vw 105vh;
+}
