@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import mapboxgl from 'mapbox-gl'
 
 import Slider from './Slider';
+import Chart from './chart';
 // import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 
 // import Slider from './Slider';
@@ -80,7 +81,7 @@ class Application extends Component {
         <div className = "container-slider">
           <Slider />
         </div>
-        
+        <Chart />
       </div>
     );
   }
