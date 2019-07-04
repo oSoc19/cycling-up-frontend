@@ -1,11 +1,11 @@
 [
     {
-        "question" : "How is the state of Brussels cycling infrastructur ?",
-        "answer" : "Very bad",
+        "question" : "What is the amount of cycling networks around Brussels ?",
+        "answer" : "100 km",
         "choices" : [
-            "Bad",
-            "Very good",
-            "Coub be better"
+            "100 km",
+            "400 km",
+            "546 km"
         ]
     }
 ]
