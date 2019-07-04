@@ -16,6 +16,8 @@
 .h2 {
     font-size: 36px;
     font-family: Circular-Std-Bold;
+    line-height: 45px;
+    margin-bottom: 20px;
 }
 
 .intro {
@@ -39,6 +41,5 @@
 
 .subtitle {
     color: #BFBFBF;
-    margin-top: -20px;
     font-size: 12px;
 }

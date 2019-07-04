@@ -5,10 +5,7 @@ import { callbackify } from 'util';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "30vw",
-    position: "absolute",
-    bottom: "20px",
-    left: "calc((50vw - 30vw) / 2.5) "
+    width: "40vw"
   },
 
   thumb: {
@@ -33,6 +30,11 @@ const marks = [
   {
     value: 2010,
     label: '2010',
+  },
+
+  {
+    value: 2019,
+    label: '2019',
   },
 ];
 
