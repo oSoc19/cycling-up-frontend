@@ -1,0 +1,30 @@
+ .splitScreen {
+    display: grid;
+    grid-template-columns: auto 0.75fr;
+    grid-template-rows: 50vh 50vh;
+
+    grid-template-areas: 
+    "image description"
+    "image statistics";
+}
+
+.image {
+    grid-area: span 2;
+    background-color: grey;
+}
+
+.title {
+    font-size: 36px;
+    font-family: Circular-Std-Bold;
+}
+
+.choices {
+    text-align: center;
+    column-count: 2;
+    font-size: 16px;
+}
+
+.next-button {
+    background-color: #efefef; 
+    padding: 3.5rem;
+}
