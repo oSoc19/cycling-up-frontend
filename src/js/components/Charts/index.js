@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Bar } from "react-chartjs-2";
-import { styles } from "ansi-colors";
 
 import css from "./../../../css/chart.module.css";
 
