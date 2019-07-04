@@ -4,17 +4,24 @@ import css from "../../../css/question.module.css";
 import questions from "../../../assets/questions.json";
 
 
-// const questions = [
-//     {
-//         "question" : "How is the state of Brussels cycling infrastructur ?",
-//         "answer" : "Very bad",
-//         "choices" : [
-//             "Bad",
-//             "Very good",
-//             "Coub be better"
-//         ]
-//     }
-// ];
+const QuestionItem = ({ question }) => (
+    <div>
+        <h2 className={css.title}>
+            {question.title}
+        </h2>
+        <ul className={css.choices}>
+            {
+                question.choices.map((value, index) => {
+                    return (
+                        <li>
+                            <button key={index}>{value}</button>
+                        </li>
+                    )
+                })
+            }
+        </ul>
+    </div>
+)
 
 class Question extends Component {
     render() {
@@ -33,20 +40,16 @@ class Question extends Component {
                         marginRight: "10rem"
                     }}
                 >
-                    <h2 className={css.title}>
-                        {questions[0].question}
-                    </h2>
-                    <div className={css.choices}>
-                        {
-                        questions[0].choices.map((value, index) => {
-                            return <button key={index}>{value}</button>
+                    {
+                        questions.map((item, index) => {
+                            return <QuestionItem question={item} />
                         })
-                        }
-                    </div>
+                    }
+                    
                 </article>
                 <div className={css['next-button']}>
                     <button>Next</button>
-                </div> 
+                </div>
             </div>
         );
     }
