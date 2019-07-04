@@ -10,7 +10,10 @@
 
 .image {
     grid-area: span 2;
-    background-color: grey;
+    background-image: url("./../assets/img/Artboard1.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
 
 .h2 {
