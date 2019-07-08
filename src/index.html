@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Plan vélo - Brussels</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="map"></section>
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw";
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/danielleterras/cjxoemrlt08nn1cmlm2owey24",
+        zoom: 13,
+        center: [4.34878, 50.85045]
+      });
+
+      var layerList = document.getElementById("menu");
+      var inputs = layerList.getElementsByTagName("input");
+
+      function switchLayer(layer) {
+        var layerId = layer.target.id;
+        map.setStyle("mapbox://styles/mapbox/" + layerId);
+      }
+
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = switchLayer;
+      }
+    </script>
+    <section>
+      <img
+        src="./assets/img/Artboard1.jpg"
+        alt="Guy on a bike commuting to work"
+        width="100%"
+        height="100%"
+      />
+    </section>
+  </body>
+</html>

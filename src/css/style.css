@@ -1,0 +1,17 @@
+.wrapper {
+  max-width: 1000px;
+  width: 98%;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 70px 20px 30px;
+}
+
+.section-1 {
+  background-color: black;
+}
+
+.section-2 {
+  background-color: #efefef;
+}
