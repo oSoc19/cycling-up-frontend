@@ -14,7 +14,8 @@
           data: africa,
           label: '% of cyclist that commute to work',
           borderColor: 'rgba(185, 206, 228, .1)',
-          fill: '#f9b138'
+          fill: '#f9b138',
+          backgroundColor: '#f9b138'
         }
       ]
     }
