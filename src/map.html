@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>oSoc - Plan-vélo</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/vars.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body class="grid">
+    <nav class="nav">
+      <ul>
+        <li>Historical data</li>
+        <li><a href="map.html">Historical map</a></li>
+        <li><a href="index.html">Commute to work</a></li>
+        <li>Villo!</li>
+      </ul>
+    </nav>
+    <div id="map"></div>
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw";
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/danielleterras/cjxoemrlt08nn1cmlm2owey24",
+        zoom: 13,
+        center: [4.34878, 50.85045]
+      });
+
+      var layerList = document.getElementById("menu");
+      var inputs = layerList.getElementsByTagName("input");
+
+      function switchLayer(layer) {
+        var layerId = layer.target.id;
+        map.setStyle("mapbox://styles/mapbox/" + layerId);
+      }
+
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = switchLayer;
+      }
+    </script>
+  </body>
+</html>
