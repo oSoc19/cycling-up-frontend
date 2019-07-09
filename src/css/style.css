@@ -83,7 +83,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: .25fr 1fr .5fr;
-  grid-template-rows: .35fr .65fr;
+  grid-template-rows: 1fr .5fr;
   grid-template-areas: 'navigation image image' 'navigation stats text';
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
@@ -94,7 +94,6 @@ body {
 .banner {
   background-image: url(./../assets/img/Illustration_01-01.jpg);
   background-size: 100%;
-  background-position-y: -7rem;
 }
 
 .nav {
@@ -113,6 +112,11 @@ li:hover {
 ul {
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
 }
 
 li {
@@ -147,6 +151,8 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: 335px;
 }
 
 .text {

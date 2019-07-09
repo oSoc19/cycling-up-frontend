@@ -68,16 +68,15 @@
 
   const historyCtx = document.getElementById(`history`);
   const infrastructureChart = new Chart(historyCtx, {
-    type: 'bar',
+    type: 'line',
     data: {
       labels: amount,
       datasets: [
         {
           data: infrastructureData,
           label: '% of investments in bicycle paths',
-          borderColor: 'rgba(185, 206, 228, .1)',
-          fill: '#f9b138',
-          backgroundColor: '#f9b138'
+          borderColor: '#f9b138',
+          fill: false
         }
       ]
     }
