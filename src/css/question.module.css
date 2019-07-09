@@ -1,0 +1,43 @@
+ .splitScreen {
+    display: grid;
+    grid-template-columns: auto 0.75fr;
+    grid-template-rows: 50vh 50vh;
+
+    grid-template-areas: 
+    "image description"
+    "image statistics";
+}
+
+.image {
+    grid-area: span 2;
+    background-color: grey;
+}
+
+.title {
+    font-size: 36px;
+    font-family: Circular-Std-Bold;
+    line-height: 50px;
+}
+
+.choices {
+    text-align: center;
+    column-count: 2;
+    font-size: 15px;
+    display: inline-flex;
+    margin-top: 25px;
+}
+
+.choice-item {
+    margin-right: 25px;
+
+}
+
+.choice-btn {
+    
+
+}
+
+.next-button {
+    background-color: #efefef; 
+    padding: 3.5rem;
+}

@@ -4,6 +4,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 
 import Map from "../components/Map/";
 import Chart from "../components/Charts/index";
+import Question from "../components/Questions";
 
 import styles from "./../../css/home.module.css";
 class FullpageWrapper extends Component {
@@ -23,6 +24,10 @@ class FullpageWrapper extends Component {
               </section>
               <section className="section">
                 <Chart />
+              </section>
+
+              <section className="section">
+                <Question />
               </section>
             </div>
           );
