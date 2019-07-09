@@ -1,17 +1,158 @@
-.wrapper {
-  max-width: 1000px;
-  width: 98%;
-  margin: 0 auto;
+@font-face {
+  font-family: 'Circular Std Book';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./../assets/fonts/circular-std-book-cufonfonts-webfont/CircularStd-Book.woff')
+    format('woff');
 }
 
-.section {
-  padding: 70px 20px 30px;
+@font-face {
+  font-family: 'Circular Std Book Italic';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./../assets/fonts/circular-std-book-cufonfonts-webfont/CircularStd-BookItalic.woff')
+    format('woff');
 }
 
-.section-1 {
-  background-color: black;
+@font-face {
+  font-family: 'Circular Std Medium';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./../assets/fonts/circular-std-book-cufonfonts-webfont/CircularStd-Medium.woff')
+    format('woff');
 }
 
-.section-2 {
-  background-color: #efefef;
+@font-face {
+  font-family: 'Circular Std Medium Italic';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./../assets/fonts/circular-std-book-cufonfonts-webfont/CircularStd-MediumItalic.woff')
+    format('woff');
+}
+
+@font-face {
+  font-family: 'Circular Std Bold';
+  font-style: normal;
+  src:
+    url('./../assets/fonts/circular-std-book-cufonfonts-webfont/CircularStd-Bold.woff')
+    format('woff');
+}
+
+@font-face {
+  font-family: 'Circular Std Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./../assets/fonts/circular-std-book-cufonfonts-webfont/CircularStd-BoldItalic.woff')
+    format('woff');
+}
+
+@font-face {
+  font-family: 'Circular Std Black';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./../assets/fonts/circular-std-book-cufonfonts-webfont/CircularStd-Black.woff')
+    format('woff');
+}
+
+@font-face {
+  font-family: 'Circular Std Black Italic';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./../assets/fonts/circular-std-book-cufonfonts-webfont/CircularStd-BlackItalic.woff')
+    format('woff');
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Circular Std Book';
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: .25fr 1fr .5fr;
+  grid-template-rows: .35fr .65fr;
+  grid-template-areas: 'navigation image image' 'navigation stats text';
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  height: 100%;
+}
+
+.banner {
+  background-image: url(./../assets/img/Illustration_01-01.jpg);
+  background-size: 100%;
+  background-position-y: -5rem;
+}
+
+.nav {
+  grid-area: navigation;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131723;
+  color: white;
+}
+
+li:hover {
+  background-color: #f9b138;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 1rem;
+  width: 100%;
+}
+
+.banner {
+  grid-area: image;
+}
+
+.title {
+  font-family: 'Circular Std Black';
+  font-size: 36px;
+  line-height: 60px;
+  margin-left: 5rem;
+  color: #6270b3;
+}
+
+span {
+  background-color: white;
+  padding: .3rem 1rem;
+  z-index: -1;
+}
+
+.stats {
+  grid-area: stats;
+  background-color: rgba(185, 206, 228, .1);
+  padding: 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  grid-area: text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
 }

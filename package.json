@@ -38,5 +38,8 @@
     "dev": "webpack-dev-server --open --mode development",
     "prod": "rm -rf dist && webpack --mode production",
     "images": "node ./scripts/images.js"
+  },
+  "dependencies": {
+    "chart.js": "^2.8.0"
   }
 }

@@ -2,60 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Plan vélo - Brussels</title>
-    <meta
-      name="viewport"
-      content="initial-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js"></script>
-    <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <section id="map"></section>
-    <script>
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw";
-      var map = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/danielleterras/cjxoemrlt08nn1cmlm2owey24",
-        zoom: 13,
-        center: [4.34878, 50.85045]
-      });
+    <section class="grid">
+      <nav class="nav">
+        <ul>
+          <li>Historical data</li>
+          <li>Historical map</li>
+          <li>Commute to work</li>
+          <li>Villo!</li>
+        </ul>
+      </nav>
 
-      var layerList = document.getElementById("menu");
-      var inputs = layerList.getElementsByTagName("input");
-
-      function switchLayer(layer) {
-        var layerId = layer.target.id;
-        map.setStyle("mapbox://styles/mapbox/" + layerId);
-      }
-
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].onclick = switchLayer;
-      }
-    </script>
-    <section>
-      <img
-        src="./assets/img/Artboard1.jpg"
-        alt="Guy on a bike commuting to work"
-        width="100%"
-        height="100%"
-      />
+      <article class="banner">
+        <h1 class="title">
+          <span>How many people ride</span> <br /><span
+            >their bike to work?</span
+          >
+        </h1>
+      </article>
+      <article class="stats">
+        <canvas id="canvas"></canvas>
+      </article>
+      <article class="text">
+        <p style="color: #959595; line-height: 23px;">
+          Citizens using bikes to commute to work within Brussels city increased
+          from 2005 (1.2%) till 2014 (3%). This rise shows an augmentation in
+          the demand for sustainable solutions when moving from home to work.
+          Hence, the melioration of bikes infrastructures within the Brussels
+          region enhance this steady increase.
+        </p>
+      </article>
     </section>
+    <script src="./js/script.js"></script>
   </body>
 </html>
