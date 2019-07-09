@@ -155,6 +155,16 @@ span {
   height: 335px;
 }
 
+.statistic {
+  grid-area: stats;
+  background-color: rgba(185, 206, 228, .1);
+  padding: 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .text {
   grid-area: text;
   display: flex;
