@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'wasabi-regular';
+  font-weight: 400;
+  src: url('/dist/fonts/wasabiregular.woff2');
+  src: url('/dist/fonts/wasabiregular.woff2') format('woff2'),
+       url('/dist/fonts/wasabiregular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'wasabi-medium';
+  font-weight: 400;
+  src: url('/dist/fonts/wasabimedium.woff2');
+  src: url('/dist/fonts/wasabimedium.woff2') format('woff2'),
+       url('/dist/fonts/wasabimedium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'integral-regular';
+  font-weight: 400;
+  src: url('/dist/fonts/integralcf-regular.woff2');
+  src: url('/dist/fonts/integralcf-regular.woff2') format('woff2'),
+       url('/dist/fonts/integralcf-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'integral-bold';
+  font-weight: 400;
+  src: url('/dist/fonts/integralcf-bold.woff2');
+  src: url('/dist/fonts/integralcf-bold.woff2') format('woff2'),
+       url('/dist/fonts/integralcf-bold.woff') format('woff');
+}

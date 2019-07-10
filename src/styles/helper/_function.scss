@@ -1,0 +1,35 @@
+@function get-value-if-key-exists($map, $key) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $map.";
+  @return null;
+}
+
+@function pal-color($key, $tone: 'base') {
+  @return get-value-if-key-exists(
+    get-value-if-key-exists($map-color-palette, $key),
+    $tone
+  );
+}
+
+@function emo-color($key) {
+  @return get-value-if-key-exists($map-color-emotional, $key);
+}
+
+@function font-size($key) {
+  @return get-value-if-key-exists($map-font-size, $key);
+}
+
+@function font-weight($key) {
+  @return get-value-if-key-exists($map-font-weight, $key);
+}
+
+@function font-family($key: 'base') {
+  @return get-value-if-key-exists($map-font-family, $key);
+}
+
+@function image-url($key) {
+  @return url($image-path + $key);
+}

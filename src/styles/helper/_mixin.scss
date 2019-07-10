@@ -1,0 +1,38 @@
+@mixin heading ($from: 1, $to: 6) {
+  $heading: '';
+  @for $i from $from through $to {
+    $heading: append(append($heading, h#{$i}), ',');
+  }
+
+  #{$heading} {
+    @content;
+  }
+}
+
+@mixin respond($from, $to) {
+  @media(min-width: $from) and (max-width: $to) {
+    @content;
+  }
+}
+
+@mixin respond-from($from) {
+  @media(min-width: $from) {
+    @content;
+  }
+}
+
+@mixin respond-to($to) {
+  @media(max-width: $to) {
+    @content;
+  }
+}
+
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  } @else {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}

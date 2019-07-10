@@ -1,0 +1,31 @@
+body {
+  @include font-smoothing(antialiased);
+  overflow-x: hidden;
+  color: $font-color;
+  font-family: font-family(base);
+  font-size: font-size(base);
+  line-height: $line-height;
+  user-select: none;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 $paragraph-whitespace;
+}
+
+p,
+.paragraph {
+  color: pal-color(gray, light);
+  font-family: font-family(paragraph);
+}
+
+a,
+.anchor {
+  text-decoration: $anchor-decoration;
+}
+
+b,
+strong {
+  font-weight: font-weight(bold);
+}

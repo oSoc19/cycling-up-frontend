@@ -1,0 +1,135 @@
+$map-color-palette: (
+  white: (base: #fff),
+  gray:  (
+    base:     #19191a,
+    light:    #4b5358,
+    lighter:  #ccc
+  )
+);
+
+$map-color-emotional: (
+  light:                    #fff,
+  stable:                   #f7f7f7,
+  positive:                 #00f7cc,
+  // calm:                     '',
+  // balanced:                 '',
+  // energized:                '',
+  //assertive:                 '',
+  // royal:                    '',
+  dark:                     #1b1e20
+);
+
+$map-color-social: (
+  // twitter:                  '',
+  // facebook:                 '',
+);
+
+// Font size:
+
+$map-font-size: (
+  tiny:                     13px,
+  small:                    15px,
+  base:                     18px,
+  medium:                   22px,
+  large:                    30px,
+  xlarge:                   40px,
+  xxlarge:                  105px,
+  huge:                     140px
+);
+
+
+$map-heading-size: (
+  h1:                       font-size(large),
+  h2:                       font-size(medium),
+  h3:                       font-size(base),
+  h4:                       font-size(base),
+  h5:                       font-size(base),
+  h6:                       font-size(base)
+);
+
+$map-font-size: map-merge($map-font-size, $map-heading-size);
+
+
+
+// Font weight
+
+$map-font-weight: (
+  lightest:                 100,
+  lighter:                  200,
+  light:                    300,
+  normal:                   400,
+  bold:                     600,
+  bolder:                   700,
+  boldest:                  900
+);
+
+$map-font-weight-elements: (
+  heading:                  font-weight(bold)
+);
+
+$map-font-weight: map-merge($map-font-weight, $map-font-weight-elements);
+
+
+
+// Typography
+
+$line-height:               1.3;
+
+$anchor-color:              emo-color(positive);
+$anchor-decoration:         none;
+$anchor-hover-color:        emo-color(positive);
+$anchor-hover-decoration:   none;
+
+$paragraph-whitespace:      $line-height + em;
+
+
+$map-font-family: (
+base:                     ('wasabi-regular', arial, sans-serif),
+heading:                  ('wasabi-medium', arial, sans-serif),
+paragraph:                ('wasabi-regular', arial, sans-serif),
+navigation:               ('integral-regular', arial, sans-serif),
+navigation-title:         ('integral-bold', arial, sans-serif),
+button:                   ('integral-regular', arial, sans-serif),
+button-bold:              ('integral-bold', arial, sans-serif),
+number:                   ('integral-bold', arial, sans-serif),
+section-heading:          ('integral-bold', arial, sans-serif),
+section-info:             ('integral-regular', arial, sans-serif)
+);
+
+$heading-color:             pal-color(gray);
+
+
+
+// Spacing
+
+$map-spacing: (
+  tiny:                     10px,
+  small:                    20px,
+  base:                     30px,
+  medium:                   40px,
+  large:                    50px
+);
+
+// Images
+$image-path: '/dist/img/';
+
+// Global application configuration
+
+$hex-body-bg:                 emo-color(light);
+$font-color:                  pal-color(gray, light);
+$transition-duration-default: .2s;
+$header-height:               100px;
+$mobile-header-height:        70px;
+$medium-content-offset:       50px;
+$large-content-offset:        100px;
+$xlarge-content-offset:       150px;
+$global-border-radius:        3px;
+$grid-gutter-width:           16px;
+
+// old bootstrap settings
+$screen-xs-max:             768px - 1;
+$screen-sm-min:             768px;
+$screen-sm-max:             992px - 1;
+$screen-md-min:             992px;
+$screen-md-max:             1170px - 1;
+$screen-lg-min:             1230px;

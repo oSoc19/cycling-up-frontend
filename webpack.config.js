@@ -1,16 +1,6 @@
-module.exports = {
-  entry: `./src/js/script.js`,
-  output: {
-    path: require('path').resolve(`./src`),
-    filename: `script.js`
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        loader: `babel-loader`
-      }
-    ]
-  }
+const env = process.env.NODE_ENV
+
+module.exports = env => {
+  console.log(`🛠️  running ${env} Mode using ./webpack/webpack.${env}.js 🛠️`);
+  return require(`./webpack/webpack.${env}.js`);
 };
