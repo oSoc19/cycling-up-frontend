@@ -28,3 +28,51 @@
 
 // Page layout
 @import 'layout/page';
+
+body {
+  font-family: font-family('CircularStd-Book');
+  font-size: 16px;
+  line-height: 23px;
+
+  overflow-y: hidden;
+}
+
+.h1-title {
+  padding: 0.5rem;
+  background-color: white;
+  color: #2D3F72;
+}
+
+.header-title {
+  font-family: font-family('CircularStd-Black');
+  height: 40vh;
+}
+
+.header-background-image {
+  background-image: url('./../assets/img/Illustration_01-01.jpg');
+  background-size: 100%;
+  background-position-y: -5rem;
+}
+
+.graph-context {
+  height: 60vh;
+}
+
+.graph-description {
+  width: 35vw;
+  padding: 5rem;
+}
+
+.graph-background {
+  background-color: #efefef;
+  padding: 5rem;
+
+  width: 50vw;
+}
+
+.center-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
