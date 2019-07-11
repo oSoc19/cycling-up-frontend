@@ -1,15 +1,12 @@
 import 'normalize.css';
 import '../styles/style.scss';
 
-console.log('hello world');
-
-import test from './lib/test';
-
-import index from './index-script';
+import evolution from './lib/km-evolution';
+import commute from './lib/commute-to-work';
 
 const init = () => {
-  test();
-  index();
+  evolution();
+  commute();
 };
 
 init();

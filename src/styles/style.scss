@@ -38,13 +38,18 @@ body {
 }
 
 .h1-title {
-  padding: 0.5rem;
+  font-family: font-family('CircularStd-Black');
+  line-height: 55px;
+
   background-color: white;
   color: #2D3F72;
+
+  margin-left: 5rem;
+  margin-top: 5rem;
+  padding: 0.5rem 1rem;
 }
 
 .header-title {
-  font-family: font-family('CircularStd-Black');
   height: 40vh;
 }
 

@@ -69,6 +69,10 @@ module.exports = {
       hash: false,
       template: './' + src_Path + '/templates/index.html',
       filename: 'index.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './' + src_Path + '/templates/km-evolution.html',
+      filename: 'km-evolution.html'
     })
   ]
 };
