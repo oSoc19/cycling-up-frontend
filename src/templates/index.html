@@ -2,25 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Plan vélo - Brussels</title>
     <link
       rel="stylesheet"
       href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
   </head>
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Plan vélo - Brussels</title>
-  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plan vélo - Brussels</title>
+    <link
+      rel="stylesheet"
+      href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
+    />
+  </head>
 
-<body>
-  <img src="<%=require('../assets/img/Artboard1.jpg')%>" alt="" width="100" height="auto">
-  <script defer src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
-</body>
+  <body>
+    <img
+      src="<%=require('../assets/img/Artboard1.jpg')%>"
+      alt=""
+      width="100"
+      height="auto"
+    />
+    <canvas id="canvas"></canvas>
+    <script
+      defer
+      src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"
+    ></script>
+  </body>
 </html>
