@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require(`copy-webpack-plugin`);
 const globImporter = require('node-sass-glob-importer');
+const ImageMinPlugin = require('imagemin-webpack-plugin');
+
 
 
 const {
@@ -73,6 +75,7 @@ module.exports = {
       {
         from: path.resolve(src_Path, 'assets'),
         to: path.resolve(__dirname, prod_Path, 'assets'),
+        toType: 'dir',
       },
     ]),
     new CleanWebpackPlugin(path.resolve(__dirname, prod_Path), {

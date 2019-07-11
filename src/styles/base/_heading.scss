@@ -10,10 +10,6 @@ h1,
   @include media-breakpoint-down(xs) {
     font-size: font-size(h2);
   }
-
-  > span {
-    color: emo-color(positive);
-  }
 }
 
 h2,
