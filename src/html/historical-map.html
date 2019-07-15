@@ -4,20 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Plan vélo - Brussels</title>
-    <link
-      rel="stylesheet"
-      href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
-  </head>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Plan vélo - Brussels</title>
-    <link
-      rel="stylesheet"
-      href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
-    />
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js"></script>
     <link
       href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css"
@@ -38,16 +24,7 @@
   </head>
   <body>
       <section class="web-flex">
-      <article>
-          <nav class="nav">
-            <ul>
-              <a href="km-evolution.html"><li>Evolution</li></a>
-              <a href="index.html"><li>Commute to work</li></a>
-              <a href="historical-map.html"><li>Historical map</li></a>
-              <li>Villo!</li>
-            </ul>
-          </nav>
-        </article>
+      <include>_navigation.html</include>
     <div id="map" style="z-index: -1;"></div>
     <script>
       mapboxgl.accessToken =
@@ -59,19 +36,11 @@
         center: [4.34878, 50.85045]
       });
       var layerList = document.getElementById("menu");
-      var inputs = layerList.getElementsByTagName("input");
       function switchLayer(layer) {
         var layerId = layer.target.id;
         map.setStyle("mapbox://styles/mapbox/" + layerId);
       }
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].onclick = switchLayer;
-      }
     </script>
       </section>
-    <script
-    defer
-    src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"
-  ></script>
 </body>
 </html>
