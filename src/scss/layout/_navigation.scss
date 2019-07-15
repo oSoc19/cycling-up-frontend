@@ -1,4 +1,4 @@
-nav {
+.nav {
   background-color: #2D3E71;
   color: white;
   width: 15vw;
@@ -6,17 +6,21 @@ nav {
   z-index: 999;
 }
 
-a {
-  color: white;
+.nav-items {
+  width:100%;
 }
+.nav-item {
 
-li {
-  padding: 1rem;
-}
+  a {
+    display: block;
+    color: white;
+    width: -webkit-fill-available;
+    padding: 1rem 2rem;
 
-li:hover {
-  background-color: #EAB818;
-  padding: 1rem;
+    &:hover {
+      background-color: #EAB818;
+    }
+  }
 }
 
 .web-flex {
