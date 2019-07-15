@@ -1,5 +1,7 @@
 $map-color-palette: (
   white: (base: #fff),
+  blue:  (base: #2D3E71),
+  yellow:  (base: #EAB818),
   gray:  (
     base:     #19191a,
     light:    #4b5358,
@@ -7,34 +9,17 @@ $map-color-palette: (
   )
 );
 
-$map-color-emotional: (
-  light:                    #fff,
-  stable:                   #f7f7f7,
-  positive:                 #00f7cc,
-  // calm:                     '',
-  // balanced:                 '',
-  // energized:                '',
-  //assertive:                 '',
-  // royal:                    '',
-  dark:                     #1b1e20
-);
-
-$map-color-social: (
-  // twitter:                  '',
-  // facebook:                 '',
-);
-
 // Font size:
 
 $map-font-size: (
-  tiny:                     13px,
-  small:                    15px,
-  base:                     18px,
-  medium:                   22px,
-  large:                    30px,
-  xlarge:                   40px,
-  xxlarge:                  105px,
-  huge:                     140px
+  //tiny:                     '',
+  small:                    12px,
+  base:                     16px,
+  medium:                   18px,
+  large:                    36px,
+  //xlarge:                   '',
+  //xxlarge:                  '',
+  //huge:                     ''
 );
 
 
@@ -75,25 +60,21 @@ $map-font-weight: map-merge($map-font-weight, $map-font-weight-elements);
 
 $line-height:               1.3;
 
-$anchor-color:              emo-color(positive);
+$anchor-color:              pal-color(blue);
 $anchor-decoration:         none;
-$anchor-hover-color:        emo-color(positive);
+$anchor-hover-color:        pal-color(blue);
 $anchor-hover-decoration:   none;
 
 $paragraph-whitespace:      $line-height + em;
 
 
 $map-font-family: (
-base:                     ('wasabi-regular', arial, sans-serif),
-heading:                  ('wasabi-medium', arial, sans-serif),
-paragraph:                ('wasabi-regular', arial, sans-serif),
-navigation:               ('integral-regular', arial, sans-serif),
-navigation-title:         ('integral-bold', arial, sans-serif),
-button:                   ('integral-regular', arial, sans-serif),
-button-bold:              ('integral-bold', arial, sans-serif),
-number:                   ('integral-bold', arial, sans-serif),
-section-heading:          ('integral-bold', arial, sans-serif),
-section-info:             ('integral-regular', arial, sans-serif)
+base:                     ('CircularStd-Book', arial, sans-serif),
+heading:                  ('CircularStd-Bold', arial, sans-serif),
+paragraph:                ('CircularStd-Book', arial, sans-serif),
+navigation:               ('CircularStd-Book', arial, sans-serif),
+button:                   ('CircularStd-Book', arial, sans-serif),
+button-bold:              ('CircularStd-Bold', arial, sans-serif),
 );
 
 $heading-color:             pal-color(gray);
