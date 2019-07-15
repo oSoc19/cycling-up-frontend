@@ -11,7 +11,11 @@ const getPlugins = () => {
         new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsWebpackPlugin({
             clearConsole: true,
-        })
+        }),
+        new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery"
+      })
     ];
     fs.readdirSync('./src/html/').forEach(filename => {
         const splitted = filename.split('.');
@@ -31,7 +35,7 @@ const getPlugins = () => {
 module.exports = {
     entry: [
         './src/js/app.js',
-        './src/scss/app.scss'
+        './src/scss/app.scss',
     ],
     output: {
         filename: 'bundle.js',
