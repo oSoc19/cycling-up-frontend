@@ -23,9 +23,20 @@ p,
 a,
 .anchor {
   text-decoration: $anchor-decoration;
+  color: pal-color(white);
 }
 
 b,
 strong {
   font-weight: font-weight(bold);
+}
+
+svg {
+  box-sizing: initial;
+}
+
+.disable-scroll {
+  position: fixed;
+  width: 100%;
+  overflow: hidden!important;
 }
