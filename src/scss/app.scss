@@ -33,6 +33,7 @@ body {
   line-height: 23px;
 
   overflow-y: hidden;
+
 }
 
 .h1-title {
@@ -79,4 +80,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.slider {
+  width: 75%;
+  height: 100%;
+  margin-top: 95vh;
 }
