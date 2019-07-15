@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plan vélo - Brussels</title>
+    <link
+      rel="stylesheet"
+      href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+  </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plan vélo - Brussels</title>
+    <link
+      rel="stylesheet"
+      href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+      <section class="web-flex">
+      <article>
+          <nav class="nav">
+            <ul>
+              <a href="km-evolution.html"><li>Evolution</li></a>
+              <a href="index.html"><li>Commute to work</li></a>
+              <a href="historical-map.html"><li>Historical map</li></a>
+              <li>Villo!</li>
+            </ul>
+          </nav>
+        </article>
+    <div id="map" style="z-index: -1;"></div>
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw";
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/danielleterras/cjxoemrlt08nn1cmlm2owey24",
+        zoom: 13,
+        center: [4.34878, 50.85045]
+      });
+      var layerList = document.getElementById("menu");
+      var inputs = layerList.getElementsByTagName("input");
+      function switchLayer(layer) {
+        var layerId = layer.target.id;
+        map.setStyle("mapbox://styles/mapbox/" + layerId);
+      }
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = switchLayer;
+      }
+    </script>
+      </section>
+    <script
+    defer
+    src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"
+  ></script>
+</body>
+</html>
