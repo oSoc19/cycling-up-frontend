@@ -14,10 +14,6 @@
   );
 }
 
-@function emo-color($key) {
-  @return get-value-if-key-exists($map-color-emotional, $key);
-}
-
 @function font-size($key) {
   @return get-value-if-key-exists($map-font-size, $key);
 }
