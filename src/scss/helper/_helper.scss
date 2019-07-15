@@ -63,17 +63,6 @@ $map-distance-variant: (
 }
 
 
-
-// -- Text color
-
-@each $color in $map-color-emotional {
-  .h-tc-#{ nth($color, 1) } {
-    color: nth($color, 2);
-  }
-}
-
-
-
 // -- Heading helpers
 
 @each $h in $map-heading-size {
