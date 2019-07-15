@@ -12,14 +12,10 @@ $map-color-palette: (
 // Font size:
 
 $map-font-size: (
-  //tiny:                     '',
   small:                    12px,
   base:                     16px,
   medium:                   18px,
-  large:                    36px,
-  //xlarge:                   '',
-  //xxlarge:                  '',
-  //huge:                     ''
+  large:                    36px
 );
 
 
@@ -96,21 +92,4 @@ $image-path: '/dist/img/';
 
 // Global application configuration
 
-$hex-body-bg:                 emo-color(light);
 $font-color:                  pal-color(gray, light);
-$transition-duration-default: .2s;
-$header-height:               100px;
-$mobile-header-height:        70px;
-$medium-content-offset:       50px;
-$large-content-offset:        100px;
-$xlarge-content-offset:       150px;
-$global-border-radius:        3px;
-$grid-gutter-width:           16px;
-
-// old bootstrap settings
-$screen-xs-max:             768px - 1;
-$screen-sm-min:             768px;
-$screen-sm-max:             992px - 1;
-$screen-md-min:             992px;
-$screen-md-max:             1170px - 1;
-$screen-lg-min:             1230px;
