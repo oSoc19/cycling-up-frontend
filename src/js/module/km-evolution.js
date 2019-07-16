@@ -15,7 +15,7 @@ export default () => {
         labels: years,
         datasets: [{
           data: km,
-          label: 'cumulated amount of kilometers per year of the total amount of cyclable paths',
+          label: ' Total amount of km per year of cyclable paths',
           borderColor: '#f9b138',
           fill: '#fff',
           backgroundColor: 'rgba(0,0,0,0)'

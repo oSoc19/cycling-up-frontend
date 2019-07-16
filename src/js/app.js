@@ -1,6 +1,7 @@
 import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
 import historicalMap from './module/historical-map';
+import villo from './module/villo-rental';
 
 import './jquery.translate.js';
 import './module/translation.js';
@@ -23,6 +24,7 @@ const init = function () {
   if ($historicalMap) {
     historicalMap($historicalMap);
   }
+  villo();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
