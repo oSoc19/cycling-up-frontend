@@ -1,7 +1,8 @@
 import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
 import villo from './module/villo-rental';
-import month from './module/bike-count-month';
+import season from './module/bike-count-season';
+import count from './module/bike-count-per-year';
 
 import historicalMap from './module/historical-map';
 
@@ -26,7 +27,8 @@ const init = function() {
   commute();
   evolution();
   villo();
-  month();
+  season();
+  count();
 
   const $historicalMap = document.querySelector(`.js-map-historical`);
   console.log($historicalMap);
