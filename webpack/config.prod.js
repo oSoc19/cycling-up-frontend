@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const globImporter = require('node-sass-glob-importer');
-
+const webpack = require('webpack');
 
 
 const getPlugins = () => {
@@ -23,7 +23,11 @@ const getPlugins = () => {
         new ExtractTextPlugin({
             filename: './css/styles.css',
             allChunks: true
-        })
+        }),
+        new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery"
+      })
     ];
     fs.readdirSync('./src/html/').forEach(filename => {
         if (filename.substr(0, 1) !== '_') {
@@ -45,7 +49,7 @@ const getPlugins = () => {
 module.exports = {
     entry: [
         './src/js/app.js',
-        './src/scss/app.scss'
+        './src/scss/app.scss',
     ],
     output: {
         filename: './js/bundle.js',
