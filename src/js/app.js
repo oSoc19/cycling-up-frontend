@@ -1,5 +1,7 @@
 import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
+import villo from './module/villo-rental';
+
 import './jquery.translate.js';
 import './module/translation.js';
 
@@ -20,6 +22,7 @@ const init = function () {
   getDomElements();
   commute();
   evolution();
+  villo();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
