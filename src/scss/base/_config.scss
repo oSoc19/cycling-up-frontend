@@ -5,17 +5,18 @@ $map-color-palette: (
   gray:  (
     base:     #19191a,
     light:    #4b5358,
-    lighter:  #ccc
+    lighter:  #ccc,
+    lightest:  #efefef
   )
 );
 
 // Font size:
 
 $map-font-size: (
-  small:                    12px,
+  small:                    14px,
   base:                     16px,
   medium:                   18px,
-  large:                    36px
+  large:                    34px
 );
 
 
@@ -66,7 +67,7 @@ $paragraph-whitespace:      $line-height + em;
 
 $map-font-family: (
 base:                     ('CircularStd-Book', arial, sans-serif),
-heading:                  ('CircularStd-Bold', arial, sans-serif),
+heading:                  ('CircularStd-Black', arial, sans-serif),
 paragraph:                ('CircularStd-Book', arial, sans-serif),
 navigation:               ('CircularStd-Book', arial, sans-serif),
 button:                   ('CircularStd-Book', arial, sans-serif),
@@ -86,9 +87,6 @@ $map-spacing: (
   medium:                   40px,
   large:                    50px
 );
-
-// Images
-$image-path: '/dist/img/';
 
 // Global application configuration
 

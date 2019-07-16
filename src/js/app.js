@@ -1,10 +1,47 @@
-// import evolution from './module/km-evolution';
-// import commute from './module/commute-to-work';
+import evolution from './module/km-evolution';
+import commute from './module/commute-to-work';
+import villo from './module/villo-rental';
 
-const init = () => {
-  // evolution();
-  // commute();
+import './jquery.translate.js';
+import './module/translation.js';
 
+let $navDestinationTargets, $mobileMenu, main;
+
+// let $canvasCommute;
+
+const getDomElements = () => {
+  $navDestinationTargets = document.querySelectorAll('.js-toggle-menu');
+  main = document.querySelector('main');
+  $mobileMenu = document.querySelector('.l-header__toggle');
+  $mobileMenu.addEventListener('click', onHandlerMenuClick);
+
+  // const canvasCommute = document.getElementById(`js-canvas-commute`);
 };
 
-init();
+const init = function () {
+  getDomElements();
+  commute();
+  evolution();
+  villo();
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.info('DOM loaded');
+  init();
+});
+
+
+const onHandlerMenuClick = () => {
+  $navDestinationTargets.forEach(element => {
+    console.log(element);
+
+    element.classList.toggle('is-active');
+
+    if (element.classList.contains('is-active')) {
+      main.classList.add('disable-scroll');
+    } else {
+      main.classList.remove('disable-scroll');
+    }
+
+  });
+};

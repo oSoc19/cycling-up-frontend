@@ -27,7 +27,11 @@ const getPlugins = () => {
         new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsWebpackPlugin({
             clearConsole: true,
-        })
+        }),
+        new webpack.ProvidePlugin({
+           $: "jquery",
+           jQuery: "jquery"
+       })
     ];
     htmlFileNames.forEach(filename => {
         const splitted = filename.split('.');

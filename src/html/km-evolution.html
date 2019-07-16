@@ -4,42 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Plan vélo - Brussels</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
   </head>
-
   <body>
-    <section class="web-flex">
+
       <include>_navigation.html</include>
-      <article>
-        <div>
-          <h1 class="header-background-image header-title">
-            <span class="h1-title">Evolution per year of the new </span>
-            <br /><span class="h1-title">cyclable paths created</span>
-          </h1>
-        </div>
-        <div class="web-flex graph-context">
-          <div class="graph-background">
-            <canvas id="cumulated" class="center-items"></canvas>
-          </div>
-          <div>
-            <p class="graph-description center-items">
-              The total amount of cyclable paths is calculated in kilometers and
-              includes the ones separated from the main roads as well as the
-              suggested paths and the Regional Cyclable Itineraries (RCI). The
-              RCIs are suggested paths for cyclists willing to commute on a
-              medium to long distance. These itineraries take into account the
-              calmest streets and the less stressful paths for the users. The
-              accuracy of the really past data (1896-1970) are less reliable in
-              terms of consistency. Nonetheless, the overall data remain as
-              close as possible to the reality and can be trustworthy on a
-              holistic vision of the infrastructure evolution. A significant
-              year to mention is 2002, where the political courage and boldness
-              allowed the apparition of a project considered as not realistic at
-              its time.
-            </p>
-          </div>
-        </div>
-      </article>
-    </section>
+      <main>
+        <header class="c-header-img">
+          <div class="c-header-img__img"></div>
+          <h1> <span>Evolution per year of the new</span> <span>cyclable paths created</span></h1>
+        </header>
+        <section class="c-graph__section">
+            <div class="c-graph">
+                <canvas style="height:35vh; width:auto" id="js-canvas-evolution"></canvas>
+            </div>
+            <div class="c-graph__description">
+              <p>
+                  The total amount of cyclable paths is calculated in kilometers and
+                  includes the ones separated from the main roads as well as the suggested paths and the Regional Cyclable Itineraries (RCI). The
+                  RCIs are suggested paths for cyclists willing to commute on a medium to long distance. They take into account the calmest streets and 
+                  the less stressful paths for the users. A significant year to mention is 2002, where the political boldness allowed the apparition of
+                  a project considered as not realistic at its time. Hence, the suppression of one row of the Rue de la loi attributed to cars in order to construct a 
+                  larger sideways shared by cyclists and pedestrians. 
+
+                </p>
+            </div>
+        </section>
+      </main>
   </body>
 </html>

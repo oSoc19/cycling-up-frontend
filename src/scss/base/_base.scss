@@ -3,9 +3,15 @@ body {
   overflow-x: hidden;
   color: $font-color;
   font-family: font-family(base);
-  font-size: font-size(base);
+  font-size: font-size(small);
   line-height: $line-height;
   user-select: none;
+  display: flex;
+  // background-image: url('../assets/img/Desktop.png');
+
+  @media only screen and (max-width: 992px) {
+    flex-direction: column
+  }
 }
 
 p,
@@ -23,9 +29,20 @@ p,
 a,
 .anchor {
   text-decoration: $anchor-decoration;
+  color: pal-color(white);
 }
 
 b,
 strong {
   font-weight: font-weight(bold);
+}
+
+svg {
+  box-sizing: initial;
+}
+
+.disable-scroll {
+  position: fixed;
+  width: 100%;
+  overflow: hidden!important;
 }

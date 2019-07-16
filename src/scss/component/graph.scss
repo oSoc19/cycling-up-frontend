@@ -1,0 +1,52 @@
+.c-graph {
+  min-height: calc(100vh - 45vh);
+  background-color: pal-color(gray, lightest);
+  width: 45vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  @media only screen and (max-width: 800px) {
+    order: 2;
+    width: 100vw;
+  }
+
+  &__section {
+    display: flex;
+    width: calc(100vw - 300px);
+
+    @media only screen and (max-width: 992px) {
+      width: 100vw;
+    }
+
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+    }
+  }
+
+  &__description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 60vw);
+
+    @media only screen and (max-width: 800px) {
+      order: 1;
+      width: 100vw;
+      margin-top: 40px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-top: 5px;
+    }
+
+    p {
+      padding: 70px;
+
+      @media only screen and (max-width: 800px) {
+        padding: 0px 20px 35px
+      }
+    }
+  }
+}

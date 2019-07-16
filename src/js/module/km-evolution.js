@@ -1,3 +1,5 @@
+import Chart from 'chart.js';
+
 export default () => {
 
   // Our labels along the x-axis
@@ -5,18 +7,23 @@ export default () => {
   // For drawing the lines
   const km = [3.985, 6.465, 8.245, 9.715, 41.421, 44.131, 49.591, 54.861, 65.826, 79.611, 105.924, 120.979, 121.754, 124.196, 128.721, 135.471, 138.476, 172.299, 214.886, 220.036, 226.297, 244.213, 316.511, 427.998, 466.392, 472.65, 474.009, 476.909, 481.019];
 
-  const ctx = document.getElementById(`cumulated`);
-  const kmChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: years,
-      datasets: [{
+  const ctx = document.getElementById(`js-canvas-evolution`);
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: years,
+        datasets: [{
           data: km,
-          label: 'cumulated amount of kilometers per year of the total amount of cyclable paths',
+          label: ' Total amount of km per year of cyclable paths',
           borderColor: '#f9b138',
           fill: '#fff',
           backgroundColor: 'rgba(0,0,0,0)'
-      }]
-    }
-  });
-}
+        }]
+      },
+      options: {
+        responsive: false
+      }
+    });
+  }
+};
