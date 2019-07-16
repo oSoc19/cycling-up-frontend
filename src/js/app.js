@@ -1,25 +1,28 @@
 import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
+import historicalMap from './module/historical-map';
+
 import './jquery.translate.js';
 import './module/translation.js';
 
 let $navDestinationTargets, $mobileMenu, main;
-
-// let $canvasCommute;
 
 const getDomElements = () => {
   $navDestinationTargets = document.querySelectorAll('.js-toggle-menu');
   main = document.querySelector('main');
   $mobileMenu = document.querySelector('.l-header__toggle');
   $mobileMenu.addEventListener('click', onHandlerMenuClick);
-
-  // const canvasCommute = document.getElementById(`js-canvas-commute`);
 };
 
 const init = function () {
   getDomElements();
   commute();
   evolution();
+
+  const $historicalMap = document.querySelector(`.js-map-historical`);
+  if ($historicalMap) {
+    historicalMap($historicalMap);
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
