@@ -13,7 +13,7 @@
     font-size: 15px;
 
     &__item {
-      padding: 20px 0px 20px 60px;
+      padding: 20px 0px 20px 40px;
 
       &:hover {
         background-color: pal-color(yellow);
@@ -33,4 +33,20 @@
 
 .is-current {
   background-color: pal-color(yellow);
+}
+
+.center-item {
+  display: flex;
+  align-items: center;
+}
+
+.lang {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+}
+
+.lang_selector {
+  border: none;
+  padding: 1rem;
 }
