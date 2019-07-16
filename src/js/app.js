@@ -1,4 +1,4 @@
-// import evolution from './module/km-evolution';
+import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
 import './jquery.translate.js';
 import './module/translation.js';
@@ -19,6 +19,7 @@ const getDomElements = () => {
 const init = function () {
   getDomElements();
   commute();
+  evolution();
 };
 
 document.addEventListener('DOMContentLoaded', () => {
