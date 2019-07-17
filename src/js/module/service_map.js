@@ -16,6 +16,10 @@ export default map => {
       data: 'https://api.cyclingup.osoc.be/api/map/general/bike_parking',
     });
 
+    serviceMap.addSource('bike_pump', {
+      type: 'geojson',
+      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_pump',
+    });
 
     serviceMap.addLayer({
       id: 'bikeParking',
@@ -25,6 +29,17 @@ export default map => {
       paint: {
         'circle-color': '#2D3E71',
         'circle-radius': 5
+      }
+    });
+
+    serviceMap.addLayer({
+      id: 'bikePump',
+      type: 'circle',
+      source: 'bike_pump',
+      filter: ['!', ['has', 'point_count']],
+      paint: {
+        'circle-color': '#EAB818',
+        'circle-radius': 10
       }
     });
   });
