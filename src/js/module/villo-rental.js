@@ -1,11 +1,19 @@
 import Chart from 'chart.js';
 
 export default () => {
-
   // Our labels along the x-axis
   const years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
   // For drawing the lines
-  const rental = [871916, 1217687, 1412255, 1423182, 1645779, 1508265, 1577811, 1615160];
+  const rental = [
+    871916,
+    1217687,
+    1412255,
+    1423182,
+    1645779,
+    1508265,
+    1577811,
+    1615160
+  ];
 
   const ctx = document.getElementById(`js-canvas-villo`);
   if (ctx) {
@@ -23,6 +31,7 @@ export default () => {
       },
       options: {
         responsive: false
+
       }
     });
   }
