@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Plan vélo - Brussels</title>
-  </head>
-  <body>
-    <include>_navigation.html</include>
-    <main>
-      <header class="c-header-img">
-        <div class="c-header-img__img"></div>
-        <h1>
-          <span>Total number of Villo!</span>
-          <span>rental per year (since 2010)</span>
-        </h1>
-      </header>
-      <section class="c-graph__section">
-        <div class="c-graph">
-          <canvas style="height:35vh; width:auto" id="js-canvas-villo"></canvas>
-        </div>
-        <div class="c-graph__description">
-          <p class="trn" data-trn-key="villoTrn">
-            Villo! is a rental programme run in the region of Brussels capital.
-            It aims at enhancing and encouraging sustainable mobility to
-            citizens. Bikes can be rented out from the actual 360 existing
-            stations. The graph displays the total amount of Villo! users
-            recorded from 2010 till 2017. The steady rise between this period of
-            time is related to the increasing demand as well as the rise of the
-            number of stations available.
-          </p>
-        </div>
-      </section>
-    </main>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plan vélo - Brussels</title>
+</head>
+
+<body>
+  <include>_navigation.html</include>
+  <main>
+    <header class="c-header-img">
+      <div class="c-header-img__img"></div>
+      <h1>
+        <span class="i18n" data-i18n-key="title_1">Total number of Villo!</span>
+        <span class="i18n" data-i18n-key="title_2">rental per year (since 2010)</span>
+      </h1>
+    </header>
+    <section class="c-graph__section">
+      <div class="c-graph">
+        <canvas style="height:35vh; width:auto" id="js-canvas-villo"></canvas>
+      </div>
+      <div class="c-graph__description">
+        <p class="i18n" data-i18n-key="description">
+          Villo! is a rental programme run in the region of Brussels capital.
+          It aims at enhancing and encouraging sustainable mobility to
+          citizens. Bikes can be rented out from the actual 360 existing
+          stations. The graph displays the total amount of Villo! users
+          recorded from 2010 till 2017. The steady rise between this period of
+          time is related to the increasing demand as well as the rise of the
+          number of stations available.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+
 </html>
