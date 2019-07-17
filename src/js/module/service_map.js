@@ -81,6 +81,23 @@ export default map => {
       }
     });
 
+    serviceMap.addSource('bike_villo', {
+      type: 'geojson',
+      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_villo'
+    });
+
+    serviceMap.addLayer({
+      id: 'bikeVillo',
+      type: 'circle',
+      source: 'bike_villo',
+      filter: ['!', ['has', 'point_count']],
+      paint: {
+        'circle-color': 'orange',
+        'circle-radius': 7
+      }
+    });
+
+
   });
 
   window.addEventListener('load', () => {
