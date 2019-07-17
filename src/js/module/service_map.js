@@ -21,6 +21,26 @@ export default map => {
       data: 'https://api.cyclingup.osoc.be/api/map/general/bike_pump',
     });
 
+    serviceMap.addSource('bike_infra', {
+      type: 'geojson',
+      data: ' https://api.cyclingup.osoc.be/api/map/general/bike_infra',
+    });
+
+    serviceMap.addLayer({
+      id: 'bikeInfra',
+      type: 'line',
+      source: 'bike_infra',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#888',
+        'line-width': 3
+      }
+    });
+
+
     serviceMap.addLayer({
       id: 'bikeParking',
       type: 'circle',
