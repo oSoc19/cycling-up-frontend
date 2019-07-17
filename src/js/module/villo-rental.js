@@ -25,7 +25,7 @@ export default () => {
           {
             data: rental,
             label: 'total amount of villo! rental per year',
-            borderColor: 'rgba(185, 206, 228, .1)',
+            borderColor: '#EAB818',
             fill: '#EAB818',
             backgroundColor: '#EAB818'
           }
