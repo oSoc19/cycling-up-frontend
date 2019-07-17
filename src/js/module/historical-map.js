@@ -2,9 +2,6 @@ import mapboxgl from 'mapbox-gl';
 
 const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
 
-console.log(HISTO_MAP_URL + "2019")
-
-
 export default $mapContainer => {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
