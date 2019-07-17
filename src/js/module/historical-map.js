@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 
 export default map => {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw';
+  mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   const historicalMap = new mapboxgl.Map({
     container: map,
