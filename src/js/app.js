@@ -5,8 +5,6 @@ import villo from './module/villo-rental';
 import season from './module/bike-count-season';
 import count from './module/bike-count-per-year';
 
-import historicalMap from './module/historical-map';
-
 import './jquery.translate.js';
 import './module/translation.js';
 
@@ -24,10 +22,6 @@ const init = function() {
   commute();
   evolution();
 
-  const $historicalMap = document.querySelector(`.js-map-historical`);
-  if ($historicalMap) {
-    historicalMap($historicalMap);
-  }
   villo();
   season();
   count();
