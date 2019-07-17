@@ -1,0 +1,32 @@
+{
+  "bike_infra": {
+    "en": "Bike infrastructure",
+    "fr": "Nah",
+    "nl": "Nah"
+  },
+  "bike_parking": {
+    "en": "Bike sheds",
+    "fr": "Nah",
+    "nl": "Nah"
+  },
+  "bike_pump": {
+    "en": "Bike pumps",
+    "fr": "Nah",
+    "nl": "Nah"
+  },
+  "bike_shops": {
+    "en": "Bike shops",
+    "fr": "Nah",
+    "nl": "Nah"
+  },
+  "bike_villo": {
+    "en": "Villo! stations",
+    "fr": "Nah",
+    "nl": "Nah"
+  },
+  "bike_gfr": {
+    "en": "GFR network",
+    "fr": "Nah",
+    "nl": "Nah"
+  }
+}

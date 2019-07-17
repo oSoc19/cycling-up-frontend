@@ -1,0 +1,27 @@
+{
+  "title-1": {
+    "en": "Total number of Villo!",
+    "fr": "Nombre total de locations Villo!",
+    "nl": "Nah"
+  },
+  "title-2": {
+    "en": "rental per year (since 2010)",
+    "fr": "par an (depuis 2010) ",
+    "nl": "Nah"
+  },
+  "description": {
+    "en": "Villo! is a rental programme run in the region of Brussels capital.It aims at enhancing and encouraging sustainable mobility tocitizens. Bikes can be rented out from the actual 360 existingstations. The graph displays the total amount of Villo! usersrecorded from 2010 till 2017. The steady rise between this period oftime is related to the increasing demand as well as the rise of thenumber of stations available.",
+    "fr": "Villo! est un programme de location développé en région de Bruxelles Capitale. Il a pour but de soutenir et encourager la mobilité durable des citoyens. Les vélos peuvent être loués parmi plus de 360 stations actuellement existantes. Le graphique montre le nombre total d’utilisateurs Villo ! depuis 2010 jusqu’à 2017. La hausse constante durant cette période est liée à l’augmentation de la demande ainsi qu’à l’accroissement du nombre de stations disponibles. ",
+    "nl": "Nah"
+  },
+  "icr_description": {
+    "en": "Nah",
+    "fr": "Les Itinéraires Cyclables Régionaux sont des pistes cyclables proposées pour les cyclistes souhaitant se déplacer sur de moyenne à longue distance. Ces itinéraires prennent en compte les rues les plus calmes afin de rendre les trajets le moins stressant possible pour le cycliste.",
+    "nl": "Nah"
+  },
+  "graph_legend": {
+    "en": "rental per year (since 2010)",
+    "fr": "Nombre total de locations de Villo! par an",
+    "nl": "Nah"
+  }
+}
