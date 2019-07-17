@@ -16,19 +16,21 @@
     var that = this; //a reference to ourselves
 
     var settings = {
-      css: "trn",
-      lang: "en"
+      css: "i18n", // trn
+      lang: "en",
+      currentSlide : "index"
     };
     settings = $.extend(settings, options || {});
     if (settings.css.lastIndexOf(".", 0) !== 0)   //doesn't start with '.'
       settings.css = "." + settings.css;
 
-    var t = settings.t;
+    var translations = settings.t;
 
     //public methods
-    this.lang = function(l) {
+    this.lang = function(slide, l) {
       if (l) {
         settings.lang = l;
+        settings.currentSlide = slide;
         this.translate(settings);  //translate everything
       }
 
@@ -36,21 +38,21 @@
     };
 
 
-    this.get = function(index) {
-      var res = index;
+    this.get = function(slide, part) {
+      var res = part;
 
       try {
-        res = t[index][settings.lang];
+        res = translations[slide][part][settings.lang];
       }
       catch (err) {
         //not found, return index
-        return index;
+        return part;
       }
 
       if (res)
         return res;
       else
-        return index;
+        return part;
     };
 
     this.g = this.get;
@@ -61,13 +63,13 @@
     this.find(settings.css).each(function(i) {
       var $this = $(this);
 
-      var trn_key = $this.attr("data-trn-key");
-      if (!trn_key) {
-        trn_key = $this.html();
-        $this.attr("data-trn-key", trn_key);   //store key for next time
+      var i18n_key = $this.attr("data-i18n-key");
+      if (!i18n_key) {
+        i18n_key = $this.html();
+        $this.attr("data-i18n-key", i18n_key);   //store key for next time
       }
 
-      $this.html(that.get(trn_key));
+      $this.html(that.get(settings.currentSlide, i18n_key));
     });
 
 
