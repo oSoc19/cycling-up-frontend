@@ -2,20 +2,19 @@ import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
 import villo from './module/villo-rental';
 
+import serviceMap from './module/service_map';
+
 import './jquery.translate.js';
 import './module/translation.js';
 
 let $navDestinationTargets, $mobileMenu, main;
 
-// let $canvasCommute;
 
 const getDomElements = () => {
   $navDestinationTargets = document.querySelectorAll('.js-toggle-menu');
   main = document.querySelector('main');
   $mobileMenu = document.querySelector('.l-header__toggle');
   $mobileMenu.addEventListener('click', onHandlerMenuClick);
-
-  // const canvasCommute = document.getElementById(`js-canvas-commute`);
 };
 
 const init = function () {
@@ -23,6 +22,11 @@ const init = function () {
   commute();
   evolution();
   villo();
+
+  const $serviceMap = document.querySelector(`.js-map-service`);
+  if ($serviceMap) {
+    serviceMap($serviceMap);
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
