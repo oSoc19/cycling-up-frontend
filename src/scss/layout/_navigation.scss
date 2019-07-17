@@ -42,11 +42,20 @@
 
 .lang {
   position: fixed;
-  left: 30px;
-  bottom: 30px;
+  left: 35px;
+  bottom: 35px;
 }
 
-.lang_selector {
+.lang-btn {
+  padding: 0.5rem;
   border: none;
-  padding: 1rem;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border-radius: 50%;
+  font-size: 16px;
+  font-family: "CircularStd-Black";
+}
+
+.active {
+  color: pal-color(yellow);
 }
