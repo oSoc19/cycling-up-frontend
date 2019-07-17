@@ -1,15 +1,58 @@
 import mapboxgl from 'mapbox-gl';
 
-export default map => {
-  mapboxgl.accessToken =
-    'pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw';
+const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
+
+
+export default $mapContainer => {
+
+  const historicalLayerId = 'historical_map';
+
+  mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   const historicalMap = new mapboxgl.Map({
-    container: map,
-    style: 'mapbox://styles/danielleterras/cjy6xbvqi20xk1cliotdrzpt5',
+    container: $mapContainer,
+    style: process.env.MAPBOX_STYLE,
     zoom: 13.5,
-    center: [4.355, 50.847]
+    center: [4.35500, 50.84700]
   });
+
+  historicalMap.on('load', () => {
+
+    historicalMap.addSource('api_cycling_historical_map', {
+      type: 'geojson',
+      data: HISTO_MAP_URL + '2019'
+    })
+
+    historicalMap.addLayer({
+      id: historicalLayerId,
+      type: 'line',
+      source: 'api_cycling_historical_map',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#EAB818',
+        'line-width': 3
+      }
+    });
+  });
+
+  const handleMapLineSelect = function (e) {
+    const [selected] = e.features;
+
+    // TODO:  Replace the code below by the specfic actions on the click
+    new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML(selected.properties.type_nl)
+      .addTo(historicalMap);
+  };
+
+
+  historicalMap.on('click', historicalLayerId, handleMapLineSelect);
+
+  historicalMap.on('touchend', historicalLayerId, handleMapLineSelect)
+
 
   window.addEventListener('load', () => {
     historicalMap.resize();

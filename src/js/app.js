@@ -1,10 +1,9 @@
 import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
+import historicalMap from './module/historical-map';
 import villo from './module/villo-rental';
 import season from './module/bike-count-season';
 import count from './module/bike-count-per-year';
-
-import historicalMap from './module/historical-map';
 
 import serviceMap from './module/service_map';
 
@@ -12,7 +11,6 @@ import './jquery.translate.js';
 import './module/translation.js';
 
 let $navDestinationTargets, $mobileMenu, main;
-
 
 const getDomElements = () => {
   $navDestinationTargets = document.querySelectorAll('.js-toggle-menu');
@@ -25,6 +23,7 @@ const init = function() {
   getDomElements();
   commute();
   evolution();
+
   villo();
   season();
   count();
