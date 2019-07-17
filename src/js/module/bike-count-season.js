@@ -30,7 +30,7 @@ export default () => {
         datasets: [
           {
             label: 'January',
-            borderColor: '#f9b138',
+            borderColor: 'rgba(50, 54, 96, 1)',
             data: [
               277,
               292,
@@ -57,7 +57,8 @@ export default () => {
           },
           {
             label: 'May',
-            borderColor: '#000fff',
+            fill: false,
+            borderColor: 'rgba(239, 185, 52, 1)',
             data: [
               781,
               598,
@@ -84,8 +85,7 @@ export default () => {
           {
             label: 'September',
             fill: false,
-            borderColor: '#f9b138',
-
+            borderColor: 'rgba(195, 214, 230, 1)',
             data: [
               635,
               682,
@@ -112,7 +112,7 @@ export default () => {
           {
             label: 'November',
             fill: false,
-            borderColor: '#f9b138',
+            borderColor: 'rgba(134, 147, 199, 1)',
             data: [
               337,
               401,
@@ -140,5 +140,4 @@ export default () => {
       }
     });
   }
-
 };
