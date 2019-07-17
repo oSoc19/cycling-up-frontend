@@ -11,10 +11,14 @@ export default map => {
     center: [4.355, 50.847]
   });
 
-  serviceMap.on('load', function() {
+  window.addEventListener('load', () => {
+    serviceMap.resize();
+  });
+
+  serviceMap.on('load',  ()  => {
 
 
-    serviceMap.addSource('bike_infra', {
+    serviceMap.addSource('bikeInfra', {
       type: 'geojson',
       data: ' https://api.cyclingup.osoc.be/api/map/general/bike_infra'
     });
@@ -22,10 +26,11 @@ export default map => {
     serviceMap.addLayer({
       id: 'bikeInfra',
       type: 'line',
-      source: 'bike_infra',
+      source: 'bikeInfra',
       layout: {
         'line-join': 'round',
-        'line-cap': 'round'
+        'line-cap': 'round',
+        visibility: 'none'
       },
       paint: {
         'line-color': '#888',
@@ -33,7 +38,7 @@ export default map => {
       }
     });
 
-    serviceMap.addSource('bike_parking', {
+    serviceMap.addSource('bikeParking', {
       type: 'geojson',
       data: 'https://api.cyclingup.osoc.be/api/map/general/bike_parking'
     });
@@ -41,15 +46,18 @@ export default map => {
     serviceMap.addLayer({
       id: 'bikeParking',
       type: 'circle',
-      source: 'bike_parking',
+      source: 'bikeParking',
       filter: ['!', ['has', 'point_count']],
       paint: {
         'circle-color': '#2D3E71',
         'circle-radius': 5
-      }
+      },
+      layout: {
+        visibility: 'none'
+      },
     });
 
-    serviceMap.addSource('bike_pump', {
+    serviceMap.addSource('bikePump', {
       type: 'geojson',
       data: 'https://api.cyclingup.osoc.be/api/map/general/bike_pump'
     });
@@ -57,15 +65,18 @@ export default map => {
     serviceMap.addLayer({
       id: 'bikePump',
       type: 'circle',
-      source: 'bike_pump',
+      source: 'bikePump',
       filter: ['!', ['has', 'point_count']],
       paint: {
         'circle-color': '#EAB818',
         'circle-radius': 10
-      }
+      },
+      layout: {
+        visibility: 'none'
+      },
     });
 
-    serviceMap.addSource('bike_shops', {
+    serviceMap.addSource('bikeShops', {
       type: 'geojson',
       data: 'https://api.cyclingup.osoc.be/api/map/general/bike_shop'
     });
@@ -73,15 +84,18 @@ export default map => {
     serviceMap.addLayer({
       id: 'bikeShops',
       type: 'circle',
-      source: 'bike_shops',
+      source: 'bikeShops',
       filter: ['!', ['has', 'point_count']],
       paint: {
         'circle-color': 'green',
         'circle-radius': 7
-      }
+      },
+      layout: {
+        visibility: 'none'
+      },
     });
 
-    serviceMap.addSource('bike_villo', {
+    serviceMap.addSource('bikeVillo', {
       type: 'geojson',
       data: 'https://api.cyclingup.osoc.be/api/map/general/bike_villo'
     });
@@ -89,15 +103,18 @@ export default map => {
     serviceMap.addLayer({
       id: 'bikeVillo',
       type: 'circle',
-      source: 'bike_villo',
+      source: 'bikeVillo',
       filter: ['!', ['has', 'point_count']],
       paint: {
         'circle-color': 'orange',
         'circle-radius': 7
-      }
+      },
+      layout: {
+        visibility: 'none'
+      },
     });
 
-    serviceMap.addSource('bike_GFR', {
+    serviceMap.addSource('bikeGFR', {
       type: 'geojson',
       data: 'https://api.cyclingup.osoc.be/api/map/general/bike_icr'
     });
@@ -105,21 +122,86 @@ export default map => {
     serviceMap.addLayer({
       id: 'bikeGFR',
       type: 'line',
-      source: 'bike_GFR',
+      source: 'bikeGFR',
       layout: {
         'line-join': 'round',
-        'line-cap': 'round'
+        'line-cap': 'round',
+        visibility: 'none'
       },
       paint: {
         'line-color': 'red',
         'line-width': 3
       }
     });
-
-
   });
 
-  window.addEventListener('load', () => {
-    serviceMap.resize();
-  });
+
+  const toggleableLayerIds = ['bikeInfra', 'bikeParking', 'bikePump', 'bikeShops', 'bikeVillo', 'bikeGFR'];
+  const json = {
+    bikeInfra: {
+      text: 'Bike infrastructure',
+      icon: false,
+      line: true,
+      color: '#888',
+    },
+    bikeParking: {
+      text: 'Bike sheds',
+      icon: false,
+      line: false,
+      color: '#2D3E71',
+    },
+    bikePump: {
+      text: 'Bike pumps',
+      icon: false,
+      line: false,
+      color: '#EAB818',
+    },
+    bikeShops: {
+      text: 'Bike shops',
+      icon: false,
+      line: false,
+      color: 'green',
+    },
+    bikeVillo: {
+      text: 'Villo! stations',
+      icon: false,
+      line: false,
+      color: 'orange',
+    },
+    bikeGFR: {
+      text: 'GFR network',
+      icon: false,
+      line: true,
+      color: 'red',
+    }
+  };
+
+  for (let i = 0;i < toggleableLayerIds.length;i += 1) {
+    const id = toggleableLayerIds[i];
+
+    const link = document.createElement('a');
+    link.href = '#';
+    link.dataset.mapLayer = id;
+
+    link.innerHTML = `<div class=${ json[id].line ? 'line' : 'point'} style="background-color: ${json[id].color};"></div> ${json[id].text}`;
+
+    link.onclick = function (e) {
+      const clickedLayer = this.dataset.mapLayer;
+      e.preventDefault();
+      e.stopPropagation();
+
+      const visibility = serviceMap.getLayoutProperty(clickedLayer, 'visibility');
+
+      if (visibility === 'visible') {
+        serviceMap.setLayoutProperty(clickedLayer, 'visibility', 'none');
+        this.className = '';
+      } else {
+        this.className = 'active';
+        serviceMap.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+      }
+    };
+
+    const layers = document.getElementById('menu');
+    layers.appendChild(link);
+  }
 };

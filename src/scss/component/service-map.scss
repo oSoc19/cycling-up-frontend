@@ -6,4 +6,56 @@
     width: 100vw;
     margin-top: -50px;
   }
+
+  &__menu {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    bottom: 40px;
+    right: 20px;
+    border-radius: 3px;
+    width: 160px;
+    border: 1px solid rgba(0,0,0,0.2);
+
+    a {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      color: #404040;
+      margin: 0;
+      padding: 0;
+      padding: 10px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+
+    a:last-child {
+      border: none;
+    }
+
+    a.active,  a:hover {
+      background-color: pal-color(yellow);
+      color: #ffffff;
+    }
+
+    a.active:hover {
+      background: pal-color(yellow);;
+    }
+  }
+}
+
+
+.point {
+  width: 10px;
+  height: 10px;
+  border-radius: 100px;
+  margin-right: 10px;
+}
+
+.line {
+  width: 15px;
+  height: 5px;
+  margin-right: 10px;
 }
