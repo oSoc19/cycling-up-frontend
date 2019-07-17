@@ -97,6 +97,25 @@ export default map => {
       }
     });
 
+    serviceMap.addSource('bike_GFR', {
+      type: 'geojson',
+      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_icr'
+    });
+
+    serviceMap.addLayer({
+      id: 'bikeGFR',
+      type: 'line',
+      source: 'bike_GFR',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': 'red',
+        'line-width': 3
+      }
+    });
+
 
   });
 
