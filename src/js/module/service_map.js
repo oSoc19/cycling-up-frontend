@@ -12,15 +12,7 @@ export default map => {
   });
 
   serviceMap.on('load', function() {
-    serviceMap.addSource('bike_parking', {
-      type: 'geojson',
-      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_parking'
-    });
 
-    serviceMap.addSource('bike_pump', {
-      type: 'geojson',
-      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_pump'
-    });
 
     serviceMap.addSource('bike_infra', {
       type: 'geojson',
@@ -41,6 +33,11 @@ export default map => {
       }
     });
 
+    serviceMap.addSource('bike_parking', {
+      type: 'geojson',
+      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_parking'
+    });
+
     serviceMap.addLayer({
       id: 'bikeParking',
       type: 'circle',
@@ -50,6 +47,11 @@ export default map => {
         'circle-color': '#2D3E71',
         'circle-radius': 5
       }
+    });
+
+    serviceMap.addSource('bike_pump', {
+      type: 'geojson',
+      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_pump'
     });
 
     serviceMap.addLayer({
@@ -62,6 +64,23 @@ export default map => {
         'circle-radius': 10
       }
     });
+
+    serviceMap.addSource('bike_shops', {
+      type: 'geojson',
+      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_shop'
+    });
+
+    serviceMap.addLayer({
+      id: 'bikeShops',
+      type: 'circle',
+      source: 'bike_shops',
+      filter: ['!', ['has', 'point_count']],
+      paint: {
+        'circle-color': 'green',
+        'circle-radius': 7
+      }
+    });
+
   });
 
   window.addEventListener('load', () => {
