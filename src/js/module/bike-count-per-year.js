@@ -1,3 +1,4 @@
+import Chart from 'chart.js';
 export default () => {
   // Our labels along the x-axis
   const years = [
@@ -47,19 +48,21 @@ export default () => {
   ];
 
   const ctx = document.getElementById(`js-canvas-bike`);
-  const commuteChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: years,
-      datasets: [
-        {
-          data: count,
-          label: 'number of cyclists per year',
-          borderColor: 'rgba(185, 206, 228, .1)',
-          fill: '#f9b138',
-          backgroundColor: '#f9b138'
-        }
-      ]
-    }
-  });
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: years,
+        datasets: [
+          {
+            data: count,
+            label: 'number of cyclists per year',
+            borderColor: 'rgba(185, 206, 228, .1)',
+            fill: '#f9b138',
+            backgroundColor: '#f9b138'
+          }
+        ]
+      }
+    });
+  }
 };

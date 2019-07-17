@@ -2,7 +2,6 @@ import mapboxgl from 'mapbox-gl';
 
 const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
 
-
 export default $mapContainer => {
 
   const historicalLayerId = 'historical_map';
@@ -12,7 +11,7 @@ export default $mapContainer => {
   const historicalMap = new mapboxgl.Map({
     container: $mapContainer,
     style: process.env.MAPBOX_STYLE,
-    zoom: 13.5,
+    zoom: 10.6,
     center: [4.35500, 50.84700]
   });
 
@@ -21,7 +20,7 @@ export default $mapContainer => {
     historicalMap.addSource('api_cycling_historical_map', {
       type: 'geojson',
       data: HISTO_MAP_URL + '2019'
-    })
+    });
 
     historicalMap.addLayer({
       id: historicalLayerId,

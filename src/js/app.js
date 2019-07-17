@@ -1,9 +1,11 @@
 import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
-import historicalMap from './module/historical-map';
 import villo from './module/villo-rental';
 import season from './module/bike-count-season';
 import count from './module/bike-count-per-year';
+
+import historicalMap from './module/historical-map';
+import serviceMap from './module/service_map';
 
 import './jquery.translate.js';
 import './module/translation.js';
@@ -25,6 +27,11 @@ const init = function() {
   villo();
   season();
   count();
+
+  const $serviceMap = document.querySelector(`.js-map-service`);
+  if ($serviceMap) {
+    serviceMap($serviceMap);
+  }
 
   const $historicalMap = document.querySelector(`.js-map-historical`);
   console.log($historicalMap);
