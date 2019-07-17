@@ -13,7 +13,6 @@ import './module/translation.js';
 
 let $navDestinationTargets, $mobileMenu, main;
 
-
 const getDomElements = () => {
   $navDestinationTargets = document.querySelectorAll('.js-toggle-menu');
   main = document.querySelector('main');
@@ -35,7 +34,6 @@ const init = function() {
   }
 
   const $historicalMap = document.querySelector(`.js-map-historical`);
-  console.log($historicalMap);
   if ($historicalMap) {
     historicalMap($historicalMap);
   }

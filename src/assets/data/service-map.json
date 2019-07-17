@@ -3,7 +3,7 @@
     "text": "Bike infrastructure",
     "icon": false,
     "line": true,
-    "color": "#888"
+    "color": "#b9cee2"
   },
   "bikeParking": {
     "text": "Bike sheds",
@@ -15,24 +15,24 @@
     "text": "Bike pumps",
     "icon": false,
     "line": false,
-    "color": "#EAB818"
+    "color": "#879ed1"
   },
   "bikeShops": {
     "text": "Bike shops",
     "icon": false,
     "line": false,
-    "color": "green"
+    "color": "black"
   },
   "bikeVillo": {
     "text": "Villo! stations",
-    "icon": false,
+    "icon": true,
     "line": false,
-    "color": "orange"
+    "color": "#EAB818"
   },
   "bikeGFR": {
     "text": "GFR network",
     "icon": false,
     "line": true,
-    "color": "red"
+    "color": "#203061"
   }
 }
