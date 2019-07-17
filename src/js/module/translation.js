@@ -1,5 +1,7 @@
+import historicalTrans from "../../assets/i18n/historical-map.json";
+
 $(function() {
-  const t = {
+  const trns = {
     testTitle: {
       eng: '<span>How many people ride</span> <span>their bike to work?</span>',
       fr: '<span>French</span>',
@@ -27,13 +29,18 @@ $(function() {
         'Villo! is een verhuurprogramma in de regio van de hoofdstad van Brussel. Het is gericht op het verbeteren en stimuleren van duurzame mobiliteit voor inwoners. Fietsen kunnen worden gehuurd van de werkelijke 360 bestaande stations. De grafiek geeft de totale hoeveelheid Villo! gebruikers weer van het jaar 2010 tot 2017. De gestage stijging tussen deze periode is gerelateerd aan de toenemende vraag evenals de opkomst van het aantal beschikbare stations.'
     }
   };
-  const _t = $('body').translate({lang: 'eng', t: t});
-  const str = _t.g('translate');
-  console.log(str);
+
+
+  const translations = {
+    "historical-map" : historicalTrans
+  }
+
+
+  const _t = $('body').translate({lang: 'en', t: translations});
 
   $('.lang_selector').click(function(ev) {
     const lang = $(this).attr('data-value');
-    _t.lang(lang);
+    _t.lang('historical-map', lang);
 
     console.log(lang);
     ev.preventDefault();
