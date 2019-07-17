@@ -7,6 +7,7 @@ import count from './module/bike-count-per-year';
 import historicalMap from './module/historical-map';
 
 import serviceMap from './module/service_map';
+import bikeMap from './module/bike-map';
 
 import './jquery.translate.js';
 import './module/translation.js';
@@ -31,6 +32,11 @@ const init = function() {
   const $serviceMap = document.querySelector(`.js-map-service`);
   if ($serviceMap) {
     serviceMap($serviceMap);
+  }
+
+  const $bikeMap = document.querySelector(`.js-map-bike`);
+  if ($bikeMap) {
+    bikeMap($bikeMap);
   }
 
   const $historicalMap = document.querySelector(`.js-map-historical`);

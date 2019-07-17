@@ -3,7 +3,7 @@
     "text": "Bike infrastructure",
     "icon": false,
     "line": true,
-    "color": "#b9cee2"
+    "color": "#203061"
   },
   "bikeParking": {
     "text": "Bike sheds",
@@ -33,6 +33,6 @@
     "text": "GFR network",
     "icon": false,
     "line": true,
-    "color": "#203061"
+    "color": "#b9cee2"
   }
 }

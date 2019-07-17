@@ -64,22 +64,22 @@ const showMap = () => {
     });
 
     showMenuMap();
-    ShowBikeInfraLayer();
+    showVilloStationsLayer();
     ShowBikeParkingLayer();
     showBikePumpLayer();
     showBikeShopsLayer();
-    showVilloStationsLayer();
+    ShowBikeInfraLayer();
     showGFRNetworkLayer();
   });
 };
 
 const showMenuMap = () => {
   const toggleableLayerIds = [
-    'bikeInfra',
+    'bikeVillo',
     'bikeParking',
     'bikePump',
     'bikeShops',
-    'bikeVillo',
+    'bikeInfra',
     'bikeGFR'
   ];
 
@@ -136,7 +136,7 @@ const ShowBikeInfraLayer = () => {
       visibility: 'none'
     },
     paint: {
-      'line-color': '#b9cee2',
+      'line-color': '#203061',
       'line-width': 3
     }
   });
@@ -234,7 +234,7 @@ const showGFRNetworkLayer = () => {
       visibility: 'none'
     },
     paint: {
-      'line-color': '#203061',
+      'line-color': '#b9cee2',
       'line-width': 3
     }
   });
