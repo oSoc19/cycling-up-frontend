@@ -2,12 +2,16 @@ import mapboxgl from 'mapbox-gl';
 
 const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
 
+
 export default $mapContainer => {
+
+  const historicalLayerId = 'historical_map';
+
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   const historicalMap = new mapboxgl.Map({
     container: $mapContainer,
-    style: 'mapbox://styles/danielleterras/cjxoemrlt08nn1cmlm2owey24',
+    style: process.env.MAPBOX_STYLE,
     zoom: 13.5,
     center: [4.35500, 50.84700]
   });
@@ -20,7 +24,7 @@ export default $mapContainer => {
     })
 
     historicalMap.addLayer({
-      id: 'historical_map',
+      id: historicalLayerId,
       type: 'line',
       source: 'api_cycling_historical_map',
       layout: {
@@ -33,6 +37,23 @@ export default $mapContainer => {
       }
     });
   });
+
+  const handleMapLineSelect = function (e) {
+    const [selected] = e.features;
+
+    // TODO:  Replace the code below by the specfic actions on the click
+    new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML(selected.properties.type_nl)
+      .addTo(historicalMap);
+  };
+
+
+// When a click event occurs on a feature in the states layer, open a popup at the
+// location of the click, with description HTML from its properties.
+  historicalMap.on('click', historicalLayerId, handleMapLineSelect);
+
+  historicalMap.on('touchend', historicalLayerId, handleMapLineSelect)
 
 
 
