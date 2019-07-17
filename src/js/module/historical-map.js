@@ -49,12 +49,9 @@ export default $mapContainer => {
   };
 
 
-// When a click event occurs on a feature in the states layer, open a popup at the
-// location of the click, with description HTML from its properties.
   historicalMap.on('click', historicalLayerId, handleMapLineSelect);
 
   historicalMap.on('touchend', historicalLayerId, handleMapLineSelect)
-
 
 
   window.addEventListener('load', () => {

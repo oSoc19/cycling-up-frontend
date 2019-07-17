@@ -3,9 +3,9 @@ import Chart from 'chart.js';
 
 export default () => {
   // Our labels along the x-axis
-  const years = [2005, 2011, 2014, 2019];
+  const years = [2005, 2011, 2014, 2017];
   // For drawing the lines
-  const africa = [1.2, 1.9, 3, 4.4];
+  const percentage = [1.2, 1.9, 3, 4.4];
 
   const ctx = document.getElementById(`js-canvas-commute`);
   if (ctx) {
@@ -15,7 +15,7 @@ export default () => {
         labels: years,
         datasets: [
           {
-            data: africa,
+            data: percentage,
             label: '% of cyclist that commute to work',
             borderColor: 'rgba(185, 206, 228, .1)',
             fill: '#EAB818',

@@ -2,6 +2,10 @@ import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
 import historicalMap from './module/historical-map';
 import villo from './module/villo-rental';
+import season from './module/bike-count-season';
+import count from './module/bike-count-per-year';
+
+import historicalMap from './module/historical-map';
 
 import './jquery.translate.js';
 import './module/translation.js';
@@ -15,7 +19,7 @@ const getDomElements = () => {
   $mobileMenu.addEventListener('click', onHandlerMenuClick);
 };
 
-const init = function () {
+const init = function() {
   getDomElements();
   commute();
   evolution();
@@ -25,13 +29,20 @@ const init = function () {
     historicalMap($historicalMap);
   }
   villo();
+  season();
+  count();
+
+  const $historicalMap = document.querySelector(`.js-map-historical`);
+  console.log($historicalMap);
+  if ($historicalMap) {
+    historicalMap($historicalMap);
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   console.info('DOM loaded');
   init();
 });
-
 
 const onHandlerMenuClick = () => {
   $navDestinationTargets.forEach(element => {
@@ -44,6 +55,5 @@ const onHandlerMenuClick = () => {
     } else {
       main.classList.remove('disable-scroll');
     }
-
   });
 };
