@@ -54,8 +54,8 @@
     },
     "dependencies": {
         "bootstrap": "^4.0.0",
-        "mapbox-gl": "^1.1.0",
         "chart.js": "^2.8.0",
+        "mapbox-gl": "^1.1.0",
         "normalize.css": "^8.0.1"
     }
 }

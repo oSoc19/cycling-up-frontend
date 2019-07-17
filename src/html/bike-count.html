@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plan vélo - Brussels</title>
+  </head>
+  <body>
+    <include>_navigation.html</include>
+    <main>
+      <header class="c-header-img">
+        <div class="c-header-img__img"></div>
+        <h1>
+          <span>How many cyclists circulate on</span>
+          <span>the Brussels infrastructure?</span>
+        </h1>
+      </header>
+      <section class="c-graph__section">
+        <div class="c-graph" style="display: flex; flex-direction: column;">
+          <canvas style="height:35vh; width:auto" id="js-canvas-bike"></canvas>
+          <p>
+            The evolution of the number of cyclists shows a striking rise
+            between 1998 and 2017. This increase is supported by the continuous
+            evolution of the bicycle infrastructure in the region of Brussels.
+          </p>
+        </div>
+        <div class="c-graph" style="display: flex; flex-direction: column;">
+          <canvas
+            style="height:35vh; width:auto"
+            id="js-canvas-season"
+          ></canvas>
+          <p>
+            The evolution of the number of cyclists variates according to the
+            seasons. These ones are defined by the following months: January,
+            May, September and November. This graph depicts the gap between each
+            seasons from 1998 till 2017.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
