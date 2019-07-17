@@ -1,5 +1,6 @@
 import evolution from './module/km-evolution';
 import commute from './module/commute-to-work';
+import historicalMap from './module/historical-map';
 import villo from './module/villo-rental';
 import season from './module/bike-count-season';
 import count from './module/bike-count-per-year';
@@ -11,21 +12,22 @@ import './module/translation.js';
 
 let $navDestinationTargets, $mobileMenu, main;
 
-// let $canvasCommute;
-
 const getDomElements = () => {
   $navDestinationTargets = document.querySelectorAll('.js-toggle-menu');
   main = document.querySelector('main');
   $mobileMenu = document.querySelector('.l-header__toggle');
   $mobileMenu.addEventListener('click', onHandlerMenuClick);
-
-  // const canvasCommute = document.getElementById(`js-canvas-commute`);
 };
 
 const init = function() {
   getDomElements();
   commute();
   evolution();
+
+  const $historicalMap = document.querySelector(`.js-map-historical`);
+  if ($historicalMap) {
+    historicalMap($historicalMap);
+  }
   villo();
   season();
   count();
