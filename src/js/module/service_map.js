@@ -1,29 +1,30 @@
 import mapboxgl from 'mapbox-gl';
 
 export default map => {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw';
+  mapboxgl.accessToken =
+    'pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw';
 
   const serviceMap = new mapboxgl.Map({
     container: map,
-    style: 'mapbox://styles/danielleterras/cjxoemrlt08nn1cmlm2owey24',
+    style: 'mapbox://styles/danielleterras/cjy6xbvqi20xk1cliotdrzpt5',
     zoom: 11.5,
-    center: [4.35500, 50.84700]
+    center: [4.355, 50.847]
   });
 
   serviceMap.on('load', function() {
     serviceMap.addSource('bike_parking', {
       type: 'geojson',
-      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_parking',
+      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_parking'
     });
 
     serviceMap.addSource('bike_pump', {
       type: 'geojson',
-      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_pump',
+      data: 'https://api.cyclingup.osoc.be/api/map/general/bike_pump'
     });
 
     serviceMap.addSource('bike_infra', {
       type: 'geojson',
-      data: ' https://api.cyclingup.osoc.be/api/map/general/bike_infra',
+      data: ' https://api.cyclingup.osoc.be/api/map/general/bike_infra'
     });
 
     serviceMap.addLayer({
@@ -39,7 +40,6 @@ export default map => {
         'line-width': 3
       }
     });
-
 
     serviceMap.addLayer({
       id: 'bikeParking',
@@ -63,7 +63,6 @@ export default map => {
       }
     });
   });
-
 
   window.addEventListener('load', () => {
     serviceMap.resize();

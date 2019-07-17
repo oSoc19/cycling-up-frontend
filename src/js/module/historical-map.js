@@ -6,7 +6,7 @@ export default map => {
 
   const historicalMap = new mapboxgl.Map({
     container: map,
-    style: 'mapbox://styles/danielleterras/cjxoemrlt08nn1cmlm2owey24',
+    style: 'mapbox://styles/danielleterras/cjy6xbvqi20xk1cliotdrzpt5',
     zoom: 13.5,
     center: [4.355, 50.847]
   });
