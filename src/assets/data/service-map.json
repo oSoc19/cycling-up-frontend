@@ -1,0 +1,38 @@
+{
+  "bikeVillo": {
+    "text": "Villo! stations",
+    "icon": "noun_marker",
+    "line": false,
+    "color": "#EAB818"
+  },
+  "bikeParking": {
+    "text": "Bike sheds",
+    "icon": "noun_parking",
+    "line": false,
+    "color": "#2D3E71"
+  },
+  "bikePump": {
+    "text": "Bike pumps",
+    "icon": "noun_pump",
+    "line": false,
+    "color": "#879ed1"
+  },
+  "bikeShops": {
+    "text": "Bike shops",
+    "icon": "noun_shop",
+    "line": false,
+    "color": "black"
+  },
+  "bikeInfra": {
+    "text": "Bike infrastructure",
+    "icon": "",
+    "line": true,
+    "color": "#203061"
+  },
+  "bikeGFR": {
+    "text": "GFR network",
+    "icon": "",
+    "line": true,
+    "color": "#b9cee2"
+  }
+}
