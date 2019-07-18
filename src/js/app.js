@@ -5,8 +5,8 @@ import season from './module/bike-count-season';
 import count from './module/bike-count-per-year';
 
 import historicalMap from './module/historical-map';
-
 import serviceMap from './module/service_map';
+
 import bikeMap from './module/bike-map';
 //import liveDataCount from './module/live-data-count';
 import villoMap from './module/live-villo-count';
@@ -27,6 +27,7 @@ const init = function() {
   getDomElements();
   commute();
   evolution();
+
   villo();
   season();
   count();
