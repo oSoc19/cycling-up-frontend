@@ -1,20 +1,24 @@
 $(function() {
-  const assetDir = './.../assets/i18n/';
+  const assetsDir = '../../assets/i18n/';
+
   /**
    * Translations data container grouped by the slide name in
    * browser location URL path without the heading '/'.
    * This URL path will be used to identify the current slide page.
    */
   const translations = {
-    _navigation: require(assetDir + '_navigation.json'),
-    'historical-map': require(assetDir + 'historical-map.json'),
-    commute: require(assetDir + 'commute.json'),
-    services: require(assetDir + 'services.json'),
-    villo: require(assetDir + 'villo.json'),
-    'bike-count': require(assetDir + 'bike-count.json')
+    // NOTE: Dynamic import with the assetsDir variable does not work
+    _navigation: require('../../assets/i18n/_navigation.json'),
+    'historical-map': require('../../assets/i18n/historical-map.json'),
+    commute: require('../../assets/i18n/commute.json'),
+    services: require('../../assets/i18n/services.json'),
+    villo: require('../../assets/i18n/villo.json'),
+    'bike-count': require('../../assets/i18n/bike-count.json')
   };
 
-  const _t = $('body').translate({ lang: 'en', t: translations });
+  const _t = $('body').translation({ lang: 'en', t: translations });
+
+  // _t.lang('_navigation', "en");
 
   $('.lang_selector').click(function(ev) {
     const lang = $(this).attr('data-value');
