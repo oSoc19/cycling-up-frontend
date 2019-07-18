@@ -18,20 +18,21 @@ export default () => {
   const ctx = document.getElementById(`js-canvas-villo`);
   if (ctx) {
     new Chart(ctx, {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: years,
-        datasets: [{
-          data: rental,
-          label: 'total amount of villo! rental per year',
-          borderColor: 'rgba(185, 206, 228, .1)',
-          fill: '#EAB818',
-          backgroundColor: '#EAB818'
-        }]
+        datasets: [
+          {
+            data: rental,
+            label: 'total amount of villo! rental per year',
+            borderColor: '#EAB818',
+            fill: '#EAB818',
+            backgroundColor: '#EAB818'
+          }
+        ]
       },
       options: {
         responsive: false
-
       }
     });
   }

@@ -1,6 +1,5 @@
 import Chart from 'chart.js';
 
-
 export default () => {
   // Our labels along the x-axis
   const years = [2005, 2011, 2014, 2017];
@@ -24,9 +23,18 @@ export default () => {
         ]
       },
       options: {
-        responsive: false
+        responsive: false,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+                stepSize: 0.5
+              }
+            }
+          ]
+        }
       }
     });
   }
-
 };

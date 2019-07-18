@@ -1,4 +1,4 @@
-.service-map {
+.bike-map {
   width: calc(100vw - 300px);
   height: 100vh;
 
@@ -36,7 +36,7 @@
     }
 
     a.active,  a:hover {
-      background-color:  pal-color(yellow);
+      background-color: pal-color(yellow);
       color: #ffffff;
     }
 
@@ -48,11 +48,8 @@
 
 
 .point {
-  width: 22px;
-  height: 22px;
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
   border-radius: 100px;
   margin-right: 10px;
 }
