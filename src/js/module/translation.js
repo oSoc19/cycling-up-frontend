@@ -18,9 +18,14 @@ $(function() {
 
   $('.lang_selector').click(function(ev) {
     const lang = $(this).attr('data-value');
-    _t.lang('historical-map', lang);
 
-    console.log(lang);
+    const path = window.location.pathname.substr(1).slice(0, -5);
+
+    console.log(lang, path);
+
+    _t.lang('_navigation', lang);
+    _t.lang(path, lang);
+
     ev.preventDefault();
   });
 });
