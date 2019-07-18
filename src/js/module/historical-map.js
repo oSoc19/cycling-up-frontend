@@ -1,59 +1,74 @@
 import mapboxgl from 'mapbox-gl';
 
 const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
-
+let $slider, historicalMap;
 export default $mapContainer => {
-
-  const historicalLayerId = 'historical_map';
 
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
-  const historicalMap = new mapboxgl.Map({
+  historicalMap = new mapboxgl.Map({
     container: $mapContainer,
     style: process.env.MAPBOX_STYLE,
     zoom: 10.6,
-    center: [4.35500, 50.84700]
+    center: [4.35500, 50.82700]
   });
 
   historicalMap.on('load', () => {
-
-    historicalMap.addSource('api_cycling_historical_map', {
-      type: 'geojson',
-      data: HISTO_MAP_URL + '2019'
-    });
-
-    historicalMap.addLayer({
-      id: historicalLayerId,
-      type: 'line',
-      source: 'api_cycling_historical_map',
-      layout: {
-        'line-join': 'round',
-        'line-cap': 'round'
-      },
-      paint: {
-        'line-color': '#EAB818',
-        'line-width': 3
-      }
-    });
+    $slider = document.querySelector('input[type="range"]');
+    $slider.addEventListener('input', sliderHandler);
   });
 
-  const handleMapLineSelect = function (e) {
-    const [selected] = e.features;
+  // const handleMapLineSelect = function (e) {
+  //   const [selected] = e.features;
 
-    // TODO:  Replace the code below by the specfic actions on the click
-    new mapboxgl.Popup()
-      .setLngLat(e.lngLat)
-      .setHTML(selected.properties.type_nl)
-      .addTo(historicalMap);
-  };
+  //   // TODO:  Replace the code below by the specfic actions on the click
+  //   new mapboxgl.Popup()
+  //     .setLngLat(e.lngLat)
+  //     .setHTML(selected.properties.type_nl)
+  //     .addTo(historicalMap);
+  // };
 
 
-  historicalMap.on('click', historicalLayerId, handleMapLineSelect);
+  // historicalMap.on('click', historicalLayerId, handleMapLineSelect);
 
-  historicalMap.on('touchend', historicalLayerId, handleMapLineSelect)
+  // historicalMap.on('touchend', historicalLayerId, handleMapLineSelect)
 
 
   window.addEventListener('load', () => {
     historicalMap.resize();
+  });
+};
+
+const sliderHandler = () => {
+  const value = $slider.value;
+  console.log(value);
+  const historicalLayerSource = `api_cycling_historical_map_${value}`;
+  const historicalLayerId = `historical_map_${value}`;
+
+
+
+  const mapLayer = historicalMap.getLayer(historicalLayerId);
+
+  if (typeof mapLayer !== 'undefined') {
+    historicalMap.removeLayer(historicalLayerId).removeSource(historicalLayerSource);
+  }
+
+  historicalMap.addSource(historicalLayerSource, {
+    type: 'geojson',
+    data: HISTO_MAP_URL + value
+  });
+
+  historicalMap.addLayer({
+    id: historicalLayerId,
+    type: 'line',
+    source: historicalLayerSource,
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': '#EAB818',
+      'line-width': 3
+    }
   });
 };

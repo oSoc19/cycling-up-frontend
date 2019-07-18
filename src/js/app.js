@@ -58,3 +58,15 @@ const onHandlerMenuClick = () => {
     }
   });
 };
+
+
+// const elem = document.querySelector('input[type="range"]');
+
+// const rangeValue = () => {
+//   const value = elem.value;
+//   console.log(value);
+//   // const test = (elem.value - 1896) * 2.9;
+//   // document.querySelector('.c-slider').style.boxShadow =  `inset ${test}px 0 0 #2D3E71`;
+// };
+
+// elem.addEventListener('input', rangeValue);
