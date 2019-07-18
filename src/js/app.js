@@ -8,7 +8,8 @@ import historicalMap from './module/historical-map';
 
 import serviceMap from './module/service_map';
 import bikeMap from './module/bike-map';
-import liveDataCount from './module/live-data-count';
+//import liveDataCount from './module/live-data-count';
+import villoMap from './module/live-villo-count';
 
 import './jquery.translate.js';
 import './module/translation.js';
@@ -29,7 +30,7 @@ const init = function() {
   villo();
   season();
   count();
-  liveDataCount();
+  // liveDataCount();
 
   const $serviceMap = document.querySelector(`.js-map-service`);
   if ($serviceMap) {
@@ -44,6 +45,11 @@ const init = function() {
   const $historicalMap = document.querySelector(`.js-map-historical`);
   if ($historicalMap) {
     historicalMap($historicalMap);
+  }
+
+  const $villoMap = document.querySelector(`.js-map-villo`);
+  if ($villoMap) {
+    villoMap($villoMap);
   }
 };
 

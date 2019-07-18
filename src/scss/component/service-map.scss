@@ -36,12 +36,11 @@
     }
 
     a.active,  a:hover {
-      background-color:  pal-color(yellow);
-      color: #ffffff;
+      background-color:  pal-color(gray, lightest);
     }
 
     a.active:hover {
-      background: pal-color(yellow);;
+      background: pal-color(gray, lightest);
     }
   }
 }

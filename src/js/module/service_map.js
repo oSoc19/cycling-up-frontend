@@ -41,7 +41,7 @@ const showMap = () => {
       }
     }
 
-    serviceMap.loadImage('../assets/icons/noun_marker.png', function (
+    serviceMap.loadImage('../assets/icons/noun_marker.png', function(
       error,
       image
     ) {
@@ -49,7 +49,7 @@ const showMap = () => {
       serviceMap.addImage('Villo!', image);
     });
 
-    serviceMap.loadImage('../assets/icons/noun_parking.png', function (
+    serviceMap.loadImage('../assets/icons/noun_parking.png', function(
       error,
       image
     ) {
@@ -57,7 +57,7 @@ const showMap = () => {
       serviceMap.addImage('Parking', image);
     });
 
-    serviceMap.loadImage('../assets/icons/noun_shop.png', function (
+    serviceMap.loadImage('../assets/icons/noun_shop.png', function(
       error,
       image
     ) {
@@ -65,7 +65,7 @@ const showMap = () => {
       serviceMap.addImage('Shop', image);
     });
 
-    serviceMap.loadImage('../assets/icons/noun_pump.png', function (
+    serviceMap.loadImage('../assets/icons/noun_pump.png', function(
       error,
       image
     ) {
@@ -93,20 +93,22 @@ const showMenuMap = () => {
     'bikeGFR'
   ];
 
-  for (let i = 0; i < toggleableLayerIds.length; i += 1) {
+  for (let i = 0;i < toggleableLayerIds.length;i += 1) {
     const id = toggleableLayerIds[i];
 
     const link = document.createElement('a');
     link.href = '#';
     link.dataset.mapLayer = id;
 
-    link.innerHTML = `<div class=${
-      jsonData[id].line ? 'line' : 'point'
-      }  ${jsonData[id].line ? `style="background-color: ${jsonData[id].color};"` : `style="background-image: url('../assets/icons/${jsonData[id].icon}.png');"`}></div> ${
-      jsonData[id].text
-      }`;
+    link.innerHTML = `<div class=${jsonData[id].line ? 'line' : 'point'}  ${
+      jsonData[id].line
+        ? `style="background-color: ${jsonData[id].color};"`
+        : `style="background-image: url('../assets/icons/${
+          jsonData[id].icon
+        }.png');"`
+    }></div> ${jsonData[id].text}`;
 
-    link.onclick = function (e) {
+    link.onclick = function(e) {
       const clickedLayer = this.dataset.mapLayer;
       e.preventDefault();
       e.stopPropagation();
@@ -133,29 +135,32 @@ const showMenuMap = () => {
 const ShowBikeInfraLayer = () => {
   serviceMap.addSource('bikeInfra', {
     type: 'geojson',
-    data: ' https://api.cyclingup.osoc.be/api/map/general/bike_infra'
+    data: ' https://api.cyclingup.osoc.be/map/general/bike_infra'
   });
 
-  serviceMap.addLayer({
-    id: 'bikeInfra',
-    type: 'line',
-    source: 'bikeInfra',
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round',
-      visibility: 'none'
+  serviceMap.addLayer(
+    {
+      id: 'bikeInfra',
+      type: 'line',
+      source: 'bikeInfra',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round',
+        visibility: 'none'
+      },
+      paint: {
+        'line-color': '#203061',
+        'line-width': 3
+      }
     },
-    paint: {
-      'line-color': '#203061',
-      'line-width': 3
-    }
-  }, firstSymbolId);
+    firstSymbolId
+  );
 };
 
 const ShowBikeParkingLayer = () => {
   serviceMap.addSource('bikeParking', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/api/map/general/bike_parking'
+    data: 'https://api.cyclingup.osoc.be/map/general/bike_parking'
   });
 
   serviceMap.addLayer({
@@ -174,7 +179,7 @@ const ShowBikeParkingLayer = () => {
 const showBikePumpLayer = () => {
   serviceMap.addSource('bikePump', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/api/map/general/bike_pump'
+    data: 'https://api.cyclingup.osoc.be/map/general/bike_pump'
   });
 
   serviceMap.addLayer({
@@ -193,7 +198,7 @@ const showBikePumpLayer = () => {
 const showBikeShopsLayer = () => {
   serviceMap.addSource('bikeShops', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/api/map/general/bike_shop'
+    data: 'https://api.cyclingup.osoc.be/map/general/bike_shop'
   });
 
   serviceMap.addLayer({
@@ -212,7 +217,7 @@ const showBikeShopsLayer = () => {
 const showVilloStationsLayer = () => {
   serviceMap.addSource('bikeVillo', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/api/map/general/bike_villo'
+    data: 'https://api.cyclingup.osoc.be/map/general/bike_villo'
   });
 
   serviceMap.addLayer({
@@ -231,21 +236,24 @@ const showVilloStationsLayer = () => {
 const showGFRNetworkLayer = () => {
   serviceMap.addSource('bikeGFR', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/api/map/general/bike_icr'
+    data: 'https://api.cyclingup.osoc.be/map/general/bike_icr'
   });
 
-  serviceMap.addLayer({
-    id: 'bikeGFR',
-    type: 'line',
-    source: 'bikeGFR',
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round',
-      visibility: 'none'
+  serviceMap.addLayer(
+    {
+      id: 'bikeGFR',
+      type: 'line',
+      source: 'bikeGFR',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round',
+        visibility: 'none'
+      },
+      paint: {
+        'line-color': '#b9cee2',
+        'line-width': 3
+      }
     },
-    paint: {
-      'line-color': '#b9cee2',
-      'line-width': 3
-    }
-  }, firstSymbolId);
+    firstSymbolId
+  );
 };

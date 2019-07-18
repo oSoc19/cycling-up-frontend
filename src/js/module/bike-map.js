@@ -1,6 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 let bikeMap;
 let mapContainer;
+// eslint-disable-next-line
 let jsonData;
 
 export default map => {
