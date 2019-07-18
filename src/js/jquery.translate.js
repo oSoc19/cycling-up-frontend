@@ -11,16 +11,18 @@
  */
 
 (function($){
-  $.fn.translate = function(options) {
+  $.fn.translation = function(options) {
 
-    var that = this; //a reference to ourselves
+    // var that = this; //a reference to ourselves
 
-    var settings = {
+    var _default_opts = {
       css: "i18n", // trn
       lang: "en",
       currentSlide : "index"
     };
-    settings = $.extend(settings, options || {});
+
+    const settings = $.extend(_default_opts, options || {});
+
     if (settings.css.lastIndexOf(".", 0) !== 0)   //doesn't start with '.'
       settings.css = "." + settings.css;
 
@@ -46,31 +48,34 @@
       }
       catch (err) {
         //not found, return index
-        return part;
+        return null;
       }
 
-      if (res)
-        return res;
-      else
-        return part;
+      return (res) ? res : null ;
     };
-
-    this.g = this.get;
-
 
 
     //main
-    this.find(settings.css).each(function(i) {
-      var $this = $(this);
+    this.translate = _ => {
 
-      var i18n_key = $this.attr("data-i18n-key");
-      if (!i18n_key) {
-        i18n_key = $this.html();
-        $this.attr("data-i18n-key", i18n_key);   //store key for next time
-      }
+      this.find(settings.css).each((i, element) => {
+        var $this = $(element);
 
-      $this.html(that.get(settings.currentSlide, i18n_key));
-    });
+        var i18n_key = $this.attr("data-i18n-key");
+
+        if (i18n_key) {
+          const trans = this.get(settings.currentSlide, i18n_key)
+          if(trans) {
+            $this.html(trans);
+          }
+        } else {
+          // i18n_key = $this.html();
+          // $this.attr("data-i18n-key", i18n_key);   //store key for next time
+        }
+
+      });
+
+    }
 
 
 		return this;
