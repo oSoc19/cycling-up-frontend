@@ -3,6 +3,7 @@ let bikeMap;
 let mapContainer;
 // eslint-disable-next-line
 let jsonData;
+let firstSymbolId;
 
 export default map => {
   mapContainer = map;
@@ -32,6 +33,14 @@ const showMap = () => {
   });
 
   bikeMap.on('load', () => {
+    const layers = bikeMap.getStyle().layers;
+    // Find the index of the first symbol layer in the map style
+    for (let i = 0;i < layers.length;i += 1) {
+      if (layers[i].type === 'symbol') {
+        firstSymbolId = layers[i].id;
+        break;
+      }
+    }
     showGFRNetworkLayer();
   });
 };
@@ -39,20 +48,23 @@ const showMap = () => {
 const showGFRNetworkLayer = () => {
   bikeMap.addSource('bikeGFR', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/api/map/general/bike_icr'
+    data: 'https://api.cyclingup.osoc.be/map/general/bike_icr'
   });
 
-  bikeMap.addLayer({
-    id: 'bikeGFR',
-    type: 'line',
-    source: 'bikeGFR',
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round'
+  bikeMap.addLayer(
+    {
+      id: 'bikeGFR',
+      type: 'line',
+      source: 'bikeGFR',
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#b9cee2',
+        'line-width': 3
+      }
     },
-    paint: {
-      'line-color': '#b9cee2',
-      'line-width': 3
-    }
-  });
+    firstSymbolId
+  );
 };
