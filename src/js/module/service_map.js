@@ -2,6 +2,7 @@ import mapboxgl from 'mapbox-gl';
 let serviceMap;
 let mapContainer;
 let jsonData;
+let firstSymbolId;
 
 export default map => {
   mapContainer = map;
@@ -31,7 +32,16 @@ const showMap = () => {
   });
 
   serviceMap.on('load', () => {
-    serviceMap.loadImage('../assets/icons/noun_marker.png', function(
+    const layers = serviceMap.getStyle().layers;
+    // Find the index of the first symbol layer in the map style
+    for (let i = 0;i < layers.length;i += 1) {
+      if (layers[i].type === 'symbol') {
+        firstSymbolId = layers[i].id;
+        break;
+      }
+    }
+
+    serviceMap.loadImage('../assets/icons/noun_marker.png', function (
       error,
       image
     ) {
@@ -39,7 +49,7 @@ const showMap = () => {
       serviceMap.addImage('Villo!', image);
     });
 
-    serviceMap.loadImage('../assets/icons/noun_parking.png', function(
+    serviceMap.loadImage('../assets/icons/noun_parking.png', function (
       error,
       image
     ) {
@@ -47,7 +57,7 @@ const showMap = () => {
       serviceMap.addImage('Parking', image);
     });
 
-    serviceMap.loadImage('../assets/icons/noun_shop.png', function(
+    serviceMap.loadImage('../assets/icons/noun_shop.png', function (
       error,
       image
     ) {
@@ -55,7 +65,7 @@ const showMap = () => {
       serviceMap.addImage('Shop', image);
     });
 
-    serviceMap.loadImage('../assets/icons/noun_pump.png', function(
+    serviceMap.loadImage('../assets/icons/noun_pump.png', function (
       error,
       image
     ) {
@@ -64,12 +74,12 @@ const showMap = () => {
     });
 
     showMenuMap();
-    showVilloStationsLayer();
-    ShowBikeParkingLayer();
-    showBikePumpLayer();
-    showBikeShopsLayer();
     ShowBikeInfraLayer();
     showGFRNetworkLayer();
+    showVilloStationsLayer();
+    ShowBikeParkingLayer();
+    showBikeShopsLayer();
+    showBikePumpLayer();
   });
 };
 
@@ -83,7 +93,7 @@ const showMenuMap = () => {
     'bikeGFR'
   ];
 
-  for (let i = 0;i < toggleableLayerIds.length;i += 1) {
+  for (let i = 0; i < toggleableLayerIds.length; i += 1) {
     const id = toggleableLayerIds[i];
 
     const link = document.createElement('a');
@@ -92,11 +102,11 @@ const showMenuMap = () => {
 
     link.innerHTML = `<div class=${
       jsonData[id].line ? 'line' : 'point'
-    } style="background-color: ${jsonData[id].color};"></div> ${
+      }  ${jsonData[id].line ? `style="background-color: ${jsonData[id].color};"` : `style="background-image: url('../assets/icons/${jsonData[id].icon}.png');"`}></div> ${
       jsonData[id].text
-    }`;
+      }`;
 
-    link.onclick = function(e) {
+    link.onclick = function (e) {
       const clickedLayer = this.dataset.mapLayer;
       e.preventDefault();
       e.stopPropagation();
@@ -139,7 +149,7 @@ const ShowBikeInfraLayer = () => {
       'line-color': '#203061',
       'line-width': 3
     }
-  });
+  }, firstSymbolId);
 };
 
 const ShowBikeParkingLayer = () => {
@@ -237,5 +247,5 @@ const showGFRNetworkLayer = () => {
       'line-color': '#b9cee2',
       'line-width': 3
     }
-  });
+  }, firstSymbolId);
 };
