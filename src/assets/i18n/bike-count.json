@@ -6,7 +6,7 @@
   },
   "description": {
     "en": "The evolution of the number of cyclists variates according to theseasons. They are defined by the following months: January, May,September and November. This graph depicts the gap between eachseasons from 1998 till 2017. Each data represents the number ofcyclists taken randomnly at a t-point. None of these should be takenas granted and considered as absolute data.",
-    "fr": "L’évolution du nombre de cyclistes varie selon les saisons. Elles défini par les mois suivants : Janvier, Mai, Septembre et Novembre. Ce graphique dépeins la différence entre chaque saisons depuis 1998 jusqu’à 2017. Toutes les données représentes un nombre de cyclistes pris à un instant t de façon aléatoire. Aucunes d’entre-elles ne doit être prises comme acquises ou absolues.",
+    "fr": "L’évolution du nombre de cyclistes varie selon les saisons. Elles sont définies par les mois suivants : Janvier, Mai, Septembre et Novembre. Ce graphique dépeint la différence entre chaque saison depuis 1998 jusqu’à 2017. Toutes les données représentent un nombre de cyclistes pris à un instant t de façon aléatoire. Aucunes d’entre-elles ne doit être prises comme acquises ou absolues.",
     "nl": "Nah"
   },
   "graph_legend": {
