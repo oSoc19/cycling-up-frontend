@@ -31,11 +31,6 @@ const init = function() {
   count();
   // liveDataCount();
 
-  const $serviceMap = document.querySelector(`.js-map-service`);
-  if ($serviceMap) {
-    serviceMap($serviceMap);
-  }
-
   const $bikeMap = document.querySelector(`.js-map-bike`);
   if ($bikeMap) {
     bikeMap($bikeMap);
