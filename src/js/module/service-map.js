@@ -1,13 +1,13 @@
 import mapboxgl from 'mapbox-gl';
 
-// const jsonData = require("../../assets/data/service-map.json");
+const jsonData = require("../../assets/data/service-map.json");
 
 const MAP_GENERAL_API_URL = process.env.API_URL + '/map/general/';
 
 
 let serviceMap;
-let mapContainer;
-let jsonData;
+// let mapContainer;
+// let jsonData;
 let firstSymbolId;
 
 
@@ -35,7 +35,7 @@ const markerImages = [
 
 
 /**
- * List of layers
+ * List of layers identified by the API kind of general map
  */
 
 const layers = [
@@ -50,7 +50,8 @@ const layers = [
     paint: {
       'line-color': '#203061',
       'line-width': 3
-    }
+    },
+    insertToExisting : true
   },
   {
     id: 'bike_parking',
@@ -78,8 +79,8 @@ const layers = [
     filter: ['!', ['has', 'point_count']],
     layout: {
       visibility: 'none',
-      'icon-image': 'Villo!',
-      'icon-size': 0.1
+      'icon-image': 'Shop',
+      'icon-size': 0.13
     }
   },
   {
@@ -88,11 +89,10 @@ const layers = [
     filter: ['!', ['has', 'point_count']],
     layout: {
       visibility: 'none',
-      'icon-image': 'Shop',
-      'icon-size': 0.13
+      'icon-image': 'Villo!',
+      'icon-size': 0.1
     }
   },
-
   {
     id: 'bike_icr',
     type: 'line',
@@ -104,28 +104,31 @@ const layers = [
     paint: {
       'line-color': '#b9cee2',
       'line-width': 3
-    }
+    },
+    insertToExisting : true
   }
 ];
 
 
 
-export default map => {
-  mapContainer = map;
-  fetch(`../assets/data/service-map.json`)
-    .then(response => response.json())
-    .then(data => parse(data));
-};
+// export default map => {
+//   mapContainer = map;
+//   fetch(`../assets/data/service-map.json`)
+//     .then(response => response.json())
+//     .then(data => parse(data));
+// };
 
-const parse = data => {
-  jsonData = data;
-  showMap();
-};
+// const parse = data => {
+//   jsonData = data;
+
+// };
+
+export function init ({ctx}){
+  showMap(ctx);
+}
 
 
-
-
-const showMap = () => {
+const showMap = (mapContainer) => {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   serviceMap = new mapboxgl.Map({
@@ -141,16 +144,14 @@ const showMap = () => {
 
   serviceMap.on('load', () => {
     const layers = serviceMap.getStyle().layers;
+
     // Find the index of the first symbol layer in the map style
-    for (let i = 0; i < layers.length; i += 1) {
-      if (layers[i].type === 'symbol') {
-        firstSymbolId = layers[i].id;
-        break;
-      }
+    const layer = layers.find(l => l.type === 'symbol')
+    if (layer) {
+      firstSymbolId = layer.id
     }
 
     // Add all markers
-
     markerImages.forEach(marker => {
       serviceMap.loadImage(marker.url, (error, image) => {
         if (error) throw error;
@@ -158,15 +159,8 @@ const showMap = () => {
       });
     });
 
-
     showMenuMap();
     showMapLayers();
-    // ShowBikeInfraLayer();
-    // showGFRNetworkLayer();
-    // showVilloStationsLayer();
-    // ShowBikeParkingLayer();
-    // showBikeShopsLayer();
-    // showBikePumpLayer();
   });
 };
 
@@ -223,144 +217,20 @@ const showMapLayers = () => {
       data: MAP_GENERAL_API_URL + layer['id'],
     });
 
+    const { insertToExisting=false} = layer;
+
     serviceMap.addLayer(
       {
         ...layer,
         source: layer['id']
       },
-      // firstSymbolId
+      insertToExisting ? firstSymbolId : null
     );
 
   })
 }
 
 
-
-const ShowBikeInfraLayer = () => {
-  serviceMap.addSource('bikeInfra', {
-    type: 'geojson',
-    data: MAP_GENERAL_API_URL + 'bike_infra',
-  });
-
-  serviceMap.addLayer(
-    {
-      id: 'bikeInfra',
-      type: 'line',
-      source: 'bikeInfra',
-      layout: {
-        'line-join': 'round',
-        'line-cap': 'round',
-        visibility: 'none'
-      },
-      paint: {
-        'line-color': '#203061',
-        'line-width': 3
-      }
-    },
-    firstSymbolId
-  );
-};
-
-const ShowBikeParkingLayer = () => {
-  serviceMap.addSource('bikeParking', {
-    type: 'geojson',
-    data: MAP_GENERAL_API_URL + 'bike_parking'
-  });
-
-  serviceMap.addLayer({
-    id: 'bikeParking',
-    type: 'symbol',
-    source: 'bikeParking',
-    filter: ['!', ['has', 'point_count']],
-    layout: {
-      visibility: 'none',
-      'icon-image': 'Parking',
-      'icon-size': 0.1
-    }
-  });
-};
-
-const showBikePumpLayer = () => {
-  serviceMap.addSource('bikePump', {
-    type: 'geojson',
-    data: MAP_GENERAL_API_URL + 'bike_pump'
-  });
-
-  serviceMap.addLayer({
-    id: 'bikePump',
-    type: 'symbol',
-    source: 'bikePump',
-    filter: ['!', ['has', 'point_count']],
-    layout: {
-      visibility: 'none',
-      'icon-image': 'Pump',
-      'icon-size': 0.1
-    }
-  });
-};
-
-const showBikeShopsLayer = () => {
-  serviceMap.addSource('bikeShops', {
-    type: 'geojson',
-    data: MAP_GENERAL_API_URL + 'bike_shop'
-  });
-
-  serviceMap.addLayer({
-    id: 'bikeShops',
-    type: 'symbol',
-    source: 'bikeShops',
-    filter: ['!', ['has', 'point_count']],
-    layout: {
-      visibility: 'none',
-      'icon-image': 'Shop',
-      'icon-size': 0.13
-    }
-  });
-};
-
-const showVilloStationsLayer = () => {
-  serviceMap.addSource('bikeVillo', {
-    type: 'geojson',
-    data: MAP_GENERAL_API_URL + 'bike_villo'
-  });
-
-  serviceMap.addLayer({
-    id: 'bikeVillo',
-    type: 'symbol',
-    source: 'bikeVillo',
-    filter: ['!', ['has', 'point_count']],
-    layout: {
-      visibility: 'none',
-      'icon-image': 'Villo!',
-      'icon-size': 0.1
-    }
-  });
-};
-
-const showGFRNetworkLayer = () => {
-  serviceMap.addSource('bikeGFR', {
-    type: 'geojson',
-    data: MAP_GENERAL_API_URL + 'bike_icr'
-  });
-
-  serviceMap.addLayer(
-    {
-      id: 'bikeGFR',
-      type: 'line',
-      source: 'bikeGFR',
-      layout: {
-        'line-join': 'round',
-        'line-cap': 'round',
-        visibility: 'none'
-      },
-      paint: {
-        'line-color': '#b9cee2',
-        'line-width': 3
-      }
-    },
-    firstSymbolId
-  );
-};
 
 export function onChangeLanguage(lang, translations) {
   console.log(lang, translations);
