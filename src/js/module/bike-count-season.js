@@ -1,8 +1,11 @@
 import Chart from 'chart.js';
-export default () => {
+
+let bikeCountChart;
+
+export function init () {
   const ctx = document.getElementById(`js-canvas-season`);
   if (ctx) {
-    new Chart(ctx, {
+    bikeCountChart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: [
@@ -150,7 +153,11 @@ export default () => {
 };
 
 
-export function onChangeLanguage(lang, translations) {
-  console.log(lang, translations);
-  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+export function onChangeLanguage(lang, translation) {
+  if (!bikeCountChart) {
+    return;
+  }
+
+  bikeCountChart.data.datasets[0].label = translation['graph_legend'][lang]
+  bikeCountChart.update
 }

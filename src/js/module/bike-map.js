@@ -18,8 +18,7 @@ const parse = data => {
 };
 
 const showMap = () => {
-  mapboxgl.accessToken =
-    process.env.MAPBOX_ACCESS_TOKEN;
+  mapboxgl.accessToken =  process.env.MAPBOX_ACCESS_TOKEN;
 
   bikeMap = new mapboxgl.Map({
     container: mapContainer,
@@ -34,12 +33,11 @@ const showMap = () => {
 
   bikeMap.on('load', () => {
     const layers = bikeMap.getStyle().layers;
+
     // Find the index of the first symbol layer in the map style
-    for (let i = 0;i < layers.length;i += 1) {
-      if (layers[i].type === 'symbol') {
-        firstSymbolId = layers[i].id;
-        break;
-      }
+    const layer = layers.find(layer => layer.type === 'symbol')
+    if (layer) {
+      firstSymbolId = layer.id;
     }
     showGFRNetworkLayer();
   });

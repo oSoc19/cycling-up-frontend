@@ -1,10 +1,10 @@
 import * as Evolution from './module/km-evolution';
 import * as Commute from './module/commute-to-work';
-import * as Villo from './module/villo-rental';
-import * as Season from './module/bike-count-season';
-import * as Count from './module/bike-count-per-year';
+import * as VilloRental from './module/villo-rental';
+import * as BikeSeasonCount from './module/bike-count-season';
+import * as BikeYearlyCount from './module/bike-count-per-year';
 import * as HistoricalMap from './module/historical-map';
-import * as ServiceMap from './module/service_map';
+import * as ServiceMap from './module/service-map';
 import * as BikeMap from './module/bike-map';
 import * as VilloMap from './module/live-villo-count';
 //import liveDataCount from './module/live-data-count';
@@ -28,9 +28,9 @@ const init = function() {
 
   Commute.init();
   Evolution.init();
-  Villo.init();
-  Season();
-  Count();
+  VilloRental.init();
+  BikeSeasonCount.init();
+  BikeYearlyCount.init();
   // liveDataCount();
 
   const $bikeMap = document.querySelector(`.js-map-bike`);
@@ -58,7 +58,10 @@ function updateChartLanguage(err, lang, translation) {
   [
     Commute.onChangeLanguage,
     Evolution.onChangeLanguage,
-    Villo.onChangeLanguage
+    VilloRental.onChangeLanguage,
+    BikeSeasonCount.onChangeLanguage,
+    BikeYearlyCount.onChangeLanguage,
+    ServiceMap.onChangeLanguage,
   ]
   .forEach(changeLangFn => {
     changeLangFn.call(null, lang, translation)
