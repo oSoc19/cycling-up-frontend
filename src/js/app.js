@@ -1,13 +1,13 @@
-import Evolution from './module/km-evolution';
-import Commute from './module/commute-to-work';
+// import * as Evolution from './module/km-evolution';
+import * as Commute from './module/commute-to-work';
 import Villo from './module/villo-rental';
 import Season from './module/bike-count-season';
 import Count from './module/bike-count-per-year';
 import HistoricalMap from './module/historical-map';
 import ServiceMap from './module/service_map';
 import BikeMap from './module/bike-map';
-//import liveDataCount from './module/live-data-count';
 import VilloMap from './module/live-villo-count';
+//import liveDataCount from './module/live-data-count';
 
 import * as Translation from './module/translation.js';
 
@@ -25,8 +25,8 @@ const init = function() {
 
   Translation.init()
 
-  Commute();
-  Evolution();
+  Commute.init();
+  // Evolution();
 
   Villo();
   Season();

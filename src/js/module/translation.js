@@ -1,4 +1,4 @@
-import './jquery.translate.js';
+import '../jquery.translate.js';
 
 
 /**
