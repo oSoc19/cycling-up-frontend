@@ -1,12 +1,12 @@
 import * as Evolution from './module/km-evolution';
 import * as Commute from './module/commute-to-work';
-import Villo from './module/villo-rental';
-import Season from './module/bike-count-season';
-import Count from './module/bike-count-per-year';
-import HistoricalMap from './module/historical-map';
-import ServiceMap from './module/service_map';
-import BikeMap from './module/bike-map';
-import VilloMap from './module/live-villo-count';
+import * as Villo from './module/villo-rental';
+import * as Season from './module/bike-count-season';
+import * as Count from './module/bike-count-per-year';
+import * as HistoricalMap from './module/historical-map';
+import * as ServiceMap from './module/service_map';
+import * as BikeMap from './module/bike-map';
+import * as VilloMap from './module/live-villo-count';
 //import liveDataCount from './module/live-data-count';
 
 import * as Translation from './module/translation.js';
@@ -60,6 +60,22 @@ document.addEventListener('DOMContentLoaded', () => {
   init();
 });
 
+
+function updateChartLanguage(err, lang, translation) {
+  [
+    Commute.onChangeLanguage,
+    Evolution.onChangeLanguage
+  ]
+  .forEach(changeLangFn => {
+    changeLangFn.call(null, lang, translation)
+  });
+
+}
+
+
+
+
+
 const onHandlerMenuClick = () => {
   $navDestinationTargets.forEach(element => {
     console.log(element);
@@ -74,7 +90,14 @@ const onHandlerMenuClick = () => {
   });
 };
 
+
+/**
+ * Handle click on the language selection button
+ * @param {*} ev - Click event
+ */
 const onLangSelectorClick = function(ev) {
+  ev.preventDefault();
+
   const $this = $(this)
   const lang = $this.attr('data-value');
 
@@ -85,6 +108,6 @@ const onLangSelectorClick = function(ev) {
 
   console.log(lang, path);
 
-  Translation.updateLang(path, lang)
-  ev.preventDefault();
+  Translation.updateLang(path, lang, updateChartLanguage);
+
 }

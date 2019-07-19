@@ -25,7 +25,7 @@ export function init(params) {
 }
 
 
-export function updateLang(slide_path, lang = "en") {
+export function updateLang(slide_path, lang = "en", callbackFn) {
   if (!instance) {
     throw new Error("Translation not initialized");
   }
@@ -37,7 +37,7 @@ export function updateLang(slide_path, lang = "en") {
   instance.lang('_navigation', lang);
   instance.lang(slide_path, lang);
 
-  return instance.get(slide_path)
+  return callbackFn(null, lang, translations[slide_path])
 }
 
 // $(function() {
