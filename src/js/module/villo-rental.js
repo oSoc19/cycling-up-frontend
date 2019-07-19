@@ -1,23 +1,26 @@
 import Chart from 'chart.js';
 
-export default () => {
-  // Our labels along the x-axis
-  const years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
-  // For drawing the lines
-  const rental = [
-    871916,
-    1217687,
-    1412255,
-    1423182,
-    1645779,
-    1508265,
-    1577811,
-    1615160
-  ];
+// Our labels along the x-axis
+const years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
+// For drawing the lines
+const rental = [
+  871916,
+  1217687,
+  1412255,
+  1423182,
+  1645779,
+  1508265,
+  1577811,
+  1615160
+];
+
+let villoChart;
+
+export function init () {
 
   const ctx = document.getElementById(`js-canvas-villo`);
   if (ctx) {
-    new Chart(ctx, {
+    villoChart= new Chart(ctx, {
       type: 'line',
       data: {
         labels: years,
@@ -37,3 +40,8 @@ export default () => {
     });
   }
 };
+
+export function onChangeLanguage(lang, translations) {
+  console.log(lang, translations);
+  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+}

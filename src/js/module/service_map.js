@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 
+// const jsonData = require("../../assets/data/service-map.json");
 
 const MAP_GENERAL_API_URL = process.env.API_URL + '/map/general/';
 
@@ -264,3 +265,8 @@ const showGFRNetworkLayer = () => {
     firstSymbolId
   );
 };
+
+export function onChangeLanguage(lang, translations) {
+  console.log(lang, translations);
+  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+}

@@ -4,9 +4,12 @@ let mapContainer;
 // eslint-disable-next-line
 let jsonData;
 
+const MAP_VILLO_API_URL = process.env.API_URL + '/map/general//bike_villo';
+
+
 export default map => {
   mapContainer = map;
-  fetch(`https://api.cyclingup.osoc.be/map/general/bike_villo`)
+  fetch(MAP_VILLO_API_URL)
     .then(response => response.json())
     .then(data => parse(data));
 };
@@ -17,8 +20,7 @@ const parse = data => {
 };
 
 const showMap = () => {
-  mapboxgl.accessToken =
-    process.env.MAPBOX_ACCESS_TOKEN;
+  mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   villoMap = new mapboxgl.Map({
     container: mapContainer,
@@ -46,7 +48,7 @@ const showMap = () => {
 const showVilloStationsLayer = () => {
   villoMap.addSource('bikeVillo', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_villo'
+    data: MAP_VILLO_API_URL
   });
 
   villoMap.addLayer({
@@ -61,3 +63,8 @@ const showVilloStationsLayer = () => {
     }
   });
 };
+
+export function onChangeLanguage(lang, translations) {
+  console.log(lang, translations);
+  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+}

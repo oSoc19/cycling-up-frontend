@@ -1,4 +1,4 @@
-// import * as Evolution from './module/km-evolution';
+import * as Evolution from './module/km-evolution';
 import * as Commute from './module/commute-to-work';
 import Villo from './module/villo-rental';
 import Season from './module/bike-count-season';
@@ -27,7 +27,7 @@ const init = function() {
   Translation.init()
 
   Commute.init();
-  // Evolution();
+  Evolution.init();
 
   Villo();
   Season();

@@ -58,3 +58,9 @@ export default $mapContainer => {
     historicalMap.resize();
   });
 };
+
+
+export function onChangeLanguage(lang, translations) {
+  console.log(lang, translations);
+  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+}
