@@ -1,16 +1,15 @@
-import evolution from './module/km-evolution';
-import commute from './module/commute-to-work';
-import villo from './module/villo-rental';
-import season from './module/bike-count-season';
-import count from './module/bike-count-per-year';
-import historicalMap from './module/historical-map';
-import serviceMap from './module/service_map';
-import bikeMap from './module/bike-map';
+import Evolution from './module/km-evolution';
+import Commute from './module/commute-to-work';
+import Villo from './module/villo-rental';
+import Season from './module/bike-count-season';
+import Count from './module/bike-count-per-year';
+import HistoricalMap from './module/historical-map';
+import ServiceMap from './module/service_map';
+import BikeMap from './module/bike-map';
 //import liveDataCount from './module/live-data-count';
-import villoMap from './module/live-villo-count';
+import VilloMap from './module/live-villo-count';
 
-import './jquery.translate.js';
-import './module/translation.js';
+import * as Translation from './module/translation.js';
 
 let $navDestinationTargets, $mobileMenu, main;
 
@@ -23,32 +22,35 @@ const getDomElements = () => {
 
 const init = function() {
   getDomElements();
-  commute();
-  evolution();
 
-  villo();
-  season();
-  count();
+  Translation.init()
+
+  Commute();
+  Evolution();
+
+  Villo();
+  Season();
+  Count();
   // liveDataCount();
 
   const $bikeMap = document.querySelector(`.js-map-bike`);
   if ($bikeMap) {
-    bikeMap($bikeMap);
+    BikeMap($bikeMap);
   }
 
   const $serviceMap = document.querySelector(`.js-map-service`);
   if ($serviceMap) {
-    serviceMap($serviceMap);
+    ServiceMap($serviceMap);
   }
 
   const $historicalMap = document.querySelector(`.js-map-historical`);
   if ($historicalMap) {
-    historicalMap($historicalMap);
+    HistoricalMap($historicalMap);
   }
 
   const $villoMap = document.querySelector(`.js-map-villo`);
   if ($villoMap) {
-    villoMap($villoMap);
+    VilloMap($villoMap);
   }
 };
 
