@@ -4,7 +4,7 @@ import * as VilloRental from './module/villo-rental';
 import * as BikeSeasonCount from './module/bike-count-season';
 import * as BikeYearlyCount from './module/bike-count-per-year';
 import * as HistoricalMap from './module/historical-map';
-import * as ServiceMap from './module/service-map';
+import ServiceMap from './module/service-map';
 import * as BikeMap from './module/bike-map';
 import * as VilloMap from './module/live-villo-count';
 //import liveDataCount from './module/live-data-count';
