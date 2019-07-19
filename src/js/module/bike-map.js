@@ -19,11 +19,11 @@ const parse = data => {
 
 const showMap = () => {
   mapboxgl.accessToken =
-    'pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw';
+    process.env.MAPBOX_ACCESS_TOKEN;
 
   bikeMap = new mapboxgl.Map({
     container: mapContainer,
-    style: 'mapbox://styles/danielleterras/cjy6xbvqi20xk1cliotdrzpt5',
+    style: process.env.MAPBOX_STYLE,
     zoom: 11.5,
     center: [4.355, 50.847]
   });

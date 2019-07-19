@@ -1,9 +1,16 @@
 import mapboxgl from 'mapbox-gl';
 
+
+const MAP_GENERAL_API_URL = process.env.API_URL + '/map/general/';
+
+
 let serviceMap;
 let mapContainer;
 let jsonData;
 let firstSymbolId;
+
+
+
 
 export default map => {
   mapContainer = map;
@@ -18,12 +25,11 @@ const parse = data => {
 };
 
 const showMap = () => {
-  mapboxgl.accessToken =
-    'pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw';
+  mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   serviceMap = new mapboxgl.Map({
     container: mapContainer,
-    style: 'mapbox://styles/danielleterras/cjy6xbvqi20xk1cliotdrzpt5',
+    style: process.env.MAPBOX_STYLE,
     zoom: 11.5,
     center: [4.355, 50.847]
   });
@@ -136,7 +142,7 @@ const showMenuMap = () => {
 const ShowBikeInfraLayer = () => {
   serviceMap.addSource('bikeInfra', {
     type: 'geojson',
-    data: ' https://api.cyclingup.osoc.be/map/general/bike_infra'
+    data: MAP_GENERAL_API_URL + 'bike_infra'
   });
 
   serviceMap.addLayer(
@@ -161,7 +167,7 @@ const ShowBikeInfraLayer = () => {
 const ShowBikeParkingLayer = () => {
   serviceMap.addSource('bikeParking', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_parking'
+    data: MAP_GENERAL_API_URL + 'bike_parking'
   });
 
   serviceMap.addLayer({
@@ -180,7 +186,7 @@ const ShowBikeParkingLayer = () => {
 const showBikePumpLayer = () => {
   serviceMap.addSource('bikePump', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_pump'
+    data: MAP_GENERAL_API_URL + 'bike_pump'
   });
 
   serviceMap.addLayer({
@@ -199,7 +205,7 @@ const showBikePumpLayer = () => {
 const showBikeShopsLayer = () => {
   serviceMap.addSource('bikeShops', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_shop'
+    data: MAP_GENERAL_API_URL + 'bike_shop'
   });
 
   serviceMap.addLayer({
@@ -218,7 +224,7 @@ const showBikeShopsLayer = () => {
 const showVilloStationsLayer = () => {
   serviceMap.addSource('bikeVillo', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_villo'
+    data: MAP_GENERAL_API_URL + 'bike_villo'
   });
 
   serviceMap.addLayer({
@@ -237,7 +243,7 @@ const showVilloStationsLayer = () => {
 const showGFRNetworkLayer = () => {
   serviceMap.addSource('bikeGFR', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_icr'
+    data: MAP_GENERAL_API_URL + 'bike_icr'
   });
 
   serviceMap.addLayer(
