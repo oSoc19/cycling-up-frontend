@@ -21,7 +21,12 @@ $(function() {
   // _t.lang('_navigation', "en");
 
   $('.lang_selector').click(function(ev) {
-    const lang = $(this).attr('data-value');
+    const $this = $(this)
+    const lang = $this.attr('data-value');
+
+    $('.lang_selector.active').removeClass('active');
+    $this.addClass('active')
+
 
     const path = window.location.pathname.substr(1).slice(0, -5);
 
