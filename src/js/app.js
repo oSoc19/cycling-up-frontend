@@ -28,8 +28,7 @@ const init = function() {
 
   Commute.init();
   Evolution.init();
-
-  Villo();
+  Villo.init();
   Season();
   Count();
   // liveDataCount();
@@ -55,16 +54,11 @@ const init = function() {
   }
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.info('DOM loaded');
-  init();
-});
-
-
 function updateChartLanguage(err, lang, translation) {
   [
     Commute.onChangeLanguage,
-    Evolution.onChangeLanguage
+    Evolution.onChangeLanguage,
+    Villo.onChangeLanguage
   ]
   .forEach(changeLangFn => {
     changeLangFn.call(null, lang, translation)
@@ -111,3 +105,9 @@ const onLangSelectorClick = function(ev) {
   Translation.updateLang(path, lang, updateChartLanguage);
 
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.info('DOM loaded');
+  init();
+});

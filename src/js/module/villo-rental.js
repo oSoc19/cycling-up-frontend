@@ -41,7 +41,11 @@ export function init () {
   }
 };
 
-export function onChangeLanguage(lang, translations) {
-  console.log(lang, translations);
-  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+export function onChangeLanguage(lang, translation) {
+  if (!villoChart) {
+    return;
+  }
+  villoChart.data.datasets[0].label = translation['graph_legend'][lang]
+  villoChart.update()
+
 }
