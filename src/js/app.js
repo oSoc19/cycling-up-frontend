@@ -18,6 +18,7 @@ const getDomElements = () => {
   main = document.querySelector('main');
   $mobileMenu = document.querySelector('.l-header__toggle');
   $mobileMenu.addEventListener('click', onHandlerMenuClick);
+  $('.lang_selector').click(onLangSelectorClick);
 };
 
 const init = function() {
@@ -72,3 +73,18 @@ const onHandlerMenuClick = () => {
     }
   });
 };
+
+const onLangSelectorClick = function(ev) {
+  const $this = $(this)
+  const lang = $this.attr('data-value');
+
+  $('.lang_selector.active').removeClass('active');
+  $this.addClass('active')
+
+  const path = window.location.pathname.substr(1).slice(0, -5);
+
+  console.log(lang, path);
+
+  Translation.updateLang(path, lang)
+  ev.preventDefault();
+}
