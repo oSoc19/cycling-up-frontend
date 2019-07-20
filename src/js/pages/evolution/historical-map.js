@@ -1,15 +1,19 @@
 import mapboxgl from 'mapbox-gl';
 
 const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
+let historicalMap ;
 
 
-export function init ({ctx}) {
+export function showMap ({ctx}) {
+  if (!ctx) {
+    ctx = document.getElementById('#js-map-historical');
+  }
 
   const historicalLayerId = 'historical_map';
 
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
-  const historicalMap = new mapboxgl.Map({
+  historicalMap = new mapboxgl.Map({
     container: ctx,
     style: process.env.MAPBOX_STYLE,
     zoom: 11,
@@ -57,6 +61,8 @@ export function init ({ctx}) {
   window.addEventListener('load', () => {
     historicalMap.resize();
   });
+
+  return true;
 };
 
 

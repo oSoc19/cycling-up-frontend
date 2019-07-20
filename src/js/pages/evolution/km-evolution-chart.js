@@ -93,7 +93,7 @@ const km = [
 
 let evolutionChart;
 
-export function init() {
+export function showChart() {
 
   const ctx = document.getElementById(`js-canvas-evolution`);
   if (ctx) {
@@ -115,6 +115,8 @@ export function init() {
         responsive: false
       }
     });
+
+    return true;
   }
 };
 

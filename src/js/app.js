@@ -1,15 +1,19 @@
-import * as Evolution from './module/km-evolution';
 import * as Commute from './module/commute-to-work';
 import * as VilloRental from './module/villo-rental';
 import * as BikeSeasonCount from './module/bike-count-season';
 import * as BikeYearlyCount from './module/bike-count-per-year';
-import * as HistoricalMap from './module/historical-map';
 import * as ServiceMap from './module/service-map';
 import * as BikeMap from './module/bike-map';
 import * as VilloMap from './module/live-villo-count';
 //import liveDataCount from './module/live-data-count';
 
 import * as Translation from './module/translation.js';
+
+import EvolutionPage from "./pages/evolution";
+
+const pages = [
+  EvolutionPage
+]
 
 let $navDestinationTargets, $mobileMenu, main;
 
@@ -24,48 +28,54 @@ const getDomElements = () => {
 const init = function() {
   getDomElements();
 
-  Translation.init()
+  Translation.init();
 
-  Commute.init();
-  Evolution.init();
-  VilloRental.init();
-  BikeSeasonCount.init();
-  BikeYearlyCount.init();
-  // liveDataCount();
+  pages.forEach(page => {
+    if (Object.hasOwnProperty('init') && typeof page['init'] === 'function') {
+      page.init.call(page)
+    }
+  })
 
-  const $bikeMap = document.querySelector(`.js-map-bike`);
-  if ($bikeMap) {
-    BikeMap.init({ctx:$bikeMap});
-  }
+  // Commute.init();
+  // Evolution.init();
+  // VilloRental.init();
+  // BikeSeasonCount.init();
+  // BikeYearlyCount.init();
+  // // liveDataCount();
 
-  const $serviceMap = document.querySelector(`.js-map-service`);
-  if ($serviceMap) {
-    ServiceMap.init({ctx : $serviceMap});
-  }
+  // const $bikeMap = document.querySelector(`.js-map-bike`);
+  // if ($bikeMap) {
+  //   BikeMap.init({ctx:$bikeMap});
+  // }
 
-  const $historicalMap = document.querySelector(`.js-map-historical`);
-  if ($historicalMap) {
-    HistoricalMap.init({ctx: $historicalMap});
-  }
+  // const $serviceMap = document.querySelector(`.js-map-service`);
+  // if ($serviceMap) {
+  //   ServiceMap.init({ctx : $serviceMap});
+  // }
 
-  const $villoMap = document.querySelector(`.js-map-villo`);
-  if ($villoMap) {
-    VilloMap.init({ctx: $villoMap});
-  }
+  // const $historicalMap = document.querySelector(`.js-map-historical`);
+  // if ($historicalMap) {
+  //   HistoricalMap.init({ctx: $historicalMap});
+  // }
+
+  // const $villoMap = document.querySelector(`.js-map-villo`);
+  // if ($villoMap) {
+  //   VilloMap.init({ctx: $villoMap});
+  // }
 };
 
 function updateChartLanguage(err, lang, translation) {
-  [
-    Commute.onChangeLanguage,
-    Evolution.onChangeLanguage,
-    VilloRental.onChangeLanguage,
-    BikeSeasonCount.onChangeLanguage,
-    BikeYearlyCount.onChangeLanguage,
-    ServiceMap.onChangeLanguage,
-  ]
-  .forEach(changeLangFn => {
-    changeLangFn.call(null, lang, translation)
-  });
+  // [
+  //   Commute.onChangeLanguage,
+  //   Evolution.onChangeLanguage,
+  //   VilloRental.onChangeLanguage,
+  //   BikeSeasonCount.onChangeLanguage,
+  //   BikeYearlyCount.onChangeLanguage,
+  //   ServiceMap.onChangeLanguage,
+  // ]
+  // .forEach(changeLangFn => {
+  //   changeLangFn.call(null, lang, translation)
+  // });
 
 }
 
