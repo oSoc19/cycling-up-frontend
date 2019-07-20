@@ -1,13 +1,11 @@
 import mapboxgl from 'mapbox-gl';
 
-const jsonData = require("../../assets/data/service-map.json");
+const serviceJson = require("../../assets/data/service-map.json");
 
 const MAP_GENERAL_API_URL = process.env.API_URL + '/map/general/';
 
 
 let serviceMap;
-// let mapContainer;
-// let jsonData;
 let firstSymbolId;
 
 
@@ -109,20 +107,6 @@ const layers = [
   }
 ];
 
-
-
-// export default map => {
-//   mapContainer = map;
-//   fetch(`../assets/data/service-map.json`)
-//     .then(response => response.json())
-//     .then(data => parse(data));
-// };
-
-// const parse = data => {
-//   jsonData = data;
-
-// };
-
 export function init ({ctx}){
   showMap(ctx);
 }
@@ -167,11 +151,11 @@ const showMap = (mapContainer) => {
 
 
 const showMenuMap = () => {
-  const toggleableLayerIds = Object.keys(jsonData);
+  const toggleableLayerIds = Object.keys(serviceJson);
 
   for (let i = 0; i < toggleableLayerIds.length; i += 1) {
     const layerId = toggleableLayerIds[i];
-    const service = jsonData[layerId]
+    const service = serviceJson[layerId]
 
     const link = document.createElement('a');
     link.href = '#';
