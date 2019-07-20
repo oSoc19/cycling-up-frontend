@@ -1,23 +1,19 @@
 import mapboxgl from 'mapbox-gl';
+
+const serviceJson = require("../../assets/data/service-map.json");
+
+
+const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';
+
 let bikeMap;
 let mapContainer;
 // eslint-disable-next-line
 let jsonData;
 let firstSymbolId;
 
-export default map => {
-  mapContainer = map;
-  fetch(`../assets/data/service-map.json`)
-    .then(response => response.json())
-    .then(data => parse(data));
-};
 
-const parse = data => {
-  jsonData = data;
-  showMap();
-};
 
-const showMap = () => {
+export function init({ctx:mapContainer}) {
   mapboxgl.accessToken =  process.env.MAPBOX_ACCESS_TOKEN;
 
   bikeMap = new mapboxgl.Map({
@@ -46,7 +42,7 @@ const showMap = () => {
 const showGFRNetworkLayer = () => {
   bikeMap.addSource('bikeGFR', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_icr'
+    data: MAP_GFR_API_URL
   });
 
   bikeMap.addLayer(

@@ -35,7 +35,7 @@ const init = function() {
 
   const $bikeMap = document.querySelector(`.js-map-bike`);
   if ($bikeMap) {
-    BikeMap($bikeMap);
+    BikeMap.init({ctx:$bikeMap});
   }
 
   const $serviceMap = document.querySelector(`.js-map-service`);
@@ -45,12 +45,12 @@ const init = function() {
 
   const $historicalMap = document.querySelector(`.js-map-historical`);
   if ($historicalMap) {
-    HistoricalMap($historicalMap);
+    HistoricalMap.init({ctx: $historicalMap});
   }
 
   const $villoMap = document.querySelector(`.js-map-villo`);
   if ($villoMap) {
-    VilloMap($villoMap);
+    VilloMap.init({ctx: $villoMap});
   }
 };
 

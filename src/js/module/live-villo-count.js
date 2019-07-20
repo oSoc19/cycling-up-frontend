@@ -1,13 +1,15 @@
 import mapboxgl from 'mapbox-gl';
+
+
 let villoMap;
 let mapContainer;
 // eslint-disable-next-line
 let jsonData;
 
-const MAP_VILLO_API_URL = process.env.API_URL + '/map/general//bike_villo';
+const MAP_VILLO_API_URL = 'http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting';
 
 
-export default map => {
+export const map = () => {
   mapContainer = map;
   fetch(MAP_VILLO_API_URL)
     .then(response => response.json())
@@ -19,7 +21,9 @@ const parse = data => {
   showMap();
 };
 
-const showMap = () => {
+export const init = showMap;
+
+function showMap({ctx:mapContainer}) {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   villoMap = new mapboxgl.Map({
