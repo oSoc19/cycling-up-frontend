@@ -30,11 +30,15 @@ const init = function() {
 
   Translation.init();
 
-  pages.forEach(page => {
-    if (Object.hasOwnProperty('init') && typeof page['init'] === 'function') {
-      page.init.call(page)
+  for (const page of pages) {
+    if (page.hasOwnProperty('init') && typeof page['init'] === 'function') {
+      page.init.call(page);
+
+      if (page.hasOwnProperty('changeLanguage') && typeof page['changeLanguage'] === 'function') {
+        Translation.subscribe(page.changeLanguage);
+      }
     }
-  })
+  }
 
 
   // const $bikeMap = document.querySelector(`.js-map-bike`);

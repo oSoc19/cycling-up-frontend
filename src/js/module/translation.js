@@ -1,4 +1,4 @@
-import '../jquery.translate.js';
+import './jquery.translate';
 
 
 /**
@@ -17,6 +17,8 @@ const translations = {
   };
 
 let instance;
+
+const observers = [];
 
 
 export function init(params) {
@@ -40,24 +42,16 @@ export function updateLang(slide_path, lang = "en", callbackFn) {
   return callbackFn(null, lang, translations[slide_path])
 }
 
-// $(function() {
+export function subscribe(callbackFn) {
+  observers.push(callbackFn)
+}
 
+export function unsubscribe(callbackFn) {
+  observers = observers.filter(fn => fn !== callbackFn);
+}
 
-//   $('.lang_selector').click(function(ev) {
-//     const $this = $(this)
-//     const lang = $this.attr('data-value');
-
-//     $('.lang_selector.active').removeClass('active');
-//     $this.addClass('active')
-
-
-//     const
-
-//     console.log(lang, path);
-
-
-//     ev.preventDefault();
-//   });
-// });
-
-
+export function notifyAll(lang, translation) {
+  for (const subject of observers) {
+    subject(lang, translation)
+  }
+}
