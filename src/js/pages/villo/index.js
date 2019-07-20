@@ -3,28 +3,31 @@
 
 // Import
 
-
 // Mine
+//  import HistoricalMap from "./historical-map";
+ import VilloRentalChart from "./villo-rental-chart";
 
-import ServiceMap from './service-map';
 
 // -------------------------------------------------------------------
 // Properties
-
-const translations = require('../../../assets/i18n/services.json'),
+const translations = require('../../../assets/i18n/villo.json'),
 const isActive = false;
+
 
 
 
 // -------------------------------------------------------------------
 // Exports
 
+export const name = "villo";
+
 
 /**
  * Load the page with the necessary content (map, chart, ...)
  */
 export function init() {
-  ServiceMap.showMap()
+  // isActive = HistoricalMap.showMap();
+  isActive = isActive | VilloRentalChart.showChart();
 }
 
 
@@ -33,6 +36,7 @@ export function init() {
  * @param {string} lang  - The language selected
  * @param {Object} translations - The translations data for the current page
  */
-export function changeLanguage(lang, translations){
-
+export function changeLanguage(lang){
+  // HistoricalMap.onChangeLanguage(lang, translations);
+  VilloRentalChart.onChangeLanguage(lang. translations);
 }

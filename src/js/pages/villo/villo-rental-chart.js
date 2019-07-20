@@ -16,7 +16,7 @@ const rental = [
 
 let villoChart;
 
-export function init () {
+export function showChart () {
 
   const ctx = document.getElementById(`js-canvas-villo`);
   if (ctx) {

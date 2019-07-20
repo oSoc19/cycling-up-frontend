@@ -107,12 +107,9 @@ const layers = [
   }
 ];
 
-export function init ({ctx}){
-  showMap(ctx);
-}
 
 
-const showMap = (mapContainer) => {
+export function showMap (mapContainer) => {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   serviceMap = new mapboxgl.Map({

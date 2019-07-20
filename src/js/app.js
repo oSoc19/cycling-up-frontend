@@ -1,18 +1,18 @@
-import * as Commute from './pages/commute/commute-to-work';
-import * as VilloRental from './module/villo-rental';
-import * as BikeSeasonCount from './module/bike-count-season';
-import * as BikeYearlyCount from './module/bike-count-per-year';
-import * as ServiceMap from './module/service-map';
-import * as BikeMap from './module/bike-map';
-import * as VilloMap from './module/live-villo-count';
-//import liveDataCount from './module/live-data-count';
-
 import * as Translation from './module/translation.js';
 
 import EvolutionPage from "./pages/evolution";
+import CommutePage from "./pages/commute";
+import ServicePage from "./pages/services";
+import VilloPage from "./pages/villo"
+import BikeCountPage from "./pages/bike-count"
+
 
 const pages = [
-  EvolutionPage
+  EvolutionPage,
+  CommutePage,
+  ServicePage,
+  VilloPage,
+  BikeCountPage
 ]
 
 let $navDestinationTargets, $mobileMenu, main;
