@@ -1,4 +1,4 @@
-import * as Commute from './module/commute-to-work';
+import * as Commute from './pages/commute/commute-to-work';
 import * as VilloRental from './module/villo-rental';
 import * as BikeSeasonCount from './module/bike-count-season';
 import * as BikeYearlyCount from './module/bike-count-per-year';

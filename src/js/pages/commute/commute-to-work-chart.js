@@ -3,7 +3,7 @@ import Chart from 'chart.js';
 let commuteChart;
 
 
-export function init () {
+export function showChart() {
   // Our labels along the x-axis
   const years = [2005, 2011, 2014, 2017];
   // For drawing the lines

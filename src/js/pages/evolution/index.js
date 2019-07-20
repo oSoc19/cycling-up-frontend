@@ -3,8 +3,6 @@
 
 // Import
 
-// Built-in
-
 // Mine
  import HistoricalMap from "./historical-map";
  import KmEvolutionChart from "./km-evolution-chart";
@@ -38,7 +36,7 @@ export function init() {
  * @param {string} lang  - The language selected
  * @param {Object} translations - The translations data for the current page
  */
-export function changeLanguage(lang, translations){
+export function changeLanguage(lang){
   HistoricalMap.onChangeLanguage(lang, translations);
   KmEvolutionChart.onChangeLanguage(lang. translations);
 }
