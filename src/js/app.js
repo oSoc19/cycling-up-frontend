@@ -36,12 +36,6 @@ const init = function() {
     }
   })
 
-  // Commute.init();
-  // Evolution.init();
-  // VilloRental.init();
-  // BikeSeasonCount.init();
-  // BikeYearlyCount.init();
-  // // liveDataCount();
 
   // const $bikeMap = document.querySelector(`.js-map-bike`);
   // if ($bikeMap) {
@@ -63,24 +57,6 @@ const init = function() {
   //   VilloMap.init({ctx: $villoMap});
   // }
 };
-
-function updateChartLanguage(err, lang, translation) {
-  // [
-  //   Commute.onChangeLanguage,
-  //   Evolution.onChangeLanguage,
-  //   VilloRental.onChangeLanguage,
-  //   BikeSeasonCount.onChangeLanguage,
-  //   BikeYearlyCount.onChangeLanguage,
-  //   ServiceMap.onChangeLanguage,
-  // ]
-  // .forEach(changeLangFn => {
-  //   changeLangFn.call(null, lang, translation)
-  // });
-
-}
-
-
-
 
 
 const onHandlerMenuClick = () => {
@@ -116,7 +92,6 @@ const onLangSelectorClick = function(ev) {
   console.log(lang, path);
 
   Translation.updateLang(path, lang, updateChartLanguage);
-
 }
 
 
