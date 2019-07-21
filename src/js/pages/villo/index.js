@@ -10,7 +10,7 @@
 
 // -------------------------------------------------------------------
 // Properties
-const translations = require('../../../assets/i18n/villo.json'),
+const translations = require('../../../assets/i18n/villo.json');
 const isActive = false;
 
 

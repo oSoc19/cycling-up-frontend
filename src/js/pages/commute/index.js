@@ -10,7 +10,7 @@ import CommuteChart from './commute-to-work-chart';
 // -------------------------------------------------------------------
 // Properties
 
-const translations = require('../../../assets/i18n/commute.json'),
+const translations = require('../../../assets/i18n/commute.json');
 const isActive = false;
 
 

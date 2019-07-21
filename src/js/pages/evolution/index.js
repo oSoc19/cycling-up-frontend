@@ -10,7 +10,7 @@
 
 // -------------------------------------------------------------------
 // Properties
-const translations = require('../../../assets/i18n/historical-map.json'),
+const translations = require('../../../assets/i18n/historical-map.json');
 const isActive = false;
 
 

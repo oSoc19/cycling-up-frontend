@@ -11,7 +11,7 @@ import ServiceMap from './service-map';
 // -------------------------------------------------------------------
 // Properties
 
-const translations = require('../../../assets/i18n/services.json'),
+const translations = require('../../../assets/i18n/services.json');
 const isActive = false;
 
 

@@ -1,6 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 
-const serviceJson = require("../../assets/data/service-map.json");
+const serviceJson = require("../../../assets/data/service-map.json");
 
 
 const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';

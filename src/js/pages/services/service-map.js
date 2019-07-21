@@ -1,6 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 
-const serviceJson = require("../../assets/data/service-map.json");
+const serviceJson = require("../../../assets/data/service-map.json");
 
 const MAP_GENERAL_API_URL = process.env.API_URL + '/map/general/';
 
@@ -109,7 +109,7 @@ const layers = [
 
 
 
-export function showMap (mapContainer) => {
+export function showMap (mapContainer) {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   serviceMap = new mapboxgl.Map({

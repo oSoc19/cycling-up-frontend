@@ -10,7 +10,7 @@ import VilloRentalChart from "./villo-rental-chart";
 
 // -------------------------------------------------------------------
 // Properties
-const translations = require('../../../assets/i18n/bike-count.json'),
+const translations = require('../../../assets/i18n/bike-count.json');
 const isActive = false;
 
 
