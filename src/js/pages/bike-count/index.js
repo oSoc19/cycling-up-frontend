@@ -30,7 +30,7 @@ export function init() {
 
   if (isActive()) {
     const mapContainer = document.getElementById('js-map-bike');
-    BikeMap.showMap(mapContainer);
+    BikeMap.showMap(mapContainer, (id, name) => console.log(id, name));
 
     const chartContainer =  document.getElementById(`js-canvas-evolution`);
     KmEvolutionChart.showChart(chartContainer);

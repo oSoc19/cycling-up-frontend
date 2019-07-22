@@ -5,14 +5,14 @@ const serviceJson = require("../../../assets/data/service-map.json");
 
 const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';
 
-const MAP_BIKE_STATIONS = "https://raw.githubusercontent.com/oSoc19/cycling-up-backend/1dd28ecea9e4bb4644ffe0d400334afbdc4bce39/process_data/historic_data/historic_bike_stations.json"
+const MAP_BIKE_STATIONS = process.env.API_URL + '/bike_count/stations';
 
 let bikeMap;
 let firstSymbolId;
 
 
 
-export function showMap(container) {
+export function showMap(container, onSelectStation) {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   bikeMap = new mapboxgl.Map({
@@ -41,6 +41,9 @@ export function showMap(container) {
   // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
   bikeMap.on('click', 'bike_station', (e) => {
     bikeMap.flyTo({ center: e.features[0].geometry.coordinates });
+    if (onSelectStation) {
+      onSelectStation(e.features[0].id, e.features[0].properties['name']);
+    }
   });
 
   // Change the cursor to a pointer when the it enters a feature in the 'bike_station' layer.
