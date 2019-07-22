@@ -1,6 +1,7 @@
 body {
   @include font-smoothing(antialiased);
   overflow-x: hidden;
+  overflow-y: hidden;
   color: $font-color;
   font-family: font-family(base);
   font-size: font-size(base);
@@ -24,6 +25,11 @@ p,
 .paragraph {
   color: pal-color(gray, light);
   font-family: font-family(paragraph);
+
+  @media only screen and (max-width: 1024px) {
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
 
 a,

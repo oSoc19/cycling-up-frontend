@@ -3,7 +3,7 @@
   font-family: AvenirNext-Medium, Helvetica,sans-serif;
 
   @media only screen and (max-width: 1024px) {
-    padding-top: 25px;
+    padding-top: 55px;
   }
 
   @media only screen and (max-width: 992px) {
@@ -22,6 +22,10 @@
 
     &__item {
       padding: 20px 0px 20px 40px;
+
+      @media only screen and (max-width: 1024px) {
+        padding: 10px 0px 10px 20px;
+      }
 
       &:hover {
         background-color: pal-color(yellow);
@@ -52,6 +56,11 @@
   position: fixed;
   left: 35px;
   bottom: 35px;
+
+  @media only screen and (min-width: 1024px) {
+    left: 20px;
+    bottom: 20px;
+  }
 }
 
 .lang-btn {
@@ -64,6 +73,11 @@
   font-size: 16px;
   font-family: "CircularStd-Black";
 
+  @media only screen and (min-width: 1024px) {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+
   &:hover {
     cursor: pointer;
   }
@@ -71,4 +85,10 @@
 
 .active {
   color: pal-color(yellow);
+}
+
+.anchor {
+  @media only screen and (max-width: 1024px) {
+    font-size: 12px;
+  }
 }
