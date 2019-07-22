@@ -4,14 +4,13 @@
 // Import
 
 // Mine
- import BikeMap from "./bike-map";
-import VilloRentalChart from "./villo-rental-chart";
+ import * as BikeMap from "./bike-map";
+// import * as VilloRentalChart from "./villo-rental-chart";
 
 
 // -------------------------------------------------------------------
 // Properties
 const translations = require('../../../assets/i18n/bike-count.json');
-const isActive = false;
 
 
 
@@ -21,13 +20,25 @@ const isActive = false;
 
 export const name = "bike-count";
 
+export const isActive = () => document.getElementById('bike-count') != null;
+
 
 /**
  * Load the page with the necessary content (map, chart, ...)
  */
 export function init() {
-  isActive = BikeMap.showMap();
-  isActive = isActive | VilloRentalChart.showChart();
+
+  if (isActive()) {
+    const mapContainer = document.getElementById('js-map-bike');
+    BikeMap.showMap(mapContainer);
+
+    const chartContainer =  document.getElementById(`js-canvas-evolution`);
+    KmEvolutionChart.showChart(chartContainer);
+
+    if (callback) {
+      return callback(translations)
+    }
+  }
 }
 
 
@@ -37,6 +48,6 @@ export function init() {
  * @param {Object} translations - The translations data for the current page
  */
 export function changeLanguage(lang){
-  BikeMap.onChangeLanguage(lang, translations);
-  VilloRentalChart.onChangeLanguage(lang. translations);
+  BikeMap.onChangeLanguage(translations);
+  // VilloRentalChart.onChangeLanguage(lang. translations);
 }

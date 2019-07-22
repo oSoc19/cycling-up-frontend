@@ -4,14 +4,13 @@
 // Import
 
 // Mine
- import HistoricalMap from "./historical-map";
- import KmEvolutionChart from "./km-evolution-chart";
+ import * as HistoricalMap from "./historical-map";
+ import * as KmEvolutionChart from "./km-evolution-chart";
 
 
 // -------------------------------------------------------------------
 // Properties
 const translations = require('../../../assets/i18n/historical-map.json');
-const isActive = false;
 
 
 
@@ -21,22 +20,33 @@ const isActive = false;
 
 export const name = "evolution";
 
+export const isActive = () => document.getElementById('historical-map') != null;
 
 /**
  * Load the page with the necessary content (map, chart, ...)
  */
-export function init() {
-  isActive = HistoricalMap.showMap();
-  isActive = isActive | KmEvolutionChart.showChart();
+export function init(callback) {
+
+  if (isActive()) {
+    const mapContainer = document.getElementById('js-map-historical');
+    HistoricalMap.showMap(mapContainer);
+
+    const chartContainer =  document.getElementById(`js-canvas-evolution`);
+    KmEvolutionChart.showChart(chartContainer);
+
+    if (callback) {
+      return callback(translations)
+    }
+  }
 }
 
 
 /**
  *
  * @param {string} lang  - The language selected
- * @param {Object} translations - The translations data for the current page
  */
 export function changeLanguage(lang){
+  console.log(lang);
   HistoricalMap.onChangeLanguage(lang, translations);
-  KmEvolutionChart.onChangeLanguage(lang. translations);
+  KmEvolutionChart.onChangeLanguage(translations['graph_legend'][lang]);
 }

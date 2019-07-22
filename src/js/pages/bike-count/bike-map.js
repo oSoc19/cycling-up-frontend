@@ -6,18 +6,15 @@ const serviceJson = require("../../../assets/data/service-map.json");
 const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';
 
 let bikeMap;
-let mapContainer;
-// eslint-disable-next-line
-let jsonData;
 let firstSymbolId;
 
 
 
-export function init({ctx:mapContainer}) {
+export function showMap(container) {
   mapboxgl.accessToken =  process.env.MAPBOX_ACCESS_TOKEN;
 
   bikeMap = new mapboxgl.Map({
-    container: mapContainer,
+    container,
     style: process.env.MAPBOX_STYLE,
     zoom: 11.5,
     center: [4.355, 50.847]
@@ -64,7 +61,7 @@ const showGFRNetworkLayer = () => {
 };
 
 
-export function onChangeLanguage(lang, translations) {
-  console.log(lang, translations);
+export function onChangeLanguage(translations) {
+  console.log(translations);
   // commuteChart.data.datasets[0].label = translations[lang]['legend']
 }
