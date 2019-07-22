@@ -1,6 +1,10 @@
 main {
   width: calc(100vw - 300px);
 
+  @media only screen and (max-width: 1024px) {
+    width: calc(100vw - 20vw);
+  }
+
   @media only screen and (max-width: 992px) {
     width: 100vw;
   }

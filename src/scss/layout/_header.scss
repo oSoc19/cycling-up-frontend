@@ -5,6 +5,14 @@
 
   &__container {
     padding: 70px 0 0 45px;
+
+    @media only screen and (min-width: 1024px) {
+      padding: 40px 0 0 25px;
+     }
+  }
+
+  @media only screen and (min-width: 1024px) {
+   width: 20vw;
   }
 }
 

@@ -1,20 +1,17 @@
-
-span {
-    color: pal-color(blue);
-    background-color: pal-color(white);
-    display: inline-block;
-    line-height: 55px;
-    margin-left: 50px;
-    margin-top: 10px;
-    padding: 0px 15px;
-}
-
 .background-title {
   color: pal-color(blue);
   background-color: pal-color(white);
   padding: 0px 5px 15px 5px;
   width: fit-content;
   display: inline-block;
+}
+
+.background-color {
+  color: pal-color(blue);
+    background-color: pal-color(white);
+    display: inline-block;
+    line-height: 55px;
+    padding: 0px 15px;
 }
 
 .header-page-title {
@@ -24,6 +21,7 @@ span {
   @media only screen and (max-width: 1024px) {
     font-size: 36px;
     margin-top: 5rem;
+    margin-bottom: 0.5rem;
   }
 }
 

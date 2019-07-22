@@ -16,6 +16,10 @@
     display: flex;
     width: calc(100vw - 300px);
 
+    @media only screen and (max-width: 1024px) {
+      width: calc(100vw - 20vw);
+    }
+
     @media only screen and (max-width: 992px) {
       width: 100vw;
     }
@@ -31,6 +35,7 @@
     align-items: center;
     width: calc(100vw - 60vw);
 
+
     @media only screen and (max-width: 800px) {
       order: 1;
       width: 100vw;
@@ -43,6 +48,10 @@
 
     p {
       padding: 70px;
+
+      @media only screen and (max-width: 1024px) {
+        padding: 50px;
+      }
 
       @media only screen and (max-width: 800px) {
         padding: 0px 20px 35px
