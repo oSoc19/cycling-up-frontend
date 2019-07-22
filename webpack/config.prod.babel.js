@@ -8,6 +8,10 @@ const globImporter = require('node-sass-glob-importer');
 const webpack = require('webpack');
 
 
+const BASE_DIR = path.resolve(__dirname, '..')
+
+const dotenv = require('dotenv').config({path: BASE_DIR + '/.env'});
+
 const htmlFileNames = fs.readdirSync('./src/html/');
 
 const getEntries = () => {
@@ -41,6 +45,9 @@ const getPlugins = () => {
         new webpack.ProvidePlugin({
           $: "jquery",
           jQuery: "jquery"
+      }),
+      new webpack.DefinePlugin({
+        "process.env": JSON.stringify(dotenv.parsed)
       })
     ];
     htmlFileNames.forEach(filename => {
