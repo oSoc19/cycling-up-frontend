@@ -1,10 +1,12 @@
 import * as Translation from './module/translation.js';
 
-import EvolutionPage from "./pages/evolution";
-import CommutePage from "./pages/commute";
-import ServicePage from "./pages/services";
-import VilloPage from "./pages/villo"
-import BikeCountPage from "./pages/bike-count"
+import * as EvolutionPage from "./pages/evolution";
+import * as CommutePage from "./pages/commute";
+import * as ServicePage from "./pages/services";
+import * as VilloPage from "./pages/villo"
+import * as BikeCountPage from "./pages/bike-count"
+
+const navigationTranslation = require('../assets/i18n/_navigation.json');
 
 
 const pages = [
@@ -30,13 +32,19 @@ const init = function() {
 
   Translation.init();
 
+  Translation.addTranslation('_navigation', navigationTranslation)
+
   for (const page of pages) {
     if (page.hasOwnProperty('init') && typeof page['init'] === 'function') {
-      page.init.call(page);
+      page.init.call(page, (trans) => {
+        Translation.addTranslation('active', trans)
 
-      if (page.hasOwnProperty('changeLanguage') && typeof page['changeLanguage'] === 'function') {
-        Translation.subscribe(page.changeLanguage);
-      }
+        if (page.hasOwnProperty('changeLanguage') && typeof page['changeLanguage'] === 'function') {
+          Translation.subscribe(page.changeLanguage, page);
+        }
+      });
+
+
     }
   }
 
@@ -91,11 +99,12 @@ const onLangSelectorClick = function(ev) {
   $('.lang_selector.active').removeClass('active');
   $this.addClass('active')
 
-  const path = window.location.pathname.substr(1).slice(0, -5);
+  // const path = window.location.pathname.substr(1).slice(0, -5);
 
-  console.log(lang, path);
+  console.log(lang);
 
-  Translation.updateLang(path, lang, updateChartLanguage);
+  Translation.updateLang(lang);
+  Translation.notifyAll(lang)
 }
 
 

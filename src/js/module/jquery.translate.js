@@ -18,7 +18,7 @@
     var _default_opts = {
       css: "i18n", // trn
       lang: "en",
-      currentSlide : "index"
+      t : {},
     };
 
     const settings = $.extend(_default_opts, options || {});
@@ -32,8 +32,7 @@
     this.lang = function(slide, l) {
       if (l) {
         settings.lang = l;
-        settings.currentSlide = slide;
-        this.translate(settings);  //translate everything
+        this.translate(slide, settings);  //translate everything
       }
 
       return settings.lang;
@@ -54,9 +53,13 @@
       return (res) ? res : null ;
     };
 
+    this.add = function (key, translation) {
+      translations[key] = translation;
+    }
+
 
     //main
-    this.translate = _ => {
+    this.translate = (slide) => {
 
       this.find(settings.css).each((i, element) => {
         var $this = $(element);
@@ -64,7 +67,7 @@
         var i18n_key = $this.attr("data-i18n-key");
 
         if (i18n_key) {
-          const trans = this.get(settings.currentSlide, i18n_key)
+          const trans = this.get(slide, i18n_key)
           if(trans) {
             $this.html(trans);
           }

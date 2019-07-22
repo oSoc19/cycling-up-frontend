@@ -22,36 +22,45 @@ const observers = [];
 
 
 export function init(params) {
-  instance = $('body').translation({ lang: 'en', t: translations });
+  instance = $('body').translation({ lang: 'en' });
   return [instance, Object.keys(translations)]
 }
 
 
-export function updateLang(slide_path, lang = "en", callbackFn) {
+export function addTranslation(name="active", translation) {
+  instance.add(name, translation)
+}
+
+
+export function updateLang(lang = "en", callbackFn) {
   if (!instance) {
     throw new Error("Translation not initialized");
   }
 
-  if (!slide_path) {
-    slide_path = window.location.pathname.substr(1).slice(0, -5);
-  }
+  // if (!slide_path) {
+  //   slide_path = window.location.pathname.substr(1).slice(0, -5);
+  // }
 
   instance.lang('_navigation', lang);
-  instance.lang(slide_path, lang);
+  instance.lang("active", lang);
 
-  return callbackFn(null, lang, translations[slide_path])
+  if (callbackFn){
+    return callbackFn(null, lang)
+  }
 }
 
-export function subscribe(callbackFn) {
-  observers.push(callbackFn)
+
+
+export function subscribe(callbackFn, context) {
+  observers.push([callbackFn, context])
 }
 
 export function unsubscribe(callbackFn) {
   observers = observers.filter(fn => fn !== callbackFn);
 }
 
-export function notifyAll(lang, translation) {
-  for (const subject of observers) {
-    subject(lang, translation)
+export function notifyAll(lang) {
+  for (const [subject, context] of observers) {
+    subject.call(context, lang)
   }
 }
