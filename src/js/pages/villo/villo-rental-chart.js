@@ -16,9 +16,8 @@ const rental = [
 
 let villoChart;
 
-export function showChart () {
+export function showChart (ctx) {
 
-  const ctx = document.getElementById(`js-canvas-villo`);
   if (ctx) {
     villoChart= new Chart(ctx, {
       type: 'line',
@@ -41,11 +40,11 @@ export function showChart () {
   }
 };
 
-export function onChangeLanguage(lang, translation) {
+export function onChangeLanguage(graph_legend) {
   if (!villoChart) {
     return;
   }
-  villoChart.data.datasets[0].label = translation['graph_legend'][lang]
+  villoChart.data.datasets[0].label = graph_legend
   villoChart.update()
 
 }

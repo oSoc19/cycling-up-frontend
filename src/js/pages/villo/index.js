@@ -4,14 +4,13 @@
 // Import
 
 // Mine
-//  import HistoricalMap from "./historical-map";
- import VilloRentalChart from "./villo-rental-chart";
+//  import * as HistoricalMap from "./historical-map";
+ import * as VilloRentalChart from "./villo-rental-chart";
 
 
 // -------------------------------------------------------------------
 // Properties
 const translations = require('../../../assets/i18n/villo.json');
-const isActive = false;
 
 
 
@@ -21,22 +20,32 @@ const isActive = false;
 
 export const name = "villo";
 
+export const isActive = () => document.getElementById('villo') != null;
+
 
 /**
  * Load the page with the necessary content (map, chart, ...)
  */
-export function init() {
-  // isActive = HistoricalMap.showMap();
-  isActive = isActive | VilloRentalChart.showChart();
+export function init(callback) {
+  if (isActive()) {
+    // const mapContainer = document.querySelector(`.js-map-villo`);
+    // HistoricalMap.showMap(mapContainer);
+
+    const chartContainer =  document.getElementById('js-canvas-villo');
+    VilloRentalChart.showChart(chartContainer);
+
+    if (callback) {
+      return callback(translations)
+    }
+  }
 }
 
 
 /**
  *
  * @param {string} lang  - The language selected
- * @param {Object} translations - The translations data for the current page
  */
 export function changeLanguage(lang){
   // HistoricalMap.onChangeLanguage(lang, translations);
-  VilloRentalChart.onChangeLanguage(lang. translations);
+  VilloRentalChart.onChangeLanguage(translations['graph_legend'][lang]);
 }
