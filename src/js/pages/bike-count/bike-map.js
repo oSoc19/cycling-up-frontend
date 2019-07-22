@@ -13,7 +13,7 @@ let firstSymbolId;
 
 
 export function showMap(container) {
-  mapboxgl.accessToken =  process.env.MAPBOX_ACCESS_TOKEN;
+  mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   bikeMap = new mapboxgl.Map({
     container,
@@ -37,6 +37,22 @@ export function showMap(container) {
     showGFRNetworkLayer();
     showSations();
   });
+
+  // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
+  bikeMap.on('click', 'bike_station', (e) => {
+    bikeMap.flyTo({ center: e.features[0].geometry.coordinates });
+  });
+
+  // Change the cursor to a pointer when the it enters a feature in the 'bike_station' layer.
+  bikeMap.on('mouseenter', 'bike_station', () => {
+    bikeMap.getCanvas().style.cursor = 'pointer';
+  });
+
+  // Change it back to a pointer when it leaves.
+  bikeMap.on('mouseleave', 'bike_station', () => {
+    bikeMap.getCanvas().style.cursor = '';
+  });
+
 };
 
 const showGFRNetworkLayer = () => {
@@ -76,7 +92,7 @@ const showSations = () => {
     {
       id: 'bike_station',
       type: 'circle',
-      source : "bike_stations",
+      source: "bike_stations",
       filter: ["==", "$type", "Point"],
       paint: {
         'circle-color': '#2d3e71',
