@@ -4,17 +4,13 @@ const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
 let historicalMap ;
 
 
-export function showMap ({ctx}) {
-  if (!ctx) {
-    ctx = document.getElementById('#js-map-historical');
-  }
-
+export function showMap (container) {
   const historicalLayerId = 'historical_map';
 
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   historicalMap = new mapboxgl.Map({
-    container: ctx,
+    container,
     style: process.env.MAPBOX_STYLE,
     zoom: 11,
     center: [4.35500, 50.84700]

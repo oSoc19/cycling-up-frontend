@@ -120,11 +120,11 @@ export function showChart() {
   }
 };
 
-export function onChangeLanguage(lang, translation) {
+export function onChangeLanguage(graph_legend) {
   if (!evolutionChart) {
     return;
   }
-  evolutionChart.data.datasets[0].label = translation['graph_legend'][lang]
+  evolutionChart.data.datasets[0].label = graph_legend
   evolutionChart.update()
 
 }
