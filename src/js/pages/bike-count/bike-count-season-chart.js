@@ -206,13 +206,17 @@ export function onSelectedBikeStation(stationId, stationName) {
       for (const count_month of count) {
         const data = Object.values(properties.count_data[count_month.id])
         const dataset = Object.assign(count_month, {
-          fill : false,
+          fill: false,
           data
         });
         newDataSet.push(dataset);
       }
 
       bikeCountChart.data.datasets = newDataSet;
+      bikeCountChart.options.title = {
+        display: true,
+        text: stationName
+      };
       bikeCountChart.update()
     })
 }
