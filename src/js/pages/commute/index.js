@@ -4,14 +4,13 @@
 // Import
 
 // Mine
-import CommuteChart from './commute-to-work-chart';
+import * as CommuteChart from './commute-to-work-chart';
 
 
 // -------------------------------------------------------------------
 // Properties
 
 const translations = require('../../../assets/i18n/commute.json');
-const isActive = false;
 
 
 
@@ -20,12 +19,21 @@ const isActive = false;
 
 export const name = "commute";
 
+export const isActive = () => document.getElementById('commute') != null;
+
 
 /**
  * Load the page with the necessary content (map, chart, ...)
  */
-export function init() {
-  CommuteChart.showChart();
+export function init(callback) {
+  if (isActive()) {
+    const chartContainer = document.getElementById(`js-canvas-commute`)
+    CommuteChart.showChart(chartContainer);
+
+    if (callback) {
+      return callback(translations)
+    }
+  }
 }
 
 
@@ -35,5 +43,5 @@ export function init() {
  * @param {Object} translations - The translations data for the current page
  */
 export function changeLanguage(lang){
-
+  CommuteChart.onChangeLanguage(translations['graph_legend'][lang])
 }

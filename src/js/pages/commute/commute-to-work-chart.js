@@ -3,15 +3,14 @@ import Chart from 'chart.js';
 let commuteChart;
 
 
-export function showChart() {
+export function showChart(ctx) {
   // Our labels along the x-axis
   const years = [2005, 2011, 2014, 2017];
   // For drawing the lines
   const percentage = [1.2, 1.9, 3, 4.4];
 
-  const _ctx = document.getElementById(`js-canvas-commute`);
-  if (_ctx) {
-     commuteChart = new Chart(_ctx, {
+  if (ctx) {
+     commuteChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: years,
@@ -42,11 +41,11 @@ export function showChart() {
   }
 };
 
-export function onChangeLanguage(lang, translation) {
+export function onChangeLanguage(graph_legend) {
   if (!commuteChart) {
     return;
   }
-  commuteChart.data.datasets[0].label = translation['graph_legend'][lang]
+  commuteChart.data.datasets[0].label = graph_legend
   commuteChart.update()
 
 }
