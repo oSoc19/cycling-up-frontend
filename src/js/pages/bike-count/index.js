@@ -5,7 +5,8 @@
 
 // Mine
  import * as BikeMap from "./bike-map";
-// import * as VilloRentalChart from "./villo-rental-chart";
+ import * as BikeCountPerSeasonChart from "./bike-count-season-chart";
+ import * as BikeCountPerYearChart from "./bike-count-per-year-chart";
 
 
 // -------------------------------------------------------------------
@@ -30,10 +31,12 @@ export function init() {
 
   if (isActive()) {
     const mapContainer = document.getElementById('js-map-bike');
-    BikeMap.showMap(mapContainer, (id, name) => console.log(id, name));
+    BikeMap.showMap(mapContainer, BikeCountPerSeasonChart.onSelectedBikeStation);
 
-    const chartContainer =  document.getElementById(`js-canvas-evolution`);
-    KmEvolutionChart.showChart(chartContainer);
+    const chartContainer =  document.getElementById(`js-canvas-season`);
+    // BikeCountPerYearChart.showChart(chartContainer);
+
+    BikeCountPerSeasonChart.showChart(chartContainer);
 
     if (callback) {
       return callback(translations)
@@ -45,9 +48,10 @@ export function init() {
 /**
  *
  * @param {string} lang  - The language selected
- * @param {Object} translations - The translations data for the current page
+ * @param {Object} translations - The translations data for BikeCountPerYearChartcurrent page
  */
 export function changeLanguage(lang){
   BikeMap.onChangeLanguage(translations);
-  // VilloRentalChart.onChangeLanguage(lang. translations);
+  BikeCountPerYearChart.onChangeLanguage(translations);
+  BikeCountPerSeasonChart.onChangeLanguage(translations);
 }

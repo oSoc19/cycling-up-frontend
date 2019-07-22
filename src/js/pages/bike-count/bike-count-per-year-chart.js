@@ -1,6 +1,6 @@
 import Chart from 'chart.js';
 // Our labels along the x-axis
-const years = [
+let years = [
   1998,
   1999,
   2000,
@@ -23,7 +23,7 @@ const years = [
   2017
 ];
 // For drawing the lines
-const count = [
+let count = [
   2030,
   1973,
   2181,
@@ -46,11 +46,12 @@ const count = [
   14926
 ];
 
+const API_BIKE_DATA_BY_ID = process.env.API_URL + "bike_count/";
+
 let bikeCountChart;
 
-export function init () {
+export function showChart (ctx) {
 
-  const ctx = document.getElementById(`js-canvas-bike`);
   if (ctx) {
     bikeCountChart = new Chart(ctx, {
       type: 'bar',
@@ -78,4 +79,12 @@ export function onChangeLanguage(lang, translation) {
 
   bikeCountChart.data.datasets[0].label = translation['graph_legend'][lang]
   bikeCountChart.update
+}
+
+export function onSelectedBikeStation(stationId, stationName) {
+  // fetch(API_BIKE_DATA_BY_ID + stationId)
+  // .then(res => res.json())
+  // .then(data => {
+
+  // })
 }
