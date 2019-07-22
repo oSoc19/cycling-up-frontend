@@ -1,6 +1,6 @@
-import evolution from './module/km-evolution';
-import commute from './module/commute-to-work';
-import villo from './module/villo-rental';
+import * as evolution from './module/km-evolution';
+import * as commute from './module/commute-to-work';
+import * as villo from './module/villo-rental';
 import season from './module/bike-count-season';
 import count from './module/bike-count-per-year';
 
@@ -25,10 +25,10 @@ const getDomElements = () => {
 
 const init = function() {
   getDomElements();
-  commute();
-  evolution();
+  commute.init();
+  evolution.init();
 
-  villo();
+  villo.init();
   season();
   count();
   // liveDataCount();
