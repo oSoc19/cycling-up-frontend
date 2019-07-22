@@ -6,33 +6,41 @@
 
 // Mine
 
-import ServiceMap from './service-map';
+import * as ServiceMap from './service-map';
 
 // -------------------------------------------------------------------
 // Properties
 
 const translations = require('../../../assets/i18n/services.json');
-const isActive = false;
-
 
 
 // -------------------------------------------------------------------
 // Exports
 
+export const name = "evolution";
+
+export const isActive = () => document.getElementById('services') != null;
+
 
 /**
  * Load the page with the necessary content (map, chart, ...)
  */
-export function init() {
-  ServiceMap.showMap()
+export function init(callback) {
+  if (isActive()) {
+    const mapContainer = document.getElementById('map')
+    ServiceMap.showMap(mapContainer);
+
+    if (callback) {
+      return callback(translations)
+    }
+  }
 }
 
 
 /**
  *
  * @param {string} lang  - The language selected
- * @param {Object} translations - The translations data for the current page
  */
-export function changeLanguage(lang, translations){
-
+export function changeLanguage(lang){
+  ServiceMap.onChangeLanguage(translations)
 }

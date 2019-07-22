@@ -213,7 +213,7 @@ const showMapLayers = () => {
 
 
 
-export function onChangeLanguage(lang, translations) {
-  console.log(lang, translations);
+export function onChangeLanguage(translations) {
+  console.log(translations);
   // commuteChart.data.datasets[0].label = translations[lang]['legend']
 }
