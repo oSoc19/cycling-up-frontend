@@ -1,6 +1,7 @@
 import Chart from 'chart.js';
 
 const apiChartCommuteDataUrl = `${process.env.API_URL}/historical/commuting`;
+let evolutionChart;
 
 const fetchData = () => {
   return fetch(apiChartCommuteDataUrl).then(r => r.json());
@@ -18,7 +19,7 @@ export function showChart(chartData) {
 
   const ctx = document.getElementById(`js-canvas-evolution`);
   if (ctx) {
-    new Chart(ctx, {
+    evolutionChart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: years,
@@ -37,4 +38,13 @@ export function showChart(chartData) {
       }
     });
   }
+};
+
+export function onChangeLanguage(lang, translation) {
+  if (!evolutionChart) {
+    return;
+  }
+  evolutionChart.data.datasets[0].label = translation['graph_legend'][lang]
+  evolutionChart.update()
+
 }

@@ -1,29 +1,24 @@
 import mapboxgl from 'mapbox-gl';
+
+const serviceJson = require("../../assets/data/service-map.json");
+
+
+const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';
+
 let bikeMap;
 let mapContainer;
 // eslint-disable-next-line
 let jsonData;
 let firstSymbolId;
 
-export default map => {
-  mapContainer = map;
-  fetch(`../assets/data/service-map.json`)
-    .then(response => response.json())
-    .then(data => parse(data));
-};
 
-const parse = data => {
-  jsonData = data;
-  showMap();
-};
 
-const showMap = () => {
-  mapboxgl.accessToken =
-    'pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw';
+export function init({ctx:mapContainer}) {
+  mapboxgl.accessToken =  process.env.MAPBOX_ACCESS_TOKEN;
 
   bikeMap = new mapboxgl.Map({
     container: mapContainer,
-    style: 'mapbox://styles/danielleterras/cjy6xbvqi20xk1cliotdrzpt5',
+    style: process.env.MAPBOX_STYLE,
     zoom: 11.5,
     center: [4.355, 50.847]
   });
@@ -34,12 +29,11 @@ const showMap = () => {
 
   bikeMap.on('load', () => {
     const layers = bikeMap.getStyle().layers;
+
     // Find the index of the first symbol layer in the map style
-    for (let i = 0;i < layers.length;i += 1) {
-      if (layers[i].type === 'symbol') {
-        firstSymbolId = layers[i].id;
-        break;
-      }
+    const layer = layers.find(layer => layer.type === 'symbol')
+    if (layer) {
+      firstSymbolId = layer.id;
     }
     showGFRNetworkLayer();
   });
@@ -48,7 +42,7 @@ const showMap = () => {
 const showGFRNetworkLayer = () => {
   bikeMap.addSource('bikeGFR', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_icr'
+    data: MAP_GFR_API_URL
   });
 
   bikeMap.addLayer(
@@ -68,3 +62,9 @@ const showGFRNetworkLayer = () => {
     firstSymbolId
   );
 };
+
+
+export function onChangeLanguage(lang, translations) {
+  console.log(lang, translations);
+  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+}

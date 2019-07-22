@@ -1,22 +1,63 @@
-$(function() {
+import '../jquery.translate.js';
 
-  var t = {
-    testTitle: {
-      eng: '<span>How many people ride</span> <span>their bike to work?</span>',
-      fr: '<span class="h1-title">French</span>',
-      nl: '<span class="h1-title">Dutch</span>',
-    }
+
+/**
+ * Translations data container grouped by the slide name in
+ * browser location URL path without the heading '/'.
+ * This URL path will be used to identify the current slide page.
+ */
+const translations = {
+  // NOTE: Dynamic import with the assetsDir variable does not work
+  _navigation: require('../../assets/i18n/_navigation.json'),
+  'historical-map': require('../../assets/i18n/historical-map.json'),
+    commute: require('../../assets/i18n/commute.json'),
+    services: require('../../assets/i18n/services.json'),
+    villo: require('../../assets/i18n/villo.json'),
+    'bike-count': require('../../assets/i18n/bike-count.json')
   };
-  var _t = $('body').translate({lang: "eng", t: t});
-  var str = _t.g("translate");
-  console.log(str);
+
+let instance;
 
 
-  $(".lang_selector").click(function(ev) {
-    var lang = $(this).attr("data-value");
-    _t.lang(lang);
+export function init(params) {
+  instance = $('body').translation({ lang: 'en', t: translations });
+  return [instance, Object.keys(translations)]
+}
 
-    console.log(lang);
-    ev.preventDefault();
-  });
-})
+
+export function updateLang(slide_path, lang = "en", callbackFn) {
+  if (!instance) {
+    throw new Error("Translation not initialized");
+  }
+
+  if (!slide_path) {
+    slide_path = window.location.pathname.substr(1).slice(0, -5);
+  }
+
+  instance.lang('_navigation', lang);
+  instance.lang(slide_path, lang);
+
+  return callbackFn(null, lang, translations[slide_path])
+}
+
+// $(function() {
+
+
+//   $('.lang_selector').click(function(ev) {
+//     const $this = $(this)
+//     const lang = $this.attr('data-value');
+
+//     $('.lang_selector.active').removeClass('active');
+//     $this.addClass('active')
+
+
+//     const
+
+//     console.log(lang, path);
+
+
+//     ev.preventDefault();
+//   });
+// });
+
+

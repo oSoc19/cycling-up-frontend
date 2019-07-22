@@ -1,12 +1,17 @@
 import mapboxgl from 'mapbox-gl';
+
+
 let villoMap;
 let mapContainer;
 // eslint-disable-next-line
 let jsonData;
 
-export default map => {
+const MAP_VILLO_API_URL = 'http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting';
+
+
+export const map = () => {
   mapContainer = map;
-  fetch(`https://api.cyclingup.osoc.be/map/general/bike_villo`)
+  fetch(MAP_VILLO_API_URL)
     .then(response => response.json())
     .then(data => parse(data));
 };
@@ -16,13 +21,14 @@ const parse = data => {
   showMap();
 };
 
-const showMap = () => {
-  mapboxgl.accessToken =
-    'pk.eyJ1IjoiZGFuaWVsbGV0ZXJyYXMiLCJhIjoiY2pqNWhzNGxrMWZmeTN2b2hndWdwenBxdCJ9.YKuXXhdcq1Dks53qu5q-Hw';
+export const init = showMap;
+
+function showMap({ctx:mapContainer}) {
+  mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   villoMap = new mapboxgl.Map({
     container: mapContainer,
-    style: 'mapbox://styles/danielleterras/cjy6xbvqi20xk1cliotdrzpt5',
+    style: process.env.MAPBOX_STYLE,
     zoom: 11.5,
     center: [4.355, 50.847]
   });
@@ -46,7 +52,7 @@ const showMap = () => {
 const showVilloStationsLayer = () => {
   villoMap.addSource('bikeVillo', {
     type: 'geojson',
-    data: 'https://api.cyclingup.osoc.be/map/general/bike_villo'
+    data: MAP_VILLO_API_URL
   });
 
   villoMap.addLayer({
@@ -61,3 +67,7 @@ const showVilloStationsLayer = () => {
     }
   });
 };
+
+export function onChangeLanguage(lang, translations) {
+  // console.log(lang, translations);
+}

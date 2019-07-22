@@ -1,0 +1,32 @@
+{
+  "bike_infra": {
+    "en": "Bike infrastructure",
+    "fr": "Infrastructure cyclable",
+    "nl": "Fietsinfrastructuur"
+  },
+  "bike_parking": {
+    "en": "Bike sheds",
+    "fr": "Abris vélo",
+    "nl": "Fietsenstallingen"
+  },
+  "bike_pump": {
+    "en": "Bike pumps",
+    "fr": "Pompes à vélo",
+    "nl": "Fietspompen"
+  },
+  "bike_shops": {
+    "en": "Bike shops",
+    "fr": "Magasin de vélos",
+    "nl": "Fietswinkels"
+  },
+  "bike_villo": {
+    "en": "Villo! stations",
+    "fr": "Station Villo!",
+    "nl": "Villo! stations"
+  },
+  "bike_gfr": {
+    "en": "GFR network",
+    "fr": "Réseau ICR",
+    "nl": "GFR netwerk"
+  }
+}

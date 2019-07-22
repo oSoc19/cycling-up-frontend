@@ -4,6 +4,9 @@ const apiChartCommuteDataUrl = `${
   process.env.API_URL
 }/historical/historic_villo_rentals`;
 
+let villoChart;
+
+
 const fetchData = () => {
   return fetch(apiChartCommuteDataUrl).then(r => r.json());
 };
@@ -20,7 +23,7 @@ export function showChart(chartData) {
 
   const ctx = document.getElementById(`js-canvas-villo`);
   if (ctx) {
-    new Chart(ctx, {
+    villoChart= new Chart(ctx, {
       type: 'line',
       data: {
         labels: years,
@@ -39,4 +42,13 @@ export function showChart(chartData) {
       }
     });
   }
+};
+
+export function onChangeLanguage(lang, translation) {
+  if (!villoChart) {
+    return;
+  }
+  villoChart.data.datasets[0].label = translation['graph_legend'][lang]
+  villoChart.update()
+
 }

@@ -1,6 +1,8 @@
 import Chart from 'chart.js';
 
 const apiChartCommuteDataUrl = `${process.env.API_URL}/historical/commuting`;
+let commuteChart;
+
 
 const fetchData = () => {
   return fetch(apiChartCommuteDataUrl).then(r => r.json());
@@ -16,9 +18,9 @@ export function showChart(chartData) {
   // For drawing the lines
   const percentage = chartData.map(d => d.percentage);
 
-  const ctx = document.getElementById(`js-canvas-commute`);
-  if (ctx) {
-    new Chart(ctx, {
+  const _ctx = document.getElementById(`js-canvas-commute`);
+  if (_ctx) {
+     commuteChart = new Chart(_ctx, {
       type: 'bar',
       data: {
         labels: years,
@@ -47,4 +49,13 @@ export function showChart(chartData) {
       }
     });
   }
+};
+
+export function onChangeLanguage(lang, translation) {
+  if (!commuteChart) {
+    return;
+  }
+  commuteChart.data.datasets[0].label = translation['graph_legend'][lang]
+  commuteChart.update()
+
 }

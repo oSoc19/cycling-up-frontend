@@ -3,16 +3,16 @@ import mapboxgl from 'mapbox-gl';
 const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
 
 
-export default $mapContainer => {
+export function init ({ctx}) {
 
   const historicalLayerId = 'historical_map';
 
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   const historicalMap = new mapboxgl.Map({
-    container: $mapContainer,
+    container: ctx,
     style: process.env.MAPBOX_STYLE,
-    zoom: 13.5,
+    zoom: 11,
     center: [4.35500, 50.84700]
   });
 
@@ -58,3 +58,9 @@ export default $mapContainer => {
     historicalMap.resize();
   });
 };
+
+
+export function onChangeLanguage(lang, translations) {
+  // console.log(lang, translations);
+
+}
