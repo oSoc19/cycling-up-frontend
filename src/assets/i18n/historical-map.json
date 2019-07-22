@@ -2,7 +2,7 @@
   "title": {
     "en": "Evolution per year of the new cyclable paths created",
     "fr": "Évolution/an des nouvelles pistes cyclables créées",
-    "nl": "Nah"
+    "nl": "Evolutie per jaar van de nieuw aangelegde fietspaden"
   },
   "description": {
     "en": "The total amount of cyclable paths is calculated in kilometers andincludes the ones separated from the main roads as well as thesuggested paths and the Regional Cyclable Itineraries (RCI). TheRCIs are suggested paths for cyclists willing to commute on a mediumto long distance. They take into account the calmest streets and theless stressful paths for the users. A significant year to mention is2002, where the political boldness allowed the apparition of aproject considered as not realistic at its time. Hence, thesuppression of one row of the Rue de la loi attributed to cars inorder to construct a larger sideways shared by cyclists andpedestrians.",
@@ -12,6 +12,6 @@
   "graph_legend": {
     "en": "Total amount of km per year of cyclable paths",
     "fr": "Nombre total de km par an de pistes cyclables crées",
-    "nl": "Nah"
+    "nl": "Totaal aantal km per jaar van aangelegde fietspaden"
   }
 }

@@ -2,17 +2,17 @@
   "evolution_link": {
     "en": "Evolution",
     "fr": "Évolution",
-    "nl": "Nah"
+    "nl": "Evolutie"
   },
   "commute_link": {
     "en": "Commute to work",
     "fr": "Se rendre au travail",
-    "nl": "Nah"
+    "nl": "Naar het werk"
   },
   "services_link": {
     "en": "Services",
     "fr": "Services",
-    "nl": "Nah"
+    "nl": "Services"
   },
   "villo_link": {
     "en": "Villo!",
@@ -22,6 +22,6 @@
   "bike_count_link": {
     "en": "Bike count",
     "fr": "Comptabilité des vélos",
-    "nl": "Nah"
+    "nl": "Fietsentellers"
   }
 }
