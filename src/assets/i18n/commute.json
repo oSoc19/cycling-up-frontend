@@ -14,9 +14,9 @@
     "fr": "Les Bruxellois utilisant leur vélo pour aller travailler à accru entre 2005 (1.2%) et 2017 (4.4%). Cette augmentation démontre un intérêt pour les transports durables entre la maison et le travail. Ainsi, l’amélioration des infrastructures cyclables dans Bruxelles vient soutenir cette hausse.",
     "nl": "Inwoners die fietsen gebruiken om naar Brussel te pendelen, steeg van 2005 (1,2%) tot in 2017 (4,4%). Deze stijging toont een toename van de vraag naar duurzame oplossingen bij het verplaatsen van thuis naar het werk. Vandaar dat de verbetering van de fietsinfrastructuur in het Brussels Gewest deze gestage toename versterkt."
   },
-  "graph_legend" : {
-    "en" : "% of cyclist that commute to work",
-    "fr" : "Nah FR",
-    "nl" : "Nah NL"
+  "graph_legend": {
+    "en": "% of cyclist that commute to work",
+    "fr": "% cyclistes se rendant au travaille",
+    "nl": "% fietsers die met de fiets naar het werk gaan"
   }
 }
