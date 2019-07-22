@@ -5,6 +5,8 @@ const serviceJson = require("../../../assets/data/service-map.json");
 
 const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';
 
+const MAP_BIKE_STATIONS = "https://raw.githubusercontent.com/oSoc19/cycling-up-backend/1dd28ecea9e4bb4644ffe0d400334afbdc4bce39/process_data/historic_data/historic_bike_stations.json"
+
 let bikeMap;
 let firstSymbolId;
 
@@ -33,6 +35,7 @@ export function showMap(container) {
       firstSymbolId = layer.id;
     }
     showGFRNetworkLayer();
+    showSations();
   });
 };
 
@@ -57,6 +60,29 @@ const showGFRNetworkLayer = () => {
       }
     },
     firstSymbolId
+  );
+};
+
+
+
+const showSations = () => {
+
+  bikeMap.addSource('bike_stations', {
+    type: 'geojson',
+    data: MAP_BIKE_STATIONS
+  });
+
+  bikeMap.addLayer(
+    {
+      id: 'bike_station',
+      type: 'circle',
+      source : "bike_stations",
+      filter: ["==", "$type", "Point"],
+      paint: {
+        'circle-color': '#2d3e71',
+        'circle-radius': 13
+      }
+    },
   );
 };
 
