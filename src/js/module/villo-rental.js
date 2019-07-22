@@ -1,22 +1,25 @@
 import Chart from 'chart.js';
 
-// Our labels along the x-axis
-const years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017];
-// For drawing the lines
-const rental = [
-  871916,
-  1217687,
-  1412255,
-  1423182,
-  1645779,
-  1508265,
-  1577811,
-  1615160
-];
+const apiChartCommuteDataUrl = `${
+  process.env.API_URL
+}/historical/historic_villo_rentals`;
 
 let villoChart;
 
-export function init () {
+
+const fetchData = () => {
+  return fetch(apiChartCommuteDataUrl).then(r => r.json());
+};
+
+export function init() {
+  return fetchData().then(showChart);
+}
+
+export function showChart(chartData) {
+  // Our labels along the x-axis
+  const years = chartData.map(d => d.year);
+  // For drawing the lines
+  const rental = chartData.map(d => d.number_of_rentals);
 
   const ctx = document.getElementById(`js-canvas-villo`);
   if (ctx) {
