@@ -15,8 +15,8 @@
     "nl": "Januari ; Mei ; September ; November"
   },
   "graph_title" : {
-    "en": "Click on the blue circle on the map to get more info",
-    "fr": "Click sur le point bleu de la carte pour + info",
-    "nl": "Nah"
+    "en": "Click on a blue circle on the map to get the historical data of this place.",
+    "fr": "Cliquez sur un point bleu dans la carte pour avoir l'historique cet endroit.",
+    "nl": "Klik op een blauwe cirkel om historische gegevens te verkrijgen over deze locatie"
   }
 }
