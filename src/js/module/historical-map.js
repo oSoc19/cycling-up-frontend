@@ -39,36 +39,33 @@ export default $mapContainer => {
   });
 };
 
+
 const sliderHandler = () => {
   const value = $slider.value;
-  console.log(value);
   const historicalLayerSource = `api_cycling_historical_map_${value}`;
-  const historicalLayerId = `historical_map_${value}`;
 
 
+  const mapLayer = historicalMap.getLayer(historicalLayerSource);
+  if (typeof mapLayer == 'undefined') {
+    historicalMap.addSource(historicalLayerSource, {
+      type: 'geojson',
+      data: HISTO_MAP_URL + value
+    });
 
-  const mapLayer = historicalMap.getLayer(historicalLayerId);
 
-  if (typeof mapLayer !== 'undefined') {
-    historicalMap.removeLayer(historicalLayerId).removeSource(historicalLayerSource);
+    historicalMap.addLayer({
+      id: historicalLayerSource,
+      type: 'line',
+      source: historicalLayerSource,
+      layout: {
+        'line-join': 'round',
+        'line-cap': 'round'
+      },
+      paint: {
+        'line-color': '#EAB818',
+        'line-width': 3
+      }
+    });
   }
-
-  historicalMap.addSource(historicalLayerSource, {
-    type: 'geojson',
-    data: HISTO_MAP_URL + value
-  });
-
-  historicalMap.addLayer({
-    id: historicalLayerId,
-    type: 'line',
-    source: historicalLayerSource,
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-    paint: {
-      'line-color': '#EAB818',
-      'line-width': 3
-    }
-  });
 };
+
