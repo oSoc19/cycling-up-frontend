@@ -106,4 +106,7 @@ const onLangSelectorClick = function(ev) {
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
+    $(
+    `.${document.location.pathname.substring(1).split('.')[0]}-menu-item`
+  ).addClass('is-current');
 });
