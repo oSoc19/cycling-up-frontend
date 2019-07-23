@@ -22,7 +22,8 @@ const observers = [];
 
 
 export function init(params) {
-  instance = $('body').translation({ lang: 'en' });
+  const lang = params['lang'] | 'en';
+  instance = $('body').translation({ lang   });
   return instance
 }
 

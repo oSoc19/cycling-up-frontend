@@ -5,9 +5,14 @@
     "nl": "Overzicht van het aantal fietsers per seizoen op de Brusselse infrastructuur"
   },
   "description": {
-    "en": "The evolution of the number of cyclists variates according to theseasons. They are defined by the following months: January, May,September and November. This graph depicts the gap between eachseasons from 1998 till 2017. Each data represents the number of cyclists taken randomnly at a t-point. None of these should be takenas granted and considered as absolute data.",
+    "en": "The evolution of the number of cyclists variates according to the seasons. They are defined by the following months: January, May,September and November. This graph depicts the gap between eachseasons from 1998 till 2017. Each data represents the number of cyclists taken randomnly at a t-point. None of these should be takenas granted and considered as absolute data.",
     "fr": "L’évolution du nombre de cyclistes varie selon les saisons. Elles sont définies par les mois suivants : Janvier, Mai, Septembre et Novembre. Ce graphique dépeint la différence entre chaque saison depuis 1998 jusqu’à 2017. Toutes les données représentent un nombre de cyclistes pris à un instant t de façon aléatoire. Aucunes d’entre-elles ne doit être prises comme acquises ou absolues.",
     "nl": "De evolutie van het aantal fietsers is afhankelijk van de seizoenen en wordt bepaald door de volgende maanden: Januari, Mei, September en November. Deze grafiek geeft de afstand tussen elk jaar weer van 1998 tot 2017. Alle gegevens vertegenwoordigen het aantal fietsers willekeurig genomen op een t-punt. Geen van deze moet worden opgenomen als verleend en beschouwd als absolute gegevens. "
+  },
+  "GFR-description": {
+    "en": "The Regional Cyclable Itineraries are suggested paths for cyclists willing to commute on a medium to long distance. They take into account the calmest streets and the less stressful paths for the users.",
+    "fr": "Les Itinéraires Cyclables Régionaux sont des pistes cyclables proposées pour les cyclistes souhaitant se déplacer sur de moyenne à longue distance. Ces itinéraires prennent en compte les rues les plus calmes afin de rendre les trajets le moins stressant possible pour le cycliste.",
+    "nl": "De Gewestelijke Fietsroutes zijn fietspaden die worden aangeboden voor fietsers die gemiddeld tot lange afstanden willen reizen. Deze routes houden rekening met de rustigere straten om de ritten zo stressvol mogelijk te maken voor de fietser."
   },
   "graph_legend": {
     "en": "January ; May ; September ; November",

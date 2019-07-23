@@ -19,7 +19,7 @@ export function showChart(ctx, chartData) {
   // Our labels along the x-axis
   const years = chartData.map(d => d.year);
   // For drawing the lines
-  const rental = chartData.map(d => d.number_of_rentals);
+  const rental = chartData.map(d => d.nb_of_rentals);
 
   if (ctx) {
     villoChart= new Chart(ctx, {

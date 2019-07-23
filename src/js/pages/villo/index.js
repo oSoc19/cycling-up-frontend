@@ -4,7 +4,7 @@
 // Import
 
 // Mine
-//  import * as HistoricalMap from "./historical-map";
+ import * as VilloLiveCount from "./villo-live-count";
  import * as VilloRentalChart from "./villo-rental-chart";
 
 
@@ -28,8 +28,8 @@ export const isActive = () => document.getElementById('villo') != null;
  */
 export function init(callback) {
   if (isActive()) {
-    // const mapContainer = document.querySelector(`.js-map-villo`);
-    // HistoricalMap.showMap(mapContainer);
+    const mapContainer = document.querySelector(`.js-map-villo`);
+    VilloLiveCount.showMap(mapContainer);
 
     const chartContainer =  document.getElementById('js-canvas-villo');
     VilloRentalChart.init(chartContainer);

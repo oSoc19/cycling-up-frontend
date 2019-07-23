@@ -27,10 +27,15 @@ const getDomElements = () => {
   $('.lang_selector').click(onLangSelectorClick);
 };
 
-const init = function() {
+const init = function () {
   getDomElements();
 
-  Translation.init();
+  const previousLang = localStorage.getItem('lang-selected')
+  $(`.lang_selector[data-value=${previousLang}]`).addClass('active')
+
+  Translation.init({
+    lang : previousLang
+  });
 
   Translation.addTranslation('_navigation', navigationTranslation)
 
@@ -84,21 +89,20 @@ const onHandlerMenuClick = () => {
   });
 };
 
-
 /**
  * Handle click on the language selection button
  * @param {*} ev - Click event
  */
-const onLangSelectorClick = function(ev) {
+const onLangSelectorClick = function (ev) {
   ev.preventDefault();
 
-  const $this = $(this)
+  const $this = $(this);
   const lang = $this.attr('data-value');
 
   $('.lang_selector.active').removeClass('active');
-  $this.addClass('active')
+  $this.addClass('active');
 
-  // const path = window.location.pathname.substr(1).slice(0, -5);
+  localStorage.setItem('lang-selected', lang);
 
   Translation.updateLang(lang);
   Translation.notifyAll(lang)
@@ -106,7 +110,6 @@ const onLangSelectorClick = function(ev) {
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
-    $(
-    `.${document.location.pathname.substring(1).split('.')[0]}-menu-item`
-  ).addClass('is-current');
+  const path = window.location.pathname.substr(1).slice(0, -5);
+  $(`.${path}-menu-item`).addClass('is-current');
 });
