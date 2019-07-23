@@ -13,9 +13,15 @@
   <body>
     <include>_navigation.html</include>
     <main class="c-graph__section" id="historical-map">
-      <!-- <input type="range" min="1896" max="2019"  value="50"  class="slider" id="slider"/> -->
       <div class="historical-map js-map-historical" id="js-map-historical"></div>
-      <!-- <input type="range" min="1985" max="2019" value="2019"> -->
+
+      <div class="c-slider__container">
+        <input class="c-slider" type="range" min="1895" max="2019" step="1" value="1895">
+        <div class="c-slider__labels">
+            <label class="c-slider__label">1895</label>
+            <label class="c-slider__label">2019</label>
+        </div>
+      </div>
       <div class="h-graph">
         <div class="c-graph">
           <canvas

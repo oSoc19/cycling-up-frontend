@@ -1,10 +1,10 @@
 import mapboxgl from 'mapbox-gl';
 
 const HISTO_MAP_URL = process.env.API_URL + '/map/historical/';
-let historicalMap ;
+let $slider, historicalMap;
 
 
-export function showMap (container) {
+export function showMap(container) {
   const historicalLayerId = 'historical_map';
 
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
@@ -12,21 +12,39 @@ export function showMap (container) {
   historicalMap = new mapboxgl.Map({
     container,
     style: process.env.MAPBOX_STYLE,
-    zoom: 11,
-    center: [4.35500, 50.84700]
+    zoom: 10.6,
+    center: [4.35500, 50.82700]
   });
 
   historicalMap.on('load', () => {
+    $slider = document.querySelector('input[type="range"]');
+    $slider.addEventListener('input', sliderHandler);
+  });
 
-    historicalMap.addSource('api_cycling_historical_map', {
+
+  window.addEventListener('load', () => {
+    historicalMap.resize();
+  });
+};
+
+
+const sliderHandler = () => {
+  const value = $slider.value;
+  const historicalLayerSource = `api_cycling_historical_map_${value}`;
+
+
+  const mapLayer = historicalMap.getLayer(historicalLayerSource);
+  if (typeof mapLayer == 'undefined') {
+    historicalMap.addSource(historicalLayerSource, {
       type: 'geojson',
-      data: HISTO_MAP_URL + '2019'
-    })
+      data: HISTO_MAP_URL + value
+    });
+
 
     historicalMap.addLayer({
-      id: historicalLayerId,
+      id: historicalLayerSource,
       type: 'line',
-      source: 'api_cycling_historical_map',
+      source: historicalLayerSource,
       layout: {
         'line-join': 'round',
         'line-cap': 'round'
@@ -36,29 +54,9 @@ export function showMap (container) {
         'line-width': 3
       }
     });
-  });
 
-  const handleMapLineSelect = function (e) {
-    const [selected] = e.features;
-
-    // TODO:  Replace the code below by the specfic actions on the click
-    new mapboxgl.Popup()
-      .setLngLat(e.lngLat)
-      .setHTML(selected.properties.type_nl)
-      .addTo(historicalMap);
+    return true;
   };
-
-
-  historicalMap.on('click', historicalLayerId, handleMapLineSelect);
-
-  historicalMap.on('touchend', historicalLayerId, handleMapLineSelect)
-
-
-  window.addEventListener('load', () => {
-    historicalMap.resize();
-  });
-
-  return true;
 };
 
 
