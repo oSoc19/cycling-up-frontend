@@ -14,7 +14,7 @@ export function init(ctx) {
 
 export function showChart(ctx, chartData) {
   // Our labels along the x-axis
-  const years = chartData.map(d => d.years);
+  const years = chartData.map(d => d.year);
   // For drawing the lines
   const percentage = chartData.map(d => d.percentage_commuting_to_work);
 
