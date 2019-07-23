@@ -100,7 +100,10 @@ const layers = [
       visibility: 'none'
     },
     paint: {
-      'line-color': '#b9cee2',
+      'line-color': {
+        type: 'identity',
+        property: 'colour'
+      },
       'line-width': 3
     },
     insertToExisting : true
