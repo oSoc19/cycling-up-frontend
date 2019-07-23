@@ -10,7 +10,7 @@
 
 // -------------------------------------------------------------------
 // Properties
-const translations = require('../../../assets/i18n/historical-map.json');
+const translations = require('../../../assets/i18n/evolution.json');
 
 
 
@@ -32,7 +32,7 @@ export function init(callback) {
     HistoricalMap.showMap(mapContainer);
 
     const chartContainer =  document.getElementById(`js-canvas-evolution`);
-    KmEvolutionChart.showChart(chartContainer);
+    KmEvolutionChart.init(chartContainer);
 
     if (callback) {
       return callback(translations)

@@ -1,6 +1,7 @@
 import Chart from 'chart.js';
 
-const apiChartCommuteDataUrl = `${process.env.API_URL}/historical/commuting`;
+const apiChartCommuteDataUrl = `${process.env.API_URL}/historical/cumulated_kilometers`;
+
 let evolutionChart;
 
 const fetchData = () => {
@@ -11,13 +12,12 @@ export function init(ctx) {
   return fetchData().then(data => showChart(ctx, data));
 }
 
-export function showChart(_ctx, chartData) {
+export function showChart(ctx, chartData) {
   // Our labels along the x-axis
   const years = chartData.map(d => d.year);
   // For drawing the lines
-  const km = chartData.map(d => d.year);
+  const km = chartData.map(d => d.cumulated_kilometers);
 
-  const ctx = document.getElementById(`js-canvas-evolution`);
   if (ctx) {
     evolutionChart = new Chart(ctx, {
       type: 'line',
@@ -26,7 +26,7 @@ export function showChart(_ctx, chartData) {
         datasets: [
           {
             data: km,
-            label: ' Total amount of km per year of cyclable paths',
+            label: 'Total amount of km per year of cyclable paths',
             borderColor: '#f9b138',
             fill: '#fff',
             backgroundColor: '#EAB818'
