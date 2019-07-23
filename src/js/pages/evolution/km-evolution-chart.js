@@ -1,6 +1,6 @@
 import Chart from 'chart.js';
 
-const apiChartCommuteDataUrl = `${process.env.API_URL}/historical/cumulated_kilometers`;
+const apiChartCommuteDataUrl = `${process.env.API_URL}/chart/cumulated_kilometers`;
 
 let evolutionChart;
 

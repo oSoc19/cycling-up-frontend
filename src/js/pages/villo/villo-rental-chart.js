@@ -2,7 +2,7 @@ import Chart from 'chart.js';
 
 const apiChartCommuteDataUrl = `${
   process.env.API_URL
-}/historical/historic_villo_rentals`;
+}/chart/historic_villo_rentals`;
 
 let villoChart;
 
