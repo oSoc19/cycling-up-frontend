@@ -33,3 +33,7 @@ Command to deploy from local:
 git remote add deploy ssh://<user>@<ip-address>:/srv/app/git/frontend.git
 git push deploy
 ```
+
+## Run locally
+
+...
