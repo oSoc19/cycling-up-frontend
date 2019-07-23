@@ -24,7 +24,7 @@ let years = [
   2017
 ];
 
-const API_BIKE_COUNT_BY_STATION_ID = process.env.API_URL + "/bike_count/";
+const API_BIKE_COUNT_BY_STATION_ID = process.env.API_URL + "/chart/bike_count/";
 
 
 // For drawing the lines

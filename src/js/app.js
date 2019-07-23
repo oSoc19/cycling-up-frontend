@@ -107,7 +107,6 @@ const onLangSelectorClick = function(ev) {
   Translation.notifyAll(lang)
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
   console.info('DOM loaded');
   init();

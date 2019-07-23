@@ -28,7 +28,7 @@ export const isActive = () => document.getElementById('commute') != null;
 export function init(callback) {
   if (isActive()) {
     const chartContainer = document.getElementById(`js-canvas-commute`)
-    CommuteChart.showChart(chartContainer);
+    CommuteChart.init(chartContainer);
 
     if (callback) {
       return callback(translations)

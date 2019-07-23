@@ -1,6 +1,6 @@
 import Chart from 'chart.js';
 
-const apiChartCommuteDataUrl = `${process.env.API_URL}/historical/commuting`;
+const apiChartCommuteDataUrl = `${process.env.API_URL}/chart/commuting`;
 let commuteChart;
 
 
@@ -14,9 +14,11 @@ export function init(ctx) {
 
 export function showChart(ctx, chartData) {
   // Our labels along the x-axis
-  const years = chartData.map(d => d.year);
+  const years = chartData.map(d => d.years);
   // For drawing the lines
-  const percentage = chartData.map(d => d.percentage);
+  const percentage = chartData.map(d => d.percentage_commuting_to_work);
+
+  console.log(years, percentage);
 
   if (ctx) {
      commuteChart = new Chart(ctx, {

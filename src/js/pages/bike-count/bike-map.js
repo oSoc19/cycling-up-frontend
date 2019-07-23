@@ -5,7 +5,7 @@ const serviceJson = require("../../../assets/data/service-map.json");
 
 const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';
 
-const MAP_BIKE_STATIONS = process.env.API_URL + '/bike_count/stations';
+const MAP_BIKE_STATIONS = process.env.API_URL + '/map/bike_count/historic_stations';
 
 let bikeMap;
 let firstSymbolId;
