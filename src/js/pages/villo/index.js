@@ -32,7 +32,7 @@ export function init(callback) {
     // HistoricalMap.showMap(mapContainer);
 
     const chartContainer =  document.getElementById('js-canvas-villo');
-    VilloRentalChart.showChart(chartContainer);
+    VilloRentalChart.init(chartContainer);
 
     if (callback) {
       return callback(translations)
