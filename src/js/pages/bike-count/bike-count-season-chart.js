@@ -57,6 +57,7 @@ const counts = [
 ]
 
 
+
 let bikeCountChart;
 
 export function showChart(ctx) {
@@ -81,12 +82,19 @@ export function showChart(ctx) {
 };
 
 
-export function onChangeLanguage(lang, translation) {
+export function onChangeLanguage({labels, title}) {
   if (!bikeCountChart) {
     return;
   }
 
-  bikeCountChart.data.datasets[0].label = translation['graph_legend'][lang]
+  if (!bikeCountChart.options.title.text.startsWith('Station')) {
+    bikeCountChart.options.title.text = title
+  }
+
+  for (const dataset of bikeCountChart.data.datasets) {
+    const newLabel = labels[dataset.id];
+    dataset.label = newLabel.trim();
+  }
   bikeCountChart.update()
 }
 
@@ -110,7 +118,7 @@ export function onSelectedBikeStation(stationId, stationName) {
         display: true,
         position : "bottom",
         fontSize: 16,
-        text: stationName
+        text: "Station : " + stationName
       };
       bikeCountChart.update()
     })

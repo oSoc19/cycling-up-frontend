@@ -27,7 +27,7 @@ export const isActive = () => document.getElementById('bike-count') != null;
 /**
  * Load the page with the necessary content (map, chart, ...)
  */
-export function init() {
+export function init(callback) {
 
   if (isActive()) {
     const mapContainer = document.getElementById('js-map-bike');
@@ -48,10 +48,14 @@ export function init() {
 /**
  *
  * @param {string} lang  - The language selected
- * @param {Object} translations - The translations data for BikeCountPerYearChartcurrent page
  */
 export function changeLanguage(lang){
-  BikeMap.onChangeLanguage(translations);
+  const legend = translations['graph_legend'][lang].split(';')
+  const [jan, may, sep, nov] = legend;
+
+  BikeCountPerSeasonChart.onChangeLanguage({
+    labels : {jan,may,sep,nov},
+    title : translations['graph_title'][lang]
+  });
   BikeCountPerYearChart.onChangeLanguage(translations);
-  BikeCountPerSeasonChart.onChangeLanguage(translations);
 }

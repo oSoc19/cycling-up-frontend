@@ -13,5 +13,10 @@
     "en": "January ; May ; September ; November",
     "fr": "Janvier ; Mai ; Septembre ; Novembre",
     "nl": "Januari ; Mei ; September ; November"
+  },
+  "graph_title" : {
+    "en": "Click on the blue circle on the map to get more info",
+    "fr": "Click sur le point bleu de la carte pour + info",
+    "nl": "Nah"
   }
 }
