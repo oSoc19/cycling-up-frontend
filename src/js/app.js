@@ -73,7 +73,6 @@ const init = function() {
 
 const onHandlerMenuClick = () => {
   $navDestinationTargets.forEach(element => {
-    console.log(element);
 
     element.classList.toggle('is-active');
 
@@ -101,13 +100,10 @@ const onLangSelectorClick = function(ev) {
 
   // const path = window.location.pathname.substr(1).slice(0, -5);
 
-  console.log(lang);
-
   Translation.updateLang(lang);
   Translation.notifyAll(lang)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.info('DOM loaded');
   init();
 });

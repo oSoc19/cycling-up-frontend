@@ -46,7 +46,6 @@ export function init(callback) {
  * @param {string} lang  - The language selected
  */
 export function changeLanguage(lang){
-  console.log(lang);
   HistoricalMap.onChangeLanguage(lang, translations);
   KmEvolutionChart.onChangeLanguage(translations['graph_legend'][lang]);
 }

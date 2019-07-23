@@ -15,7 +15,6 @@ export default map => {
 
 const parse = data => {
   jsonData = data;
-  console.log(data);
   showMap();
 };
 
@@ -36,6 +35,5 @@ const showMap = () => {
 };
 
 export function onChangeLanguage(lang, translations) {
-  console.log(lang, translations);
   // commuteChart.data.datasets[0].label = translations[lang]['legend']
 }

@@ -63,6 +63,5 @@ export function showMap (container) {
 
 
 export function onChangeLanguage(lang, translations) {
-  // console.log(lang, translations);
 
 }

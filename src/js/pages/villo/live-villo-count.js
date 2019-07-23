@@ -69,5 +69,4 @@ const showVilloStationsLayer = () => {
 };
 
 export function onChangeLanguage(lang, translations) {
-  // console.log(lang, translations);
 }

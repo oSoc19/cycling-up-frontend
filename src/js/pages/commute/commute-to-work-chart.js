@@ -18,8 +18,6 @@ export function showChart(ctx, chartData) {
   // For drawing the lines
   const percentage = chartData.map(d => d.percentage_commuting_to_work);
 
-  console.log(years, percentage);
-
   if (ctx) {
      commuteChart = new Chart(ctx, {
       type: 'bar',

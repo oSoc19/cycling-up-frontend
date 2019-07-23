@@ -107,6 +107,5 @@ const showSations = () => {
 
 
 export function onChangeLanguage(translations) {
-  console.log(translations);
   // commuteChart.data.datasets[0].label = translations[lang]['legend']
 }
