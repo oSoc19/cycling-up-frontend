@@ -1,6 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 
-const serviceJson = require("../../assets/data/service-map.json");
+const serviceJson = require("../../../assets/data/service-map.json");
 
 const MAP_GENERAL_API_URL = process.env.API_URL + '/map/general/';
 
@@ -107,12 +107,9 @@ const layers = [
   }
 ];
 
-export function init ({ctx}){
-  showMap(ctx);
-}
 
 
-const showMap = (mapContainer) => {
+export function showMap (mapContainer) {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   serviceMap = new mapboxgl.Map({
@@ -216,7 +213,6 @@ const showMapLayers = () => {
 
 
 
-export function onChangeLanguage(lang, translations) {
-  console.log(lang, translations);
+export function onChangeLanguage(translations) {
   // commuteChart.data.datasets[0].label = translations[lang]['legend']
 }

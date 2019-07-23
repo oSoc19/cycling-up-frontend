@@ -1,6 +1,6 @@
 import Chart from 'chart.js';
 
-const apiChartCommuteDataUrl = `${process.env.API_URL}/historical/commuting`;
+const apiChartCommuteDataUrl = `${process.env.API_URL}/chart/commuting`;
 let commuteChart;
 
 
@@ -8,19 +8,18 @@ const fetchData = () => {
   return fetch(apiChartCommuteDataUrl).then(r => r.json());
 };
 
-export function init() {
-  return fetchData().then(showChart);
+export function init(ctx) {
+  return fetchData().then(data => showChart(ctx, data));
 }
 
-export function showChart(chartData) {
+export function showChart(ctx, chartData) {
   // Our labels along the x-axis
   const years = chartData.map(d => d.year);
   // For drawing the lines
-  const percentage = chartData.map(d => d.percentage);
+  const percentage = chartData.map(d => d.percentage_commuting_to_work);
 
-  const _ctx = document.getElementById(`js-canvas-commute`);
-  if (_ctx) {
-     commuteChart = new Chart(_ctx, {
+  if (ctx) {
+     commuteChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: years,
@@ -51,11 +50,11 @@ export function showChart(chartData) {
   }
 };
 
-export function onChangeLanguage(lang, translation) {
+export function onChangeLanguage(graph_legend) {
   if (!commuteChart) {
     return;
   }
-  commuteChart.data.datasets[0].label = translation['graph_legend'][lang]
+  commuteChart.data.datasets[0].label = graph_legend
   commuteChart.update()
 
 }

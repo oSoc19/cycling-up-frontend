@@ -1,23 +1,23 @@
 import Chart from 'chart.js';
 
-const apiChartCommuteDataUrl = `${process.env.API_URL}/historical/commuting`;
+const apiChartCommuteDataUrl = `${process.env.API_URL}/chart/cumulated_kilometers`;
+
 let evolutionChart;
 
 const fetchData = () => {
   return fetch(apiChartCommuteDataUrl).then(r => r.json());
 };
 
-export function init() {
-  return fetchData().then(showChart);
+export function init(ctx) {
+  return fetchData().then(data => showChart(ctx, data));
 }
 
-export function showChart(chartData) {
+export function showChart(ctx, chartData) {
   // Our labels along the x-axis
   const years = chartData.map(d => d.year);
   // For drawing the lines
-  const km = chartData.map(d => d.year);
+  const km = chartData.map(d => d.cumulated_kilometers);
 
-  const ctx = document.getElementById(`js-canvas-evolution`);
   if (ctx) {
     evolutionChart = new Chart(ctx, {
       type: 'line',
@@ -26,7 +26,7 @@ export function showChart(chartData) {
         datasets: [
           {
             data: km,
-            label: ' Total amount of km per year of cyclable paths',
+            label: 'Total amount of km per year of cyclable paths',
             borderColor: '#f9b138',
             fill: '#fff',
             backgroundColor: '#EAB818'
@@ -37,14 +37,16 @@ export function showChart(chartData) {
         responsive: false
       }
     });
+
+    return true;
   }
 };
 
-export function onChangeLanguage(lang, translation) {
+export function onChangeLanguage(graph_legend) {
   if (!evolutionChart) {
     return;
   }
-  evolutionChart.data.datasets[0].label = translation['graph_legend'][lang]
+  evolutionChart.data.datasets[0].label = graph_legend
   evolutionChart.update()
 
 }

@@ -2,7 +2,7 @@ import Chart from 'chart.js';
 
 const apiChartCommuteDataUrl = `${
   process.env.API_URL
-}/historical/historic_villo_rentals`;
+}/chart/historic_villo_rentals`;
 
 let villoChart;
 
@@ -11,17 +11,16 @@ const fetchData = () => {
   return fetch(apiChartCommuteDataUrl).then(r => r.json());
 };
 
-export function init() {
-  return fetchData().then(showChart);
+export function init(ctx) {
+  return fetchData().then(data => showChart(ctx, data));
 }
 
-export function showChart(chartData) {
+export function showChart(ctx, chartData) {
   // Our labels along the x-axis
   const years = chartData.map(d => d.year);
   // For drawing the lines
-  const rental = chartData.map(d => d.number_of_rentals);
+  const rental = chartData.map(d => d.nb_of_rentals);
 
-  const ctx = document.getElementById(`js-canvas-villo`);
   if (ctx) {
     villoChart= new Chart(ctx, {
       type: 'line',
@@ -44,11 +43,11 @@ export function showChart(chartData) {
   }
 };
 
-export function onChangeLanguage(lang, translation) {
+export function onChangeLanguage(graph_legend) {
   if (!villoChart) {
     return;
   }
-  villoChart.data.datasets[0].label = translation['graph_legend'][lang]
+  villoChart.data.datasets[0].label = graph_legend
   villoChart.update()
 
 }

@@ -1,33 +1,18 @@
 import mapboxgl from 'mapbox-gl';
 
 
+const MAP_VILLO_API_URL = 'http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting';
+
 let villoMap;
-let mapContainer;
 // eslint-disable-next-line
 let jsonData;
 
-const MAP_VILLO_API_URL = 'http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting';
 
-
-export const map = () => {
-  mapContainer = map;
-  fetch(MAP_VILLO_API_URL)
-    .then(response => response.json())
-    .then(data => parse(data));
-};
-
-const parse = data => {
-  jsonData = data;
-  showMap();
-};
-
-export const init = showMap;
-
-function showMap({ctx:mapContainer}) {
+export function showMap(container) {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   villoMap = new mapboxgl.Map({
-    container: mapContainer,
+    container,
     style: process.env.MAPBOX_STYLE,
     zoom: 11.5,
     center: [4.355, 50.847]
@@ -68,6 +53,5 @@ const showVilloStationsLayer = () => {
   });
 };
 
-export function onChangeLanguage(lang, translations) {
-  // console.log(lang, translations);
+export function onChangeLanguage(translations) {
 }

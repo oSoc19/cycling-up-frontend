@@ -1,15 +1,21 @@
-import * as Evolution from './module/km-evolution';
-import * as Commute from './module/commute-to-work';
-import * as VilloRental from './module/villo-rental';
-import * as BikeSeasonCount from './module/bike-count-season';
-import * as BikeYearlyCount from './module/bike-count-per-year';
-import * as HistoricalMap from './module/historical-map';
-import * as ServiceMap from './module/service-map';
-import * as BikeMap from './module/bike-map';
-import * as VilloMap from './module/live-villo-count';
-//import liveDataCount from './module/live-data-count';
-
 import * as Translation from './module/translation.js';
+
+import * as EvolutionPage from "./pages/evolution";
+import * as CommutePage from "./pages/commute";
+import * as ServicePage from "./pages/services";
+import * as VilloPage from "./pages/villo"
+import * as BikeCountPage from "./pages/bike-count"
+
+const navigationTranslation = require('../assets/i18n/_navigation.json');
+
+
+const pages = [
+  EvolutionPage,
+  CommutePage,
+  ServicePage,
+  VilloPage,
+  BikeCountPage
+]
 
 let $navDestinationTargets, $mobileMenu, main;
 
@@ -21,59 +27,57 @@ const getDomElements = () => {
   $('.lang_selector').click(onLangSelectorClick);
 };
 
-const init = function() {
+const init = function () {
   getDomElements();
 
-  Translation.init();
+  const previousLang = localStorage.getItem('lang-selected')
+  $(`.lang_selector[data-value=${previousLang}]`).addClass('active')
 
-  Commute.init();
-  Evolution.init();
-  VilloRental.init();
-  BikeSeasonCount.init();
-  BikeYearlyCount.init();
-  // liveDataCount();
+  Translation.init({
+    lang : previousLang
+  });
 
-  const $bikeMap = document.querySelector(`.js-map-bike`);
-  if ($bikeMap) {
-    BikeMap.init({ctx: $bikeMap});
+  Translation.addTranslation('_navigation', navigationTranslation)
+
+  for (const page of pages) {
+    if (page.hasOwnProperty('init') && typeof page['init'] === 'function') {
+      page.init.call(page, (trans) => {
+        Translation.addTranslation('active', trans)
+
+        if (page.hasOwnProperty('changeLanguage') && typeof page['changeLanguage'] === 'function') {
+          Translation.subscribe(page.changeLanguage, page);
+        }
+      });
+
+
+    }
   }
 
-  const $serviceMap = document.querySelector(`.js-map-service`);
-  if ($serviceMap) {
-    ServiceMap.init({ctx: $serviceMap});
-  }
 
-  const $historicalMap = document.querySelector(`.js-map-historical`);
-  if ($historicalMap) {
-    HistoricalMap.init({ctx: $historicalMap});
-  }
+  // const $bikeMap = document.querySelector(`.js-map-bike`);
+  // if ($bikeMap) {
+  //   BikeMap.init({ctx:$bikeMap});
+  // }
 
-  const $villoMap = document.querySelector(`.js-map-villo`);
-  if ($villoMap) {
-    VilloMap.init({ctx: $villoMap});
-  }
+  // const $serviceMap = document.querySelector(`.js-map-service`);
+  // if ($serviceMap) {
+  //   ServiceMap.init({ctx : $serviceMap});
+  // }
 
-  $(
-    `.${document.location.pathname.substring(1).split('.')[0]}-menu-item`
-  ).addClass('is-current');
+  // const $historicalMap = document.querySelector(`.js-map-historical`);
+  // if ($historicalMap) {
+  //   HistoricalMap.init({ctx: $historicalMap});
+  // }
+
+  // const $villoMap = document.querySelector(`.js-map-villo`);
+  // if ($villoMap) {
+  //   VilloMap.init({ctx: $villoMap});
+  // }
 };
 
-function updateChartLanguage(err, lang, translation) {
-  [
-    Commute.onChangeLanguage,
-    Evolution.onChangeLanguage,
-    VilloRental.onChangeLanguage,
-    BikeSeasonCount.onChangeLanguage,
-    BikeYearlyCount.onChangeLanguage,
-    ServiceMap.onChangeLanguage
-  ].forEach(changeLangFn => {
-    changeLangFn.call(null, lang, translation);
-  });
-}
 
 const onHandlerMenuClick = () => {
   $navDestinationTargets.forEach(element => {
-    console.log(element);
 
     element.classList.toggle('is-active');
 
@@ -89,7 +93,7 @@ const onHandlerMenuClick = () => {
  * Handle click on the language selection button
  * @param {*} ev - Click event
  */
-const onLangSelectorClick = function(ev) {
+const onLangSelectorClick = function (ev) {
   ev.preventDefault();
 
   const $this = $(this);
@@ -98,14 +102,14 @@ const onLangSelectorClick = function(ev) {
   $('.lang_selector.active').removeClass('active');
   $this.addClass('active');
 
-  const path = window.location.pathname.substr(1).slice(0, - 5);
+  localStorage.setItem('lang-selected', lang);
 
-  console.log(lang, path);
-
-  Translation.updateLang(path, lang, updateChartLanguage);
-};
+  Translation.updateLang(lang);
+  Translation.notifyAll(lang)
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  console.info('DOM loaded');
   init();
+  const path = window.location.pathname.substr(1).slice(0, -5);
+  $(`.${path}-menu-item`).addClass('is-current');
 });
