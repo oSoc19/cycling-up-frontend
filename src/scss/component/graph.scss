@@ -7,7 +7,11 @@
   align-items: center;
 
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 768px) {
+    width: 45vw;
+  }
+
+  @media only screen and (max-width: 425px) {
     order: 2;
     width: 100vw;
   }
@@ -24,7 +28,7 @@
       width: 100vw;
     }
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 768px) {
       flex-direction: column;
     }
   }

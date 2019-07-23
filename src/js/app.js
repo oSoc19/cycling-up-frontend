@@ -24,7 +24,7 @@ const getDomElements = () => {
 const init = function() {
   getDomElements();
 
-  Translation.init()
+  Translation.init();
 
   Commute.init();
   Evolution.init();
@@ -35,12 +35,12 @@ const init = function() {
 
   const $bikeMap = document.querySelector(`.js-map-bike`);
   if ($bikeMap) {
-    BikeMap.init({ctx:$bikeMap});
+    BikeMap.init({ctx: $bikeMap});
   }
 
   const $serviceMap = document.querySelector(`.js-map-service`);
   if ($serviceMap) {
-    ServiceMap.init({ctx : $serviceMap});
+    ServiceMap.init({ctx: $serviceMap});
   }
 
   const $historicalMap = document.querySelector(`.js-map-historical`);
@@ -52,6 +52,10 @@ const init = function() {
   if ($villoMap) {
     VilloMap.init({ctx: $villoMap});
   }
+
+  $(
+    `.${document.location.pathname.substring(1).split('.')[0]}-menu-item`
+  ).addClass('is-current');
 };
 
 function updateChartLanguage(err, lang, translation) {
@@ -61,17 +65,11 @@ function updateChartLanguage(err, lang, translation) {
     VilloRental.onChangeLanguage,
     BikeSeasonCount.onChangeLanguage,
     BikeYearlyCount.onChangeLanguage,
-    ServiceMap.onChangeLanguage,
-  ]
-  .forEach(changeLangFn => {
-    changeLangFn.call(null, lang, translation)
+    ServiceMap.onChangeLanguage
+  ].forEach(changeLangFn => {
+    changeLangFn.call(null, lang, translation);
   });
-
 }
-
-
-
-
 
 const onHandlerMenuClick = () => {
   $navDestinationTargets.forEach(element => {
@@ -87,7 +85,6 @@ const onHandlerMenuClick = () => {
   });
 };
 
-
 /**
  * Handle click on the language selection button
  * @param {*} ev - Click event
@@ -95,20 +92,18 @@ const onHandlerMenuClick = () => {
 const onLangSelectorClick = function(ev) {
   ev.preventDefault();
 
-  const $this = $(this)
+  const $this = $(this);
   const lang = $this.attr('data-value');
 
   $('.lang_selector.active').removeClass('active');
-  $this.addClass('active')
+  $this.addClass('active');
 
-  const path = window.location.pathname.substr(1).slice(0, -5);
+  const path = window.location.pathname.substr(1).slice(0, - 5);
 
   console.log(lang, path);
 
   Translation.updateLang(path, lang, updateChartLanguage);
-
-}
-
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   console.info('DOM loaded');
