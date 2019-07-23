@@ -6,15 +6,15 @@ import './jquery.translate';
  * browser location URL path without the heading '/'.
  * This URL path will be used to identify the current slide page.
  */
-const translations = {
-  // NOTE: Dynamic import with the assetsDir variable does not work
-  _navigation: require('../../assets/i18n/_navigation.json'),
-  'historical-map': require('../../assets/i18n/historical-map.json'),
-    commute: require('../../assets/i18n/commute.json'),
-    services: require('../../assets/i18n/services.json'),
-    villo: require('../../assets/i18n/villo.json'),
-    'bike-count': require('../../assets/i18n/bike-count.json')
-  };
+// const translations = {
+//   // NOTE: Dynamic import with the assetsDir variable does not work
+//   _navigation: require('../../assets/i18n/_navigation.json'),
+//   'historical-map': require('../../assets/i18n/historical-map.json'),
+//     commute: require('../../assets/i18n/commute.json'),
+//     services: require('../../assets/i18n/services.json'),
+//     villo: require('../../assets/i18n/villo.json'),
+//     'bike-count': require('../../assets/i18n/bike-count.json')
+//   };
 
 let instance;
 
@@ -23,7 +23,7 @@ const observers = [];
 
 export function init(params) {
   instance = $('body').translation({ lang: 'en' });
-  return [instance, Object.keys(translations)]
+  return instance
 }
 
 
