@@ -56,3 +56,19 @@
     margin-top: 30px;
   }
 }
+
+.c-graph--bike-count {
+  @include media-breakpoint-down(md) {
+    order: 1;
+  }
+}
+
+.h-header--bike-count {
+  @include media-breakpoint-down(md) {
+    order: 2;
+  }
+}
+
+ .c-canvas--bike-count {
+   padding: 0;
+ }

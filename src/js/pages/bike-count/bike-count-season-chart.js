@@ -73,14 +73,13 @@ export function showChart(ctx) {
         title: {
           display: true,
           fontSize: 16,
-          position : "bottom",
-          text: "Click on the blue circle on the map to get more info"
+          position: 'bottom',
+          text: 'Click on the blue circle on the map to get more info'
         }
       }
     });
   }
-};
-
+}
 
 export function onChangeLanguage({labels, title}) {
   if (!bikeCountChart) {
@@ -88,14 +87,14 @@ export function onChangeLanguage({labels, title}) {
   }
 
   if (!bikeCountChart.options.title.text.startsWith('Station')) {
-    bikeCountChart.options.title.text = title
+    bikeCountChart.options.title.text = title;
   }
 
   for (const dataset of bikeCountChart.data.datasets) {
     const newLabel = labels[dataset.id];
     dataset.label = newLabel.trim();
   }
-  bikeCountChart.update()
+  bikeCountChart.update();
 }
 
 
@@ -116,11 +115,11 @@ export function onSelectedBikeStation(stationId, stationName) {
       bikeCountChart.data.datasets = newDataSet;
       bikeCountChart.options.title = {
         display: true,
-        position : "bottom",
+        position: 'bottom',
         fontSize: 16,
-        text: "Station : " + stationName
+        text: 'Station : ' + stationName
       };
-      bikeCountChart.update()
-    })
+      bikeCountChart.update();
+    });
 }
 

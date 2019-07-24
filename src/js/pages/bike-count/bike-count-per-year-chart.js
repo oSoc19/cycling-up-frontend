@@ -66,10 +66,13 @@ export function showChart (ctx) {
             backgroundColor: '#f9b138'
           }
         ]
+      },
+      options: {
+        responsive: true,
       }
     });
   }
-};
+}
 
 
 export function onChangeLanguage(lang, translation) {
@@ -77,8 +80,8 @@ export function onChangeLanguage(lang, translation) {
     return;
   }
 
-  bikeCountChart.data.datasets[0].label = translation['graph_legend'][lang]
-  bikeCountChart.update
+  bikeCountChart.data.datasets[0].label = translation['graph_legend'][lang];
+  bikeCountChart.update;
 }
 
 export function onSelectedBikeStation(stationId, stationName) {

@@ -1,6 +1,13 @@
 .bike-map {
   width: calc(100vw - 300px);
-  height: 100vh;
+  min-height: 100vh;
+  flex-grow: 1;
+  outline: none;
+
+  @include media-breakpoint-down(md) {
+    min-height: calc(100vh - 200px);
+    width: 100vw;
+  }
 
   &__menu {
     background: #fff;
@@ -41,16 +48,6 @@
   }
 }
 
-
-.point {
-  width: 10px;
-  height: 10px;
-  border-radius: 100px;
-  margin-right: 10px;
-}
-
-.line {
-  width: 15px;
-  height: 5px;
-  margin-right: 10px;
+.mapboxgl-canvas:focus {
+  outline: none;
 }
