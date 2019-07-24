@@ -11,6 +11,18 @@ const MAP_BIKE_LIVE_COUNT = "http://data-mobility.brussels/geoserver/bm_bike/wfs
 
 let bikeMap;
 let firstSymbolId;
+const layers = [
+  {
+    "id": "bike_stations",
+    "text": "Stations",
+    "color": "#203061"
+  },
+  {
+    "id": "bike_live_count",
+    "text": "Live count",
+    "color": "#b9cee2"
+  }
+]
 
 
 
@@ -37,6 +49,8 @@ export function showMap(container, onSelectStation) {
       firstSymbolId = layer.id;
     }
 
+
+    showSwitchMenuMap();
     showGFRNetworkLayer();
     showSations();
     showLiveCount();
@@ -87,6 +101,42 @@ const showGFRNetworkLayer = () => {
 };
 
 
+const showSwitchMenuMap = function showMenu() {
+  for (const layer of layers) {
+
+  }
+
+
+  // const link = document.createElement('a');
+  // link.href = '#';
+  // link.dataset.mapLayer = "test";
+
+  // link.innerHTML = `
+  //   <div class='point' ${`style="background-color: ${service.color};"`}>
+  //   </div> ${service.text}`;
+
+  // link.onclick = function (e) {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+
+  //   const clickedLayer = this.dataset.mapLayer;
+  //   const visibility = serviceMap.getLayoutProperty(
+  //     clickedLayer, 'visibility'
+  //   );
+
+  //   if (visibility === 'visible') {
+  //     serviceMap.setLayoutProperty(clickedLayer, 'visibility', 'none');
+  //     this.className = '';
+  //   } else {
+  //     this.className = 'active';
+  //     serviceMap.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+  //   }
+  // };
+
+  // const layersMenu = document.getElementById('menu');
+  // layersMenu.appendChild(link);
+}
+
 
 const showSations = () => {
 
@@ -132,22 +182,31 @@ const showLiveCount = () => {
           30,
           750,
           40
-        ]
+        ],
+        // 'circle-radius': [
+        //   '/',
+        //   ['number', ['get', 'day_cnt'], 0],
+        //   10
+        // ],
+        // "circle-radius" : [
+        //   "sqrt", ["/", ['number', ['get', 'day_cnt'], 0], Math.PI]
+        // ]
       }
     },
   );
 
-  bikeMap.addLayer({
-    id: 'bike-count-value',
-    type: 'symbol',
-    source: 'bike_live_count',
-    filter: ['has', 'day_cnt'],
-    layout: {
-      'text-field': '{day_cnt}',
-      // 'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-      'text-size': 16
-    }
-  });
+  // bikeMap.addLayer({
+  //   id: 'bike-count-value',
+  //   type: 'symbol',
+  //   source: 'bike_live_count',
+  //   filter: ['has', 'day_cnt'],
+  //   layout: {
+  //     // 'text-field': ['number', ['get', 'day_cnt'], 0],
+  //     'text-field': '{day_cnt}',
+  //     // 'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+  //     'text-size': 16
+  //   }
+  // });
 
 
 };
