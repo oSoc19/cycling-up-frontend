@@ -2,9 +2,7 @@ import mapboxgl from 'mapbox-gl';
 
 const serviceJson = require('../../../assets/data/service-map.json');
 
-const MAP_GFR_API_URL = `${process.env.API_URL}/map/general/bike_icr`;
-
-const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';
+const MAP_GFR_API_URL = `${process.env.API_URL}/map/general/bike_villo`;
 
 const MAP_BIKE_STATIONS_URL = process.env.API_URL + '/map/bike_count/historic_stations';
 
