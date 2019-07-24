@@ -124,13 +124,11 @@ export function showMap(mapContainer) {
   serviceMap.on('load', () => {
     const layers = serviceMap.getStyle().layers;
 
-    // Find the index of the first symbol layer in the map style
     const layer = layers.find(l => l.type === 'symbol');
     if (layer) {
       firstSymbolId = layer.id;
     }
 
-    // Add all markers
     markerImages.forEach(marker => {
       serviceMap.loadImage(marker.url, (error, image) => {
         if (error) throw error;

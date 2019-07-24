@@ -25,3 +25,82 @@
     padding: 20px;
   }
 }
+
+.c-year__container {
+  position: absolute;
+  top: 15px;
+  width: 34.2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.c-year__label {
+  color: pal-color(blue);
+  font-size: 40px;
+  font-family: font-family(heading);
+  margin-top: 30px;
+}
+
+.l-container--absolute {
+  position: absolute;
+  width: 34.2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  bottom: 60px;
+}
+
+.c-btn {
+  position: relative;
+  border: none;
+  outline: none;
+  background-color: pal-color(blue);
+  padding: 15px;
+  cursor: pointer;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+  }
+}
+
+#pause::after, #pause.pause::after, .c-btn--next::after, .c-btn--previous::after {
+  content: "";
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  top: 8px;
+  background: url('../assets/icons/noun_play.svg') no-repeat center center;
+}
+
+#pause::after {
+  width: 14px;
+  height: 14px;
+  background: url('../assets/icons/noun_pause.svg') no-repeat center center;
+}
+
+#pause.pause::after {
+  background: url('../assets/icons/noun_play.svg') no-repeat center center;
+}
+
+.c-btn--next::after, .c-btn--previous::after {
+  background: url('../assets/icons/noun_next.svg') no-repeat center center;
+}
+
+.c-btn--previous::after {
+  transform: rotate(180deg);
+  width: 16px;
+}
+
+.c-btn:hover {
+  background-color: pal-color(yellow);
+}
