@@ -79,10 +79,9 @@ export function showChart(ctx, [regionalData, gfrData]) {
         scales: {
           xAxes: [{
             ticks: {
-              // autoSkip: true,
-              min : years[0],
-              max : years[years.length - 1],
-              stepSize: 10
+              autoSkip: true,
+              maxTicksLimit: 9, // years.length / 5,
+              // stepSize: 10
             }
           }]
         }
