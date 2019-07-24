@@ -16,12 +16,23 @@
         class="historical-map js-map-historical"
         id="js-map-historical"
       ></div>
+      <div class="c-year__container">
+        <label class="c-year__label js-year-label"></label>
+      </div>
+      <div class="l-container--absolute">
+        <div class="c-btn__container">
+          <button class= "c-btn c-btn--previous is-hidden js-btn-prev"></button>
+          <button class="c-btn" id='pause'></button>
+          <button class="c-btn  c-btn--next is-hidden js-btn-next"></button>
+        </div>
+      </div>
       <div class="h-graph c-graph__section">
         <div class="c-graph">
           <canvas
             style="height:35vh; width:auto"
             id="js-canvas-evolution"
           ></canvas>
+         <p style="font-style: italic;">Source: Brussels Mobility </p>
         </div>
         <div class="h-header">
           <h1 class="h-title i18n" data-i18n-key="title">
