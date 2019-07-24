@@ -19,7 +19,38 @@ const fetchData = () => {
 };
 
 const  init = () => {
-  return fetchData().then(data => startAnimation(data));
+  return fetchData().then(data => startAnimation(data)).then(
+    _=> {
+      $pauseButton.addEventListener('click', () => {
+        $pauseButton.classList.toggle('pause');
+        if ($pauseButton.classList.contains('pause')) {
+          cancelAnimationFrame(animationInfra);
+          $nextButton.classList.remove('is-hidden');
+          $previousButton.classList.remove('is-hidden');
+        } else {
+          renderAnimation();
+          $nextButton.classList.add('is-hidden');
+          $previousButton.classList.add('is-hidden');
+        }
+      });
+
+
+      $nextButton.addEventListener('click', () => { showNextLayer(); });
+
+      $previousButton.addEventListener('click', () => {
+        toggleLayer(yearsData[yearIndex], false);
+        yearIndex --;
+        if (yearIndex === - 1) {
+          yearIndex = yearsData.length - 1;
+          yearsData.forEach(element => {
+            toggleLayer(element, true);
+          });
+        }
+        $yearLabel.innerHTML = yearsData[yearIndex];
+      });
+
+    }
+  );
 };
 
 const startAnimation = data => {
@@ -109,33 +140,6 @@ const showNextLayer = () => {
   toggleLayer(yearsData[yearIndex], true);
 };
 
-$pauseButton.addEventListener('click', () => {
-  $pauseButton.classList.toggle('pause');
-  if ($pauseButton.classList.contains('pause')) {
-    cancelAnimationFrame(animationInfra);
-    $nextButton.classList.remove('is-hidden');
-    $previousButton.classList.remove('is-hidden');
-  } else {
-    renderAnimation();
-    $nextButton.classList.add('is-hidden');
-    $previousButton.classList.add('is-hidden');
-  }
-});
-
-
-$nextButton.addEventListener('click', () => { showNextLayer(); });
-
-$previousButton.addEventListener('click', () => {
-  toggleLayer(yearsData[yearIndex], false);
-  yearIndex --;
-  if (yearIndex === - 1) {
-    yearIndex = yearsData.length - 1;
-    yearsData.forEach(element => {
-      toggleLayer(element, true);
-    });
-  }
-  $yearLabel.innerHTML = yearsData[yearIndex];
-});
 
 
 export function onChangeLanguage(lang, translations) {
