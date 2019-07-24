@@ -1,6 +1,12 @@
 .historical-map {
   width: 55%;
-  height: 100vh;
+  min-height: 100vh;
+  flex-grow: 1;
+
+  @include media-breakpoint-down(md) {
+    min-height: calc(100vh - 90px);
+    width: 100vw;
+  }
 }
 
 .h-graph {
@@ -15,7 +21,7 @@
 
 .h-title {
   font-size: 24px;
-  line-height: 24px;
+  line-height: 33px;
 }
 
 .h-header {
@@ -30,6 +36,11 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+
+  @include media-breakpoint-up(md) {
+    width: 100vw;
+    top: 170px;
+  }
 }
 
 .c-year__label {
@@ -40,13 +51,18 @@
 }
 
 .l-container--absolute {
-  position: absolute;
+  position: fixed;
   width: 34.2%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   bottom: 60px;
+
+  @include media-breakpoint-up(md) {
+    width: 100vw;
+    position: absolute;
+  }
 }
 
 .c-btn {
