@@ -171,26 +171,27 @@ const showLiveCount = () => {
       id: 'bike_count',
       type: 'circle',
       source: "bike_live_count",
-      filter: ["==", "$type", "Point"],
+      // filter: ["==", "$type", "Point"],
+      filter: ["!=", null, ["get", "day_cnt"]],
       paint: {
         "circle-color": "red",
-        "circle-radius": [
-          "step",
-          ["get", "day_cnt"],
-          20,
-          100,
-          30,
-          750,
-          40
-        ],
+        // "circle-radius": [
+        //   "step",
+        //   ["get", "day_cnt"],
+        //   20,
+        //   100,
+        //   30,
+        //   750,
+        //   40
+        // ],
         // 'circle-radius': [
         //   '/',
         //   ['number', ['get', 'day_cnt'], 0],
         //   10
         // ],
-        // "circle-radius" : [
-        //   "sqrt", ["/", ['number', ['get', 'day_cnt'], 0], Math.PI]
-        // ]
+        "circle-radius" : [
+          "sqrt", ["/", ['to-number', ['get', 'day_cnt'], 0], Math.PI]
+        ]
       }
     },
   );
