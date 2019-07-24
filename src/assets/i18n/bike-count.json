@@ -10,16 +10,16 @@
     "nl": "De evolutie van het aantal fietsers is afhankelijk van de seizoenen en wordt bepaald door de volgende maanden: Januari, Mei, September en November. Deze grafiek geeft de afstand tussen elk jaar weer van 1998 tot 2017. Alle gegevens vertegenwoordigen het aantal fietsers willekeurig genomen op een t-punt. Geen van deze moet worden opgenomen als verleend en beschouwd als absolute gegevens. "
   },
   "GFR-description": {
-    "en": "The Regional Cyclable Itineraries are suggested paths for cyclists willing to commute on a medium to long distance. They take into account the calmest streets and the less stressful paths for the users.",
+    "en": "The Regional Cycling Routes are suggested paths for cyclists willing to commute on a medium to long distance. They take into account the calmest streets and the less stressful paths for the users.",
     "fr": "Les Itinéraires Cyclables Régionaux sont des pistes cyclables proposées pour les cyclistes souhaitant se déplacer sur de moyenne à longue distance. Ces itinéraires prennent en compte les rues les plus calmes afin de rendre les trajets le moins stressant possible pour le cycliste.",
-    "nl": "De Gewestelijke Fietsroutes zijn fietspaden die worden aangeboden voor fietsers die gemiddeld tot lange afstanden willen reizen. Deze routes houden rekening met de rustigere straten om de ritten zo stressvol mogelijk te maken voor de fietser."
+    "nl": "De Gewestelijke Fiets Routes zijn fietspaden die worden aangeboden voor fietsers die gemiddeld tot lange afstanden willen reizen. Deze routes houden rekening met de rustigere straten om de ritten zo stressvol mogelijk te maken voor de fietser."
   },
   "graph_legend": {
     "en": "January ; May ; September ; November",
     "fr": "Janvier ; Mai ; Septembre ; Novembre",
     "nl": "Januari ; Mei ; September ; November"
   },
-  "graph_title" : {
+  "graph_title": {
     "en": "Click on a blue circle on the map to get the historical data of this place.",
     "fr": "Cliquez sur un point bleu dans la carte pour avoir l'historique cet endroit.",
     "nl": "Klik op een blauwe cirkel om historische gegevens te verkrijgen over deze locatie"

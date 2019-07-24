@@ -111,5 +111,7 @@ const onLangSelectorClick = function (ev) {
 document.addEventListener('DOMContentLoaded', () => {
   init();
   const path = window.location.pathname.substr(1).slice(0, -5);
-  $(`.${path}-menu-item`).addClass('is-current');
+  $(`.l-navigation__list__item > a[href*="${path}"]`)
+    .parent()
+    .addClass('is-current');
 });

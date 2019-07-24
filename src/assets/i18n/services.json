@@ -5,9 +5,9 @@
     "nl": "Fietsinfrastructuur"
   },
   "bike_parking": {
-    "en": "Bike sheds",
-    "fr": "Abris vélo",
-    "nl": "Fietsenstallingen"
+    "en": "Bike parking",
+    "fr": "Parking vélo",
+    "nl": "Fiets parking"
   },
   "bike_pump": {
     "en": "Bike pumps",
@@ -25,8 +25,8 @@
     "nl": "Villo! stations"
   },
   "bike_gfr": {
-    "en": "GFR network",
-    "fr": "Réseau ICR",
-    "nl": "GFR netwerk"
+    "nl": "Gewestelijke Fiets Route netwerk",
+    "fr": "Réseau Itinéraires Cyclables Régionaux",
+    "en": "Regional Cycling Route network"
   }
 }

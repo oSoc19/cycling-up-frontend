@@ -73,7 +73,7 @@
   font-size: 16px;
   font-family: "CircularStd-Black";
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (max-width: 1024px) {
     font-size: 14px;
     padding: 0.5rem;
   }
