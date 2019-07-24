@@ -36,7 +36,6 @@
   flex-direction: column;
 }
 
-
 .c-year__label {
   color: pal-color(blue);
   font-size: 40px;
@@ -44,7 +43,7 @@
   margin-top: 30px;
 }
 
-.c-btn__ctnr {
+.l-container--absolute {
   position: absolute;
   width: 34.2%;
   display: flex;
@@ -69,20 +68,8 @@
     width: 200px;
   }
 }
-#pause::after {
-  content: "";
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  width: 14px;
-  height: 14px;
-  top: 8px;
-  background: url('../assets/icons/noun_pause.svg') no-repeat center center;
-}
 
-#pause.pause::after {
+#pause::after, #pause.pause::after, .c-btn--next::after, .c-btn--previous::after {
   content: "";
   position: absolute;
   margin-left: auto;
@@ -95,31 +82,23 @@
   background: url('../assets/icons/noun_play.svg') no-repeat center center;
 }
 
-.c-btn--next::after {
-  content: "";
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  width: 15px;
-  height: 15px;
-  top: 8px;
+#pause::after {
+  width: 14px;
+  height: 14px;
+  background: url('../assets/icons/noun_pause.svg') no-repeat center center;
+}
+
+#pause.pause::after {
+  background: url('../assets/icons/noun_play.svg') no-repeat center center;
+}
+
+.c-btn--next::after, .c-btn--previous::after {
   background: url('../assets/icons/noun_next.svg') no-repeat center center;
 }
 
 .c-btn--previous::after {
-  content: "";
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  width: 15px;
-  height: 15px;
-  top: 8px;
-  background: url('../assets/icons/noun_next.svg') no-repeat center center;
   transform: rotate(180deg);
+  width: 16px;
 }
 
 .c-btn:hover {
