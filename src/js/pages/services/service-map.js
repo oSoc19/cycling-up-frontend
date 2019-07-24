@@ -1,13 +1,11 @@
 import mapboxgl from 'mapbox-gl';
 
-const serviceJson = require("../../../assets/data/service-map.json");
+const serviceJson = require('../../../assets/data/service-map.json');
 
-const MAP_GENERAL_API_URL = process.env.API_URL + '/map/general/';
-
+const MAP_GENERAL_API_URL = `${process.env.API_URL  }/map/general/`;
 
 let serviceMap;
 let firstSymbolId;
-
 
 /**
  * List of the map markers containing the image and their name
@@ -31,7 +29,6 @@ const markerImages = [
   }
 ];
 
-
 /**
  * List of layers identified by the API kind of general map
  */
@@ -49,7 +46,7 @@ const layers = [
       'line-color': '#203061',
       'line-width': 3
     },
-    insertToExisting : true
+    insertToExisting: true
   },
   {
     id: 'bike_parking',
@@ -100,16 +97,17 @@ const layers = [
       visibility: 'none'
     },
     paint: {
-      'line-color': '#b9cee2',
+      'line-color': {
+        type: 'identity',
+        property: 'colour'
+      },
       'line-width': 3
     },
     insertToExisting: true
   }
 ];
 
-
-
-export function showMap (mapContainer) {
+export function showMap(mapContainer) {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
 
   serviceMap = new mapboxgl.Map({
@@ -143,8 +141,6 @@ export function showMap (mapContainer) {
   });
 }
 
-
-
 const showMenuMap = () => {
   const toggleableLayerIds = Object.keys(serviceJson);
 
@@ -160,11 +156,11 @@ const showMenuMap = () => {
       service.line
         ? `style="background-color: ${service.color};"`
         : `style="background-image: url('../assets/icons/${
-        service.icon
+          service.icon
         }.png');"`
-      }></div> ${service.text}`;
+    }></div> ${service.text}`;
 
-    link.onclick = function (e) {
+    link.onclick = function(e) {
       const clickedLayer = this.dataset.mapLayer;
       e.preventDefault();
       e.stopPropagation();
@@ -188,15 +184,14 @@ const showMenuMap = () => {
   }
 };
 
-
 const showMapLayers = () => {
   layers.forEach(layer => {
     serviceMap.addSource(layer['id'], {
       type: 'geojson',
-      data: MAP_GENERAL_API_URL + layer['id'],
+      data: MAP_GENERAL_API_URL + layer['id']
     });
 
-    const { insertToExisting=false} = layer;
+    const {insertToExisting = false} = layer;
 
     serviceMap.addLayer(
       {
@@ -205,11 +200,8 @@ const showMapLayers = () => {
       },
       insertToExisting ? firstSymbolId : null
     );
-
-  })
-}
-
-
+  });
+};
 
 export function onChangeLanguage(translations) {
   // commuteChart.data.datasets[0].label = translations[lang]['legend']

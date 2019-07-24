@@ -1,12 +1,12 @@
 import mapboxgl from 'mapbox-gl';
 
+const serviceJson = require('../../../assets/data/service-map.json');
 
-const MAP_VILLO_API_URL = 'http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting';
+const MAP_VILLO_API_URL = `${process.env.API_URL}/map/general/bike_icr`;
 
 let villoMap;
 // eslint-disable-next-line
-let jsonData;
-
+let firstSymbolId;
 
 export function showMap(container) {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
@@ -32,7 +32,7 @@ export function showMap(container) {
     });
     showVilloStationsLayer();
   });
-};
+}
 
 const showVilloStationsLayer = () => {
   villoMap.addSource('bikeVillo', {
@@ -49,9 +49,9 @@ const showVilloStationsLayer = () => {
       visibility: 'visible',
       'icon-image': 'Villo!',
       'icon-size': 0.1
-    }
+    },
+    firstSymbolId
   });
 };
 
-export function onChangeLanguage(translations) {
-}
+export function onChangeLanguage(translations) {}

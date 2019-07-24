@@ -1,9 +1,11 @@
 .c-header-img {
   width: calc(100vw - 300px);
-  background: url('../assets/img/header-1.png') no-repeat;
+  background: url('../assets/img/header-1.svg') no-repeat;
   background-position: center center;
   background-size: cover;
   height: 45vh;
+
+  //Permission granted for use of the atomium illustration by www.atomium.be
 
   @media only screen and (max-width: 1024px) {
     width: calc(100vw - 20vw);
@@ -67,7 +69,7 @@
     display: none;
 
     @include media-breakpoint-down(xs) {
-      background: url('../assets/img/header_1.png') no-repeat;
+      background: url('../assets/img/header_1.svg') no-repeat;
       background-position: center center;
       background-size: cover;
       display: block;
