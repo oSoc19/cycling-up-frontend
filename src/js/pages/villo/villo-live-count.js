@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 
 
-const MAP_VILLO_API_URL = 'http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting';
+const MAP_VILLO_API_URL = process.env.API_URL + "/map/general/bike_villo";
 
 let villoMap;
 // eslint-disable-next-line
