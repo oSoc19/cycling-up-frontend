@@ -9,7 +9,7 @@ The css is also just regular css, no compiling needed.
 There's a tiny style guide that shows you what elements you have at your disposal.
 
 ## Where is it deployed?
-The site for your project will be: https://osoc18.github.io/[NAMEOFYOURREPO]
+The site for your project will be: https://osoc19.github.io/cycling-up-frontend/
 The site for this template can be found here: https://osoc18.github.io/website/
 
 --
