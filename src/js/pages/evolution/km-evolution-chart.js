@@ -28,38 +28,64 @@ export function showChart(ctx, [regionalData, gfrData]) {
       label: 'Cumulated amount of km per year of regionnal paths',
       borderColor: 'rgba(239, 185, 52, 1)',
       backgroundColor: 'rgba(239, 185, 52, 1)',
-      data : [],
+      data: [],
       fill: false,
-      spanGaps: true,
+      spanGaps: false,
     },
     {
       id: 'gfr',
       label: 'Cumulated amount of km per year of GFR paths',
       borderColor: 'rgba(195, 214, 230, 1)',
       backgroundColor: 'rgba(195, 214, 230, 1)',
-      data : [],
+      data: [],
       fill: false,
-      spanGaps: true,
+      // spanGaps: false,
     }
   ]
   // Our labels along the x-axis
-  const years = regionalData.map(rd => rd.year);
+  let years = [].concat(
+    regionalData.map(rd => rd.year),
+    gfrData.map(rd => rd.year)
+  );
+  years = Array.from(new Set(years)).sort()
 
   // For drawing the lines
-  const sortChartData = (d1, d2) => d1['year'] - d2['year'];
-  datasets[0].data = regionalData.map(d => ({x : d['year'], y : d['cumulated_kilometers'] })).sort(sortChartData);
-  datasets[1].data = gfrData.map(d => ({x : d['year'], y : d['cumulated_kilometers'] })).sort(sortChartData);
+  const _createChartData = chartData => {
+    return years.map(year => {
+      const value = chartData.find(d => d['year'] == year) || {};
+      return value['cumulated_kilometers']
+    })
+  }
+  datasets[0].data = _createChartData(regionalData)
+
+  datasets[1].data = _createChartData(gfrData)
+
+  console.log(years);
 
   if (ctx) {
     evolutionChart = new Chart(ctx, {
       type: 'line',
       // labels,
       data: {
-        labels : years,
+        labels: years,
         datasets
       },
       options: {
-        responsive: false
+        responsive: false,
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+        scales: {
+          xAxes: [{
+            ticks: {
+              // autoSkip: true,
+              min : years[0],
+              max : years[years.length - 1],
+              stepSize: 10
+            }
+          }]
+        }
       }
     });
 
