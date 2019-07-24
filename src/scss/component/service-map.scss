@@ -2,13 +2,9 @@
   width: calc(100vw - 300px);
   height: 100vh;
 
-  @media only screen and (max-width: 1024px) {
-    width: calc(100vw - 20vw);
-  }
-
-  @media only screen and (max-width: 992px) {
+  @include media-breakpoint-down(lg) {
+    height: calc(100vh - 90px);
     width: 100vw;
-    margin-top: -50px;
   }
 
   &__menu {
@@ -21,6 +17,17 @@
     width: 160px;
     border: 1px solid rgba(0,0,0,0.2);
 
+    @include media-breakpoint-down(xs) {
+      display: flex;
+      width: 87vw;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
     a {
       display: flex;
       align-items: center;
@@ -32,6 +39,11 @@
       text-decoration: none;
       border-bottom: 1px solid rgba(0,0,0,0.2);
       text-align: center;
+
+      @include media-breakpoint-down(sm) {
+        width: 153px;
+        border: none;
+      }
     }
 
 

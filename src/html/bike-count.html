@@ -11,17 +11,13 @@
       <div class="bike-map js-map-bike" id="js-map-bike"></div>
       <nav id="menu" class="bike-count-map__menu"></nav>
       <div class="h-graph">
-        <div class="c-graph">
-          <canvas
-            style="height:35vh; width:auto"
-            id="js-canvas-season"
-          ></canvas>
-          <p style="font-style: italic;">Source: Bruxelles Mobilité (Observatoire du vélo en Région de Bruxelles-Capitale - Pro Velo asbl)</p>
+        <div class="c-graph c-graph--bike-count">
+          <canvas id="js-canvas-season" style="height:20vw; width:auto" class="c-canvas c-canvas--bike-count"></canvas>
+          <p class="p--source">Source: Bruxelles Mobilité (Observatoire du vélo en Région de Bruxelles-Capitale - Pro Velo asbl)</p>
         </div>
-        <div class="h-header">
+        <div class="h-header h-header--bike-count">
           <h1
             class="h-title i18n"
-            style="line-height: 32px;"
             data-i18n-key="title"
           >
             Amount of cyclists per season on the Brussels infrastructure

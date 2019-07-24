@@ -34,7 +34,7 @@ export function showChart(ctx, chartData) {
         ]
       },
       options: {
-        responsive: false
+        responsive: true
       }
     });
 

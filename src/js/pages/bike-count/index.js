@@ -39,7 +39,7 @@ export function init(callback) {
     BikeCountPerSeasonChart.showChart(chartContainer);
 
     if (callback) {
-      return callback(translations)
+      return callback(translations);
     }
   }
 }
