@@ -36,6 +36,10 @@
   @media only screen and (min-width: 320px) {
     top: 35px;
   }
+
+  @media only screen and (max-width: 768px) {
+    top: 25px;
+  }
 }
 
 .l-header__toggle > span {
@@ -79,7 +83,7 @@
 .l-header__mobile {
   display: none;
   width: 100vw;
-  height: 150px;
+  height: 100px;
   position: relative;
   overflow: hidden;
 }
@@ -102,6 +106,11 @@
   z-index: 2;
   margin-left: 80px;
   margin-top: 42px;
+
+  @media only screen and (max-width: 768px) {
+    margin-left: 40px;
+    margin-top: 20px;
+  }
 }
 
 .l-header.is-active {

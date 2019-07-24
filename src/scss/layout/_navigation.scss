@@ -6,11 +6,11 @@
     padding-top: 55px;
   }
 
-  @media only screen and (max-width: 992px) {
-    padding-top: 130px;
+  @media only screen and (min-width: 768px) {
+    padding-top: 90px;
   }
 
-  @media only screen and (max-width: 320px) {
+  @media only screen and (min-width: 320px) {
     padding-top: 90px;
   }
 
@@ -31,7 +31,12 @@
         padding: 10px 0px 10px 30px;
       }
 
-      @media only screen and (max-width: 320px) {
+
+      @media only screen and (min-width: 768px) {
+        padding: 10px 0px 10px 50px;
+      }
+
+      @media only screen and (min-width: 320px) {
         padding: 10px 0px 10px 50px;
       }
 
