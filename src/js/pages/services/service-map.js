@@ -141,6 +141,11 @@ export function showMap(mapContainer) {
   });
 }
 
+export function onChangeLanguage(translations) {
+  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+}
+
+
 const showMenuMap = () => {
   const toggleableLayerIds = Object.keys(serviceJson);
 
@@ -200,9 +205,8 @@ const showMapLayers = () => {
       },
       insertToExisting ? firstSymbolId : null
     );
-  });
-};
 
-export function onChangeLanguage(translations) {
-  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+  })
 }
+
+

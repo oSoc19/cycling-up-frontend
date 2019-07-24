@@ -2,7 +2,7 @@ import mapboxgl from 'mapbox-gl';
 
 const serviceJson = require('../../../assets/data/service-map.json');
 
-const MAP_VILLO_API_URL = `${process.env.API_URL}/map/general/bike_icr`;
+const MAP_VILLO_API_URL = process.env.API_URL + "/map/general/bike_villo";
 
 let villoMap;
 // eslint-disable-next-line
