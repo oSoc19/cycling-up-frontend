@@ -141,7 +141,7 @@ export function showMap (mapContainer) {
     showMenuMap();
     showMapLayers();
   });
-};
+}
 
 
 

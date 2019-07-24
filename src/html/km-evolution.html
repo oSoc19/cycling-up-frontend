@@ -14,11 +14,16 @@
     <include>_navigation.html</include>
     <main class="c-graph__section" id="historical-map">
       <div class="historical-map js-map-historical" id="js-map-historical"></div>
-      <label class="c-year__label js-year-label"></label>
-      <button class="c-button" id='pause'></button>
-      <button class="c-button  c-button--next is-hidden js-btn-next">next</button>
-      <button class= "c-button c-button--previous is-hidden js-btn-prev">previous</button>
 
+      <div class="c-year__container">
+        <label class="c-year__label js-year-label"></label>
+      </div>
+      <div class="c-btn__ctnr">
+        <div class="c-btn__container">
+          <button class= "c-btn c-btn--previous is-hidden js-btn-prev"></button>
+          <button class="c-btn" id='pause'></button>
+          <button class="c-btn  c-btn--next is-hidden js-btn-next"></button>
+        </div>
       </div>
       <div class="h-graph">
         <div class="c-graph">
