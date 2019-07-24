@@ -61,6 +61,8 @@ module.exports = {
         filename: 'bundle.js',
     },
     devServer: {
+        host : '0.0.0.0',
+        disableHostCheck: true,
         contentBase: './src/html',
         watchContentBase: true,
         hot: true,
