@@ -4,7 +4,7 @@
   flex-grow: 1;
 
   @include media-breakpoint-down(md) {
-    min-height: calc(100vh - 90px);
+    min-height: calc(100vh - 200px);
     width: 100vw;
   }
 }
@@ -26,6 +26,10 @@
 
 .h-header {
   padding: 5rem;
+
+  @include media-breakpoint-down(sm) {
+    padding: 40px;
+  }
 }
 
 .c-year__container {
@@ -37,9 +41,14 @@
   align-items: center;
   flex-direction: column;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-down(lg) {
+    width: 55%;
+    top: 160px;
+  }
+
+  @include media-breakpoint-down(md) {
     width: 100vw;
-    top: 170px;
+    top: 135px;
   }
 }
 
@@ -59,10 +68,17 @@
   flex-direction: column;
   bottom: 60px;
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-down(lg) {
+    width: 55%;
+  }
+
+  @include media-breakpoint-down(md) {
     width: 100vw;
     position: absolute;
+    bottom: 135px;
   }
+
+
 }
 
 .c-btn {

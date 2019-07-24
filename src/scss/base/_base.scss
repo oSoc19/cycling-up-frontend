@@ -10,6 +10,10 @@ body {
   @include media-breakpoint-down(lg) {
     flex-direction: column;
   }
+
+  @include media-breakpoint-up(md) {
+    overflow: overlay;
+  }
 }
 
 p,
