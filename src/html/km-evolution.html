@@ -14,13 +14,11 @@
     <include>_navigation.html</include>
     <main class="c-graph__section" id="historical-map">
       <div class="historical-map js-map-historical" id="js-map-historical"></div>
+      <label class="c-year__label js-year-label"></label>
+      <button class="c-button" id='pause'></button>
+      <button class="c-button  c-button--next is-hidden js-btn-next">next</button>
+      <button class= "c-button c-button--previous is-hidden js-btn-prev">previous</button>
 
-      <div class="c-slider__container">
-        <input class="c-slider" type="range" min="1895" max="2019" step="1" value="1895">
-        <div class="c-slider__labels">
-            <label class="c-slider__label">1895</label>
-            <label class="c-slider__label">2019</label>
-        </div>
       </div>
       <div class="h-graph">
         <div class="c-graph">

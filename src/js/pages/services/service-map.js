@@ -103,7 +103,7 @@ const layers = [
       'line-color': '#b9cee2',
       'line-width': 3
     },
-    insertToExisting : true
+    insertToExisting: true
   }
 ];
 
@@ -126,13 +126,11 @@ export function showMap (mapContainer) {
   serviceMap.on('load', () => {
     const layers = serviceMap.getStyle().layers;
 
-    // Find the index of the first symbol layer in the map style
-    const layer = layers.find(l => l.type === 'symbol')
+    const layer = layers.find(l => l.type === 'symbol');
     if (layer) {
-      firstSymbolId = layer.id
+      firstSymbolId = layer.id;
     }
 
-    // Add all markers
     markerImages.forEach(marker => {
       serviceMap.loadImage(marker.url, (error, image) => {
         if (error) throw error;
@@ -150,9 +148,9 @@ export function showMap (mapContainer) {
 const showMenuMap = () => {
   const toggleableLayerIds = Object.keys(serviceJson);
 
-  for (let i = 0; i < toggleableLayerIds.length; i += 1) {
+  for (let i = 0;i < toggleableLayerIds.length;i += 1) {
     const layerId = toggleableLayerIds[i];
-    const service = serviceJson[layerId]
+    const service = serviceJson[layerId];
 
     const link = document.createElement('a');
     link.href = '#';
