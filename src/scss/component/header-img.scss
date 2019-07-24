@@ -7,6 +7,7 @@
 
   @include media-breakpoint-down(lg) {
     width: 100vw;
+    min-height: 250px;
   }
 
   //Permission granted for use of the atomium illustration by www.atomium.be
@@ -25,6 +26,10 @@
 
     @include media-breakpoint-down(sm) {
       font-size: 27px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      font-size: 23px;
     }
   }
 
