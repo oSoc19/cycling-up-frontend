@@ -1,12 +1,11 @@
 import mapboxgl from 'mapbox-gl';
 
-
-const MAP_VILLO_API_URL = 'http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting';
+const MAP_VILLO_API_URL =
+  'http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting';
 
 let villoMap;
 // eslint-disable-next-line
 let jsonData;
-
 
 export function showMap(container) {
   mapboxgl.accessToken = process.env.MAPBOX_ACCESS_TOKEN;
@@ -32,7 +31,7 @@ export function showMap(container) {
     });
     showVilloStationsLayer();
   });
-};
+}
 
 const showVilloStationsLayer = () => {
   villoMap.addSource('bikeVillo', {
@@ -53,5 +52,4 @@ const showVilloStationsLayer = () => {
   });
 };
 
-export function onChangeLanguage(translations) {
-}
+export function onChangeLanguage(translations) {}
