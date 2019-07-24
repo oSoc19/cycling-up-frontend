@@ -8,35 +8,46 @@
 
 .background-color {
   color: pal-color(blue);
-    background-color: pal-color(white);
-    display: inline-block;
-    line-height: 55px;
-    padding: 0px 15px;
+  background-color: pal-color(white);
+  display: inline-block;
+  line-height: 55px;
+  padding: 0px 15px;
+
+  @include media-breakpoint-down(xs) {
+    padding: 5px 66px;
+    line-height: 40px;
+  }
 }
 
 .header-page-title {
-  font-size: 54px;
+  font-size: 50px;
   margin-top: 10rem;
 
-  @media only screen and (max-width: 1024px) {
-    font-size: 36px;
-    margin-top: 5rem;
-    margin-bottom: 0.5rem;
+  @include media-breakpoint-down(lg) {
+    font-size: 40px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 30px;
   }
 }
 
 .header-page-subtitle {
   color: #EAB818;
-  font-size: 36px;
+  font-size: 28px;
   background-color: white;
   padding: 10px 5px 15px 10px;
   margin-top: -1rem;
   display: inline-block;
 
-  @media only screen and (max-width: 1024px) {
-    font-size: 18px;
-    margin-top: 0;
-    padding: 5px 5px 5px 10px;
+  @include media-breakpoint-down(lg) {
+    font-size: 20px;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-down(xs) {
+    display: none;
   }
 }
 

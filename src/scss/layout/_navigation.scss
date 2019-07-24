@@ -1,12 +1,7 @@
 .l-navigation {
-  padding-top: 125px;
-  font-family: AvenirNext-Medium, Helvetica,sans-serif;
+  padding-top: 100px;
 
-  @media only screen and (max-width: 1024px) {
-    padding-top: 55px;
-  }
-
-  @media only screen and (max-width: 992px) {
+  @include media-breakpoint-down(lg) {
     padding-top: 130px;
   }
 
@@ -16,15 +11,15 @@
     justify-content: space-between;
     font-size: 15px;
 
-    @media only screen and (max-width: 1024px) {
-      font-size: 14px;
-    }
-
     &__item {
-      padding: 20px 0px 20px 40px;
+      padding: 20px 0px 20px 45px;
 
-      @media only screen and (max-width: 1024px) {
-        padding: 10px 0px 10px 30px;
+      @include media-breakpoint-only(md) {
+        padding: 20px 0px 20px 85px;
+      }
+
+      @include media-breakpoint-only(lg) {
+        padding: 20px 0px 20px 85px;
       }
 
       &:hover {
@@ -53,13 +48,16 @@
 }
 
 .lang {
-  position: fixed;
-  left: 35px;
-  bottom: 35px;
+  margin-left: 30px;
+  margin-top: 40px;
+  margin-bottom: 30px;
 
-  @media only screen and (min-width: 1024px) {
-    left: 20px;
-    bottom: 20px;
+  @include media-breakpoint-only(md) {
+    margin-left: 70px;
+  }
+
+  @include media-breakpoint-only(lg) {
+    margin-left: 70px;
   }
 }
 
@@ -72,14 +70,11 @@
   border-radius: 50%;
   font-size: 16px;
   font-family: "CircularStd-Black";
-
-  @media only screen and (max-width: 1024px) {
-    font-size: 14px;
-    padding: 0.5rem;
-  }
+  outline: none;
 
   &:hover {
     cursor: pointer;
+    color: pal-color(yellow);
   }
 }
 
@@ -87,8 +82,3 @@
   color: pal-color(yellow);
 }
 
-.anchor {
-  @media only screen and (max-width: 1024px) {
-    font-size: 12px;
-  }
-}

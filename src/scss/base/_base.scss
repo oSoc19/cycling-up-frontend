@@ -1,17 +1,14 @@
 body {
   @include font-smoothing(antialiased);
-  overflow-x: hidden;
-  overflow-y: hidden;
   color: $font-color;
   font-family: font-family(base);
   font-size: font-size(base);
   line-height: $line-height;
   user-select: none;
   display: flex;
-  // background-image: url('../assets/img/Desktop.png');
 
-  @media only screen and (max-width: 992px) {
-    flex-direction: column
+  @include media-breakpoint-down(lg) {
+    flex-direction: column;
   }
 }
 
@@ -25,11 +22,12 @@ p,
 .paragraph {
   color: pal-color(gray, light);
   font-family: font-family(paragraph);
+}
 
-  @media only screen and (max-width: 1024px) {
-    font-size: 12px;
-    line-height: 16px;
-  }
+.p--source {
+  font-style: italic;
+  font-size: 14px;
+  padding: 0 40px;
 }
 
 a,

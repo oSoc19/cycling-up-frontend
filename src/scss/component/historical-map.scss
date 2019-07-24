@@ -7,6 +7,10 @@
   width: 45vw;
   display: flex;
   flex-direction: column;
+
+  @include media-breakpoint-down(md) {
+    width: 100vw;
+  }
 }
 
 .h-title {
@@ -16,14 +20,6 @@
 
 .h-header {
   padding: 5rem;
-
-  @media only screen and (max-width: 1024px) {
-    padding: 50px;
-  }
-
-  @media only screen and (max-width: 768px) {
-    padding: 20px;
-  }
 }
 
 .c-year__container {
