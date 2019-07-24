@@ -22,6 +22,7 @@ const layers = [
     "text": "Live count",
     "color": "#b9cee2"
   }
+
 ]
 
 
@@ -171,12 +172,9 @@ const showLiveCount = () => {
       id: 'bike_count',
       type: 'circle',
       source: "bike_live_count",
-      filter: //[
-        // "all",
-          // ["==", "$type", "Point"],
-          ["!=", ["get", "day_cnt"], null],
-      /*],*/
-      // filter: ["!=", null, ["get", "day_cnt"]],
+      filter: [
+          "!=", null, ["get", "day_cnt"],
+      ],
       paint: {
         "circle-color": "red",
         // "circle-radius": [
@@ -200,18 +198,18 @@ const showLiveCount = () => {
     },
   );
 
-  bikeMap.addLayer({
-    id: 'bike-count-value',
-    type: 'symbol',
-    source: 'bike_live_count',
-    filter: ["!=", ["get", "day_cnt"], null],
-    layout: {
-      // 'text-field': ['number', ['get', 'day_cnt'], 0],
-      'text-field': '{day_cnt}',
-      // 'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-      'text-size': 16
-    }
-  });
+  // bikeMap.addLayer({
+  //   id: 'bike-count-value',
+  //   type: 'symbol',
+  //   source: 'bike_live_count',
+  //   filter: ["!=", ["get", "day_cnt"], null],
+  //   layout: {
+  //     // 'text-field': ['number', ['get', 'day_cnt'], 0],
+  //     'text-field': '{day_cnt}',
+  //     // 'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+  //     'text-size': 16
+  //   }
+  // });
 
 
 };

@@ -150,6 +150,11 @@ export function showMap (mapContainer) {
 
 
 
+export function onChangeLanguage(translations) {
+  // commuteChart.data.datasets[0].label = translations[lang]['legend']
+}
+
+
 const showMenuMap = () => {
   const toggleableLayerIds = Object.keys(serviceJson);
 
@@ -214,8 +219,3 @@ const showMapLayers = () => {
   })
 }
 
-
-
-export function onChangeLanguage(translations) {
-  // commuteChart.data.datasets[0].label = translations[lang]['legend']
-}
