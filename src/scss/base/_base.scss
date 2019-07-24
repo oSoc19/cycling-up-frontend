@@ -13,6 +13,10 @@ body {
   @media only screen and (max-width: 992px) {
     flex-direction: column
   }
+
+  @media only screen and (max-width: 320px) {
+    overflow: overlay;
+  }
 }
 
 p,

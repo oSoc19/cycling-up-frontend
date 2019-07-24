@@ -32,6 +32,10 @@
   top: 50px;
   right: 75px;
   text-decoration: none;
+
+  @media only screen and (min-width: 320px) {
+    top: 35px;
+  }
 }
 
 .l-header__toggle > span {
@@ -146,12 +150,12 @@
 
 @media only screen and (max-width: 576px){
   .l-header__mobile {
-    height: 130px;
+    height: 100px;
   }
 
   .l-header__mobile__logo  {
-    margin-left: 40px;
-    margin-top: 44px;
+    margin-left: 20px;
+    margin-top: 24px;
   }
 
   .l-header__toggle {
@@ -162,3 +166,4 @@
     padding: 70px 0 0 70px;
   }
 }
+

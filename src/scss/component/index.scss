@@ -12,6 +12,11 @@
     display: inline-block;
     line-height: 55px;
     padding: 0px 15px;
+
+    @media only screen and (max-width: 320px) {
+      line-height: 32px;
+    }
+
 }
 
 .header-page-title {
@@ -22,6 +27,11 @@
     font-size: 36px;
     margin-top: 5rem;
     margin-bottom: 0.5rem;
+  }
+
+  @media only screen and (max-width: 320px) {
+    font-size: 24px;
+    margin-top: 1;
   }
 }
 
@@ -37,6 +47,11 @@
     font-size: 18px;
     margin-top: 0;
     padding: 5px 5px 5px 10px;
+  }
+
+  @media only screen and (max-width: 320px) {
+    font-size: 16px;
+    display: none;
   }
 }
 

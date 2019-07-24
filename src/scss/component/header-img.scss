@@ -19,8 +19,7 @@
     z-index: -1;
   }
 
-  @include media-breakpoint-down(xs) {
-    background: none;
+  @media only screen and (max-width: 320px) {
     height: 100%;
   }
 
@@ -57,11 +56,10 @@
       margin-left: 30px;
     }
 
-    @include media-breakpoint-down(xs) {
+    @media only screen and (max-width: 320px) {
       line-height: 40px;
       margin: 0;
-      padding: 0;
-      font-size: 22px;
+      font-size: 24px;
     }
   }
 
@@ -86,8 +84,9 @@
   height: 100vh;
   width: 100vw;
 
-  @media only screen and (min-width: 1024px) {
-    width: 80vw;
+  @media only screen and (max-width: 320px) {
+    background-position: center -100px;
   }
+
 }
 
