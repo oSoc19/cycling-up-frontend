@@ -5,7 +5,9 @@ const serviceJson = require("../../../assets/data/service-map.json");
 
 const MAP_GFR_API_URL = process.env.API_URL + '/map/general/bike_icr';
 
-const MAP_BIKE_STATIONS = process.env.API_URL + '/map/bike_count/historic_stations';
+const MAP_BIKE_STATIONS_URL = process.env.API_URL + '/map/bike_count/historic_stations';
+
+const MAP_BIKE_LIVE_COUNT = "http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting"
 
 let bikeMap;
 let firstSymbolId;
@@ -34,8 +36,10 @@ export function showMap(container, onSelectStation) {
     if (layer) {
       firstSymbolId = layer.id;
     }
+
     showGFRNetworkLayer();
     showSations();
+    showLiveCount();
   });
 
   // Center the map on the coordinates of any clicked symbol from the 'symbols' layer.
@@ -88,7 +92,7 @@ const showSations = () => {
 
   bikeMap.addSource('bike_stations', {
     type: 'geojson',
-    data: MAP_BIKE_STATIONS
+    data: MAP_BIKE_STATIONS_URL
   });
 
   bikeMap.addLayer(
@@ -103,6 +107,49 @@ const showSations = () => {
       }
     },
   );
+};
+
+const showLiveCount = () => {
+
+  bikeMap.addSource('bike_live_count', {
+    type: 'geojson',
+    data: MAP_BIKE_LIVE_COUNT
+  });
+
+  bikeMap.addLayer(
+    {
+      id: 'bike_count',
+      type: 'circle',
+      source: "bike_live_count",
+      filter: ["==", "$type", "Point"],
+      paint: {
+        "circle-color": "red",
+        "circle-radius": [
+          "step",
+          ["get", "day_cnt"],
+          20,
+          100,
+          30,
+          750,
+          40
+        ]
+      }
+    },
+  );
+
+  bikeMap.addLayer({
+    id: 'bike-count-value',
+    type: 'symbol',
+    source: 'bike_live_count',
+    filter: ['has', 'day_cnt'],
+    layout: {
+      'text-field': '{day_cnt}',
+      // 'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+      'text-size': 16
+    }
+  });
+
+
 };
 
 
