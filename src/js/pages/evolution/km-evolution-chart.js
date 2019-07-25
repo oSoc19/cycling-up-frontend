@@ -1,40 +1,89 @@
 import Chart from 'chart.js';
 
-const apiChartCommuteDataUrl = `${process.env.API_URL}/chart/cumulated_kilometers`;
+const regionalKmChartDataUrl = `${process.env.API_URL}/chart/cumulated_kilometers_regional_roads`;
+const gfrKmChartDataUrl = `${process.env.API_URL}/chart/cumulated_kilometers_gfr`;
 
 let evolutionChart;
 
 const fetchData = () => {
-  return fetch(apiChartCommuteDataUrl).then(r => r.json());
+  return Promise.all([
+    regionalKmChartDataUrl,
+    gfrKmChartDataUrl
+  ].map(url =>
+    fetch(url).then(res => res.json())
+  ))
+
+
 };
 
 export function init(ctx) {
   return fetchData().then(data => showChart(ctx, data));
 }
 
-export function showChart(ctx, chartData) {
+export function showChart(ctx, [regionalData, gfrData]) {
+
+  const datasets = [
+    {
+      id: 'region',
+      label: 'Cumulated amount of km per year of regionnal paths',
+      borderColor: 'rgba(239, 185, 52, 1)',
+      backgroundColor: 'rgba(239, 185, 52, 1)',
+      data: [],
+      fill: false,
+      spanGaps: false,
+    },
+    {
+      id: 'gfr',
+      label: 'Cumulated amount of km per year of GFR paths',
+      borderColor: 'rgba(195, 214, 230, 1)',
+      backgroundColor: 'rgba(195, 214, 230, 1)',
+      data: [],
+      fill: false,
+      // spanGaps: false,
+    }
+  ]
   // Our labels along the x-axis
-  const years = chartData.map(d => d.year);
-  // For drawing the lines
-  const km = chartData.map(d => d.cumulated_kilometers);
+  let years = [].concat(
+    regionalData.map(rd => rd.year),
+    gfrData.map(rd => rd.year)
+  );
+  years = Array.from(new Set(years)).sort()
+
+
+  const _createChartData = data => {
+    return years.map(year => {
+      const value = data.find(d => d['year'] == year) || {};
+      return value['cumulated_kilometers'];
+    })
+  }
+
+  datasets[0].data = _createChartData(regionalData)
+
+  datasets[1].data = _createChartData(gfrData)
 
   if (ctx) {
     evolutionChart = new Chart(ctx, {
       type: 'line',
+      // labels,
       data: {
         labels: years,
-        datasets: [
-          {
-            data: km,
-            label: 'Total amount of km per year of cyclable paths',
-            borderColor: '#f9b138',
-            fill: '#fff',
-            backgroundColor: '#EAB818'
-          }
-        ]
+        datasets
       },
       options: {
-        responsive: true
+        responsive: false,
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+        scales: {
+          xAxes: [{
+            ticks: {
+              autoSkip: true,
+              maxTicksLimit: 9, // years.length / 5,
+              // stepSize: 10
+            }
+          }]
+        }
       }
     });
 
@@ -46,7 +95,7 @@ export function onChangeLanguage(graph_legend) {
   if (!evolutionChart) {
     return;
   }
+
   evolutionChart.data.datasets[0].label = graph_legend
   evolutionChart.update()
-
 }
