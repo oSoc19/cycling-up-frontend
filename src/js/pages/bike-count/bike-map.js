@@ -174,7 +174,7 @@ const showLiveCount = () => {
           "!=", null, ["get", "day_cnt"],
       ],
       paint: {
-        "circle-color": "red",
+        "circle-color": "#EAB818",
         // "circle-radius": [
         //   "step",
         //   ["get", "day_cnt"],
