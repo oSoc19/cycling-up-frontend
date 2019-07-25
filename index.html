@@ -1,248 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Cycling Up - Brussels Mobility" />
+    <meta name="author" content="open summer of code" />
+    <link rel="icon" href="favicon.ico" />
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="Cycling Up - Brussels Mobility">
-  <meta name="author" content="open summer of code">
-  <link rel="icon" href="favicon.ico">
+    <title>Cycling Up - Brussels Mobility</title>
 
-  <title>Cycling Up - Brussels Mobility</title>
+    <!-- flexbox -->
+    <link href="css/flexboxgrid.css" rel="stylesheet" />
 
-  <!-- flexbox -->
-  <link href="css/flexboxgrid.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/typography.css" rel="stylesheet" />
+    <link href="css/buttons.css" rel="stylesheet" />
+    <link href="css/helpers.css" rel="stylesheet" />
 
-  <!-- Custom styles -->
-  <link href="css/main.css" rel="stylesheet">
-  <link href="css/typography.css" rel="stylesheet">
-  <link href="css/buttons.css" rel="stylesheet">
-  <link href="css/helpers.css" rel="stylesheet">
+    <link href="css/header.css" rel="stylesheet" />
+    <link href="css/project.css" rel="stylesheet" />
+    <link href="css/footer.css" rel="stylesheet" />
 
-  <link href="css/header.css" rel="stylesheet">
-  <link href="css/project.css" rel="stylesheet">
-  <link href="css/footer.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:300,400"
+      rel="stylesheet"
+    />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Open+Sans:300,400"
-    rel="stylesheet">
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <meta name="keywords" content="oSoc18, open, summer, code, Belgium, github, pages, template">
-  <meta name="author" content="oSoc18 team, Open Knowledge Belgium">
-  <meta name="viewport" content="width=device-width">
-  <meta property="og:title" content="open summer of code 2019" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="http://2019.summerofcode.be" />
-  <meta property="og:image" content="http://osoc.miet.be/img/socialmedia/socialmedia.png?4362984378" />
-  <meta property="og:description" content="Github pages template for Open summer of code" />
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@osocode">
-  <meta name="twitter:title" content="open summer of code 2019">
-  <meta name="twitter:description" content="Github pages template for Open summer of code">
-  <meta name="twitter:image" content="http://osoc.miet.be/img/socialmedia/socialmedia.png?4362984378" />
-  <meta name="twitter:url" content="http://2019.summerofcode.be/" />
+    <meta
+      name="keywords"
+      content="oSoc18, open, summer, code, Belgium, github, pages, template"
+    />
+    <meta name="author" content="oSoc18 team, Open Knowledge Belgium" />
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:title" content="open summer of code 2019" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://2019.summerofcode.be" />
+    <meta
+      property="og:image"
+      content="http://osoc.miet.be/img/socialmedia/socialmedia.png?4362984378"
+    />
+    <meta
+      property="og:description"
+      content="Github pages template for Open summer of code"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@osocode" />
+    <meta name="twitter:title" content="open summer of code 2019" />
+    <meta
+      name="twitter:description"
+      content="Github pages template for Open summer of code"
+    />
+    <meta
+      name="twitter:image"
+      content="http://osoc.miet.be/img/socialmedia/socialmedia.png?4362984378"
+    />
+    <meta name="twitter:url" content="http://2019.summerofcode.be/" />
 
-  <!-- FAVICONS -->
-  <link rel="apple-touch-icon" sizes="32x32" href="apple-touch-icon-32x32-precomposed.png">
-  <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57-precomposed.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60-precomposed.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76-precomposed.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120-precomposed.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152-precomposed.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180-precomposed.png">
-  <link rel="apple-touch-icon" sizes="194x194" href="apple-touch-icon-194x194-precomposed.png">
+    <!-- FAVICONS -->
+    <link
+      rel="apple-touch-icon"
+      sizes="32x32"
+      href="apple-touch-icon-32x32-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="apple-touch-icon-57x57-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="apple-touch-icon-60x60-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="apple-touch-icon-72x72-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="apple-touch-icon-76x76-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="apple-touch-icon-114x114-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="apple-touch-icon-120x120-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="apple-touch-icon-144x144-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="apple-touch-icon-152x152-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="apple-touch-icon-180x180-precomposed.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="194x194"
+      href="apple-touch-icon-194x194-precomposed.png"
+    />
 
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="favicon-194x194.png" sizes="194x194">
-  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="android-chrome-48x48.png" sizes="48x48">
-  <link rel="icon" type="image/png" href="android-chrome-72x72.png" sizes="72x72">
-  <link rel="icon" type="image/png" href="android-chrome-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="android-chrome-144x144.png" sizes="144x144">
-  <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
-  <link rel="manifest" href="manifest.json">
-  <meta name="msapplication-TileColor" content="‪#FFFFFF">
-  <meta name="msapplication-TileImage" content="mstile-144x144.png">
-  <meta name="theme-color" content="‪#FFFFFF">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon-194x194.png"
+      sizes="194x194"
+    />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="android-chrome-48x48.png"
+      sizes="48x48"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="android-chrome-72x72.png"
+      sizes="72x72"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="android-chrome-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="android-chrome-144x144.png"
+      sizes="144x144"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="android-chrome-192x192.png"
+      sizes="192x192"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="msapplication-TileColor" content="‪#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="theme-color" content="‪#FFFFFF" />
+  </head>
 
-</head>
-
-<body>
-  <div class="layout">
-    <div class="hero">
-      <div class="container container-fluid">
-        <div class="row around-xs">
-          <div class="col-xs-12 col-sm-11 col-md-10 col-lg-9">
-            <div class="row hero-card">
-              <div class="col-xs-12 col-sm-10 col-md-7 col-lg-8">
-                <h1 class="h1 hero-title">Cycling Up</h1>
-                <!-- replace the title content with your project name -->
-              </div>
-              <div class="col-xs-12 col-sm-8 col-md-7 col-lg-7">
-                <p class="hero-intro"> Cycling Up shows the evolution of the bicycle infrastructure in Brussels. </p>
-                <p class="hero-intro"> Through interactive maps, graphics and facts, Cycling Up demonstrates a wide range of past and 
-                                      present data on the Brussels bike network.
-            </p>
-              </div>
-              <div class="col-xs-12 col-sm-10 col-md-7 col-lg-8">
-                <div class="button-group">
-                  <a class="button button--narrow" href="https://better.bike.brussels/" target="_blank">View project</a>
-                  <a class="button button--narrow button--alt" href="https://github.com/oSoc19/cycling-up-frontend/"
-                    target="_blank">Contribute to the Front-End</a>
-                  <a class="button button--narrow button--alt" href="https://github.com/oSoc19/cycling-up-backend/"
-                    target="_blank">Contribute to the Back-End</a>
+  <body>
+    <div class="layout">
+      <div class="hero">
+        <div class="container container-fluid">
+          <div class="row around-xs">
+            <div class="col-xs-12 col-sm-11 col-md-10 col-lg-9">
+              <div class="row hero-card">
+                <div class="col-xs-12 col-sm-10 col-md-7 col-lg-8">
+                  <h1 class="h1 hero-title">Cycling Up</h1>
+                  <!-- replace the title content with your project name -->
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-7 col-lg-7">
+                  <p class="hero-intro">
+                    Cycling Up shows the evolution of the bicycle infrastructure
+                    in Brussels.
+                  </p>
+                  <p class="hero-intro">
+                    Through interactive maps, graphics and facts, Cycling Up
+                    demonstrates a wide range of past and present data on the
+                    Brussels bike network.
+                  </p>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-7 col-lg-8">
+                  <div class="button-group">
+                    <a
+                      class="button button--narrow"
+                      href="https://cyclingup.osoc.be"
+                      target="_blank"
+                      >View project</a
+                    >
+                    <a
+                      class="button button--narrow button--alt"
+                      href="https://github.com/oSoc19/cycling-up-frontend/"
+                      target="_blank"
+                      >Contribute to the Front-End</a
+                    >
+                    <a
+                      class="button button--narrow button--alt"
+                      href="https://github.com/oSoc19/cycling-up-backend/"
+                      target="_blank"
+                      >Contribute to the Back-End</a
+                    >
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div> <!-- container -->
-    </div> <!-- hero -->
-
-    <div class="container container-fluid project-section">
-      <div class="row">
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0 col-lg-6">
-          <div class="project-image">
-            <img src="img/projectimage.png">
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-lg-5 col-md-offset-1">
-          <h2 class="h4">The project</h2>
-          <p> Cycling Up is a project requested by Brussels Mobility consisting in creating an <strong>online dashboard that evaluates the bicycle infrastructure of Brussels</strong>.  
-            Through interactive maps, graphics and facts, Cycling Up demonstrates a wide range of past and present data on the Brussels bike network. 
-            This project is part of oSoc 4-week summer programme.  
-         </p>
-          <p> oSoc provides Belgian based students the training, network and support necessary to transform open innovation projects into powerful real-world services. 
-              Hence, Cycling Up team was composed of five students and two coaches. 
-              All of them contributed to the project accordingly to their background: front-end, back-end and product development. 
-              Furthermore, the project was achieved in close relation with  Brussels Mobility.
-          </p>
-          <!-- replace these text boxes with your project description-->
-        </div>
+        <!-- container -->
       </div>
+      <!-- hero -->
 
-<!-- -------------------------   -->
-
-
-      <div class="row">
-          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-5">
-              <h2 class="h4">Comute to work section</h2>
-            <p>Want to know how this grid works, what the headers look like and what kind of buttons we have? Go to the <a
-                href="styleguide.html">styleguide</a>. Before you ship, don't forget to remove "styleguide-remove-me.css",
-              and replace all the favicons.</p>
-            <div class="button-group">
-              <a class="button button--narrow" href="http://osoc.be" target="_blank">View project</a>
-              <a class="button button--narrow button--alt" href="https://github.com/oSoc18/website"
-                target="_blank">Contribute</a>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-lg-6 col-md-offset-1">
+      <div class="container container-fluid project-section">
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0 col-lg-6"
+          >
             <div class="project-image">
-              <img src="img/osoc-screen.png">
+              <img src="img/project.jpg" />
+            </div>
+          </div>
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-lg-5 col-md-offset-1"
+          >
+            <h2 class="h4">The project</h2>
+            <p>
+              Cycling Up is a project requested by Brussels Mobility consisting
+              in creating an
+              <strong
+                >online dashboard that evaluates the bicycle infrastructure of
+                Brussels</strong
+              >. Through interactive maps, graphics and facts, Cycling Up
+              demonstrates a wide range of past and present data on the Brussels
+              bike network. This project is part of oSoc 4-week summer
+              programme.
+            </p>
+
+            <!-- replace these text boxes with your project description-->
+          </div>
+        </div>
+
+        <!-- -------------------------   -->
+
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-5"
+          >
+            <h2 class="h4">History of the GFR*</h2>
+            <p>
+              The total amount of infrastructure is calculated in kilometers and
+              includes the ones separated from the main roads as well as the
+              suggested paths and the Regional Cyclable Routes (RCR), better
+              know as the GFR network. The RCRs are suggested paths for cyclists
+              willing to commute on a medium to long distance. The data that is
+              available is from 1998 until 2014.
+            </p>
+            <p style="font-style: italic;">*Gewestelijke Fietsroutes</p>
+          </div>
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-lg-6 col-md-offset-1"
+          >
+            <div class="project-image">
+              <img src="img/history.png" />
             </div>
           </div>
         </div>
-  
-<!-- -------------------------   -->
 
-    </div>
+        <!-- -------------------------   -->
 
-    <div class="container container-fluid project-section">
-      <hr>
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0 col-lg-6"
+          >
+            <div class="project-image">
+              <img src="img/projectimage.png" />
+            </div>
+          </div>
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-lg-5 col-md-offset-1"
+          >
+            <h2 class="h4">Brussels infrastructure</h2>
+            <p>
+              The evolution of the number of cyclists variates according to the
+              seasons. They are defined by the following months: January, May,
+              September and November. This graph depicts the gap between each
+              seasons from 1998 till 2017. Each data represents the number of
+              cyclists taken randomnly at a t-point. None of these should be
+              taken as granted and considered as absolute data.
+            </p>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-5 col-md-6 col-lg-5">
-          <h3 class="h5">The team</h3>
-          <ul class="team">
-           
-            <li>
-                <img src="img/Danielle.png">
-              <h4 class="h6"><a href="https://www.linkedin.com/in/danielleterras" 
-                target="_blank">Danielle Terras</a></h4>
-              <p>Front-end developer</p>
-            </li>
-            <li>
-               <img src="img/Cécile.png">
-              <h4 class="h6"><a href="https://www.linkedin.com/in/c%C3%A9cile-diana-student-finance-gem"
-                  target="_blank">Cécile Diana</a></h4>
-              <p>Product development/Basic front-end</p>
-            </li>
-            <li>
-                <img src="img/Chloé.png">
-              <h4 class="h6"><a href="https://www.linkedin.com/in/chloë-devriese-739046151/"
-              target="_blank">Chloë Devriese</a></h4>
-              <p>Front-end developer</p>
-            </li>
-            <li>
-              <img src="img/Joren.png">
-              <h4 class="h6"><a href="https://www.linkedin.com/in/joren-s-jongers-50b363184/" 
-              target="_blank">Joren 's Jongers</a></h4>
-              <p>Back-end developer</p>
-            </li>
-            <li>
-                <img src="img/David.png">
-              <h4 class="h6"><a href="https://www.linkedin.com/in/a-k-a-david-b2b68114a/" 
-               target="_blank">David Adegnon</a></h4>
-              <p>Back-end/Front-end developer</p>
-            </li>
-            <li>
-                <img src="img/Eva.png">
-                <h4 class="h6"><a href="https://www.linkedin.com/in/eva-jacobs/" 
-                 target="_blank">Eva Jacobs</a></h4>
-                <p>Coach</p>
-              </li>
-              <li>
-                  <img src="img/Jonathan.png">
-                  <h4 class="h6"><a href="https://www.linkedin.com/in/jbelien/" 
-                   target="_blank">Jonathan Beliën</a></h4>
-                  <p>Coach</p>
+            <!-- replace these text boxes with your project description-->
+          </div>
+        </div>
+
+        <!-- -------------------------   -->
+
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-0 col-lg-5"
+          >
+            <h2 class="h4">Services by Brussels Mobility</h2>
+            <p>
+              Moving around in Brussels. If you want to go to work, just take a
+              walk or take a step into the world at night, discover all the
+              possibilities for being mobile in the region. On foot Bike Persons
+              with reduced mobility Electric steps and the other micro-mobility
+              vehicles public transport, train, cab, coaches, car & moto.
+            </p>
+          </div>
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-lg-6 col-md-offset-1"
+          >
+            <div class="project-image">
+              <img src="img/serviices+GFR.png" />
+            </div>
+          </div>
+        </div>
+
+        <!-- -------------------------   -->
+
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-0 col-lg-6"
+          >
+            <div class="project-image">
+              <img src="img/osoc-screen.png" />
+            </div>
+          </div>
+          <div
+            class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-lg-5 col-md-offset-1"
+          >
+            <h2 class="h4">oSoc19</h2>
+            <p>
+              oSoc provides Belgian based students the training, network and
+              support necessary to transform open innovation projects into
+              powerful real-world services. Hence, Cycling Up team was composed
+              of five students and two coaches. All of them contributed to the
+              project accordingly to their background: front-end, back-end and
+              product development. Furthermore, the project was achieved in
+              close relation with Brussels Mobility.
+            </p>
+
+            <!-- replace these text boxes with your project description-->
+          </div>
+        </div>
+      </div>
+
+      <div class="container container-fluid project-section">
+        <hr />
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-5 col-md-6 col-lg-5">
+            <h3 class="h5">The team</h3>
+            <ul class="team">
+              <div
+                style="display: flex;     align-items: baseline;
+ flex-direction: row;"
+              >
+                <li style="padding: 1rem; text-align: center;  width: 50%;">
+                  <img src="img/Danielle.png" width="100vw" />
+                  <h4 class="h6">
+                    <a
+                      href="https://www.linkedin.com/in/danielleterras"
+                      target="_blank"
+                      >Danielle Terras</a
+                    >
+                  </h4>
+                  <p>
+                    Digital Designer & <br />
+                    Front-end Developer
+                  </p>
                 </li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-sm-offset-1 col-md-5 col-lg-5 col-lg-offset-2">
-          <h3 class="h5">Our partners</h3>
-          <ul class="partners">
-            <li class="row middle-xs">
-              <div class="col-xs-3">
-                <a href="https://mobilite-mobiliteit.brussels/en" target="_blank"><img style="width: 145.4%;" src="img/brusselsmobilitylogo.png"></a>
+                <li style="padding: 1rem; text-align: center; width: 50%;">
+                  <img src="img/Cécile.png" width="100vw" />
+                  <h4 class="h6">
+                    <a
+                      href="https://www.linkedin.com/in/c%C3%A9cile-diana-student-finance-gem"
+                      target="_blank"
+                      >Cécile Diana</a
+                    >
+                  </h4>
+                  <p>Product Developer</p>
+                </li>
               </div>
-              <div class="col-xs-9 col-md-8 col-lg-8 col-md-offset-1">
-                <h4 class="h6"><a href="https://mobilite-mobiliteit.brussels/en" target="_blank">Brussels Mobility</a></h4>
-                <p>Brussels Mobility is responsible for the equipment, infrastructure and mobility issues in the city of Brussels. 
-                  Their primary challenge is to facilitate economic development –and the growing need for mobility solutions –
-                  while improving quality of life and sustainable development.</p>
+              <div
+                style="display: flex;     align-items: baseline;
+ flex-direction: row;"
+              >
+                <li style="padding: 1rem; text-align: center; width: 50%;">
+                  <img src="img/Chloé.png" width="100vw" />
+                  <h4 class="h6">
+                    <a
+                      href="https://www.linkedin.com/in/chloë-devriese-739046151/"
+                      target="_blank"
+                      >Chloë Devriese</a
+                    >
+                  </h4>
+                  <p>Front-end Developer</p>
+                </li>
+                <li style="padding: 1rem; text-align: center; width: 50%;">
+                  <img src="img/Joren.png" width="97vw" />
+                  <h4 class="h6">
+                    <a
+                      href="https://www.linkedin.com/in/joren-s-jongers-50b363184/"
+                      target="_blank"
+                      >Joren 's Jongers</a
+                    >
+                  </h4>
+                  <p>Back-end Developer</p>
+                </li>
               </div>
-            </li>
-          </ul>
+              <div
+                style="display: flex;     align-items: baseline;
+ flex-direction: row;"
+              >
+                <li style="padding: 1rem; text-align: center; width: 50%;">
+                  <img src="img/David.png" width="100vw" />
+                  <h4 class="h6">
+                    <a
+                      href="https://www.linkedin.com/in/a-k-a-david-b2b68114a/"
+                      target="_blank"
+                      >David Adegnon</a
+                    >
+                  </h4>
+                  <p>Full Stack Developer</p>
+                </li>
+                <li style="padding: 1rem; text-align: center; width: 50%;">
+                  <img src="img/Eva.png" width="100vw" />
+                  <h4 class="h6">
+                    <a
+                      href="https://www.linkedin.com/in/eva-jacobs/"
+                      target="_blank"
+                      >Eva Jacobs</a
+                    >
+                  </h4>
+                  <p>Design Coach</p>
+                </li>
+              </div>
+              <div
+                style="display: flex;     align-items: baseline;
+ flex-direction: row;"
+              >
+                <li style="padding: 1rem; text-align: center; width: 50%;">
+                  <img src="img/Jonathan.png" width="100vw" />
+                  <h4 class="h6">
+                    <a
+                      href="https://www.linkedin.com/in/jbelien/"
+                      target="_blank"
+                      >Jonathan Beliën</a
+                    >
+                  </h4>
+                  <p>Development Coach</p>
+                </li>
+              </div>
+            </ul>
+          </div>
+          <div
+            class="col-xs-12 col-sm-6 col-sm-offset-1 col-md-5 col-lg-5 col-lg-offset-2"
+          >
+            <h3 class="h5">Our partners</h3>
+            <ul class="partners">
+              <li class="row middle-xs">
+                <div class="col-xs-3">
+                  <a
+                    href="https://mobilite-mobiliteit.brussels/en"
+                    target="_blank"
+                    ><img
+                      style="width: 145.4%;"
+                      src="img/brusselsmobilitylogo.png"
+                  /></a>
+                </div>
+                <div class="col-xs-9 col-md-8 col-lg-8 col-md-offset-1">
+                  <h4 class="h6">
+                    <a
+                      href="https://mobilite-mobiliteit.brussels/en"
+                      target="_blank"
+                      >Brussels Mobility</a
+                    >
+                  </h4>
+                  <p>
+                    Brussels Mobility is responsible for the equipment,
+                    infrastructure and mobility issues in the city of Brussels.
+                    Their primary challenge is to facilitate economic
+                    development –and the growing need for mobility solutions –
+                    while improving quality of life and sustainable development.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
+
+      <footer>
+        <div class="container container-fluid">
+          <div class="row middle-xs">
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+              <img src="img/osoc-logo.svg" />
+            </div>
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
+              <p>
+                Made with love at
+                <a href="http://osoc.be" target="_blank">osoc&nbsp;2019</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-
-    <footer>
-      <div class="container container-fluid">
-        <div class="row middle-xs">
-          <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            <img src="img/osoc-logo.svg">
-          </div>
-          <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-            <p>Made with love at <a href="http://osoc.be" target="_blank">osoc&nbsp;2019</a></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </div>
-</body>
-
+  </body>
 </html>
