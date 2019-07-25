@@ -5,43 +5,32 @@
   background-size: cover;
   height: 45vh;
 
-  //Permission granted for use of the atomium illustration by www.atomium.be
-
-  @media only screen and (max-width: 1024px) {
-    width: calc(100vw - 20vw);
-  }
-
-
-  @media only screen and (max-width: 992px) {
+  @include media-breakpoint-down(lg) {
     width: 100vw;
-    height: 430px;
-    margin-top: -60px;
-    z-index: -1;
+    min-height: 250px;
   }
 
-  @include media-breakpoint-down(xs) {
-    background: none;
-    height: 100%;
-  }
+  //Permission granted for use of the atomium illustration by www.atomium.be
 
   & h1 {
     max-width: 640px;
     padding: 25px 30px;
 
-    @media only screen and (max-width: 1024px) {
-      padding: 30px 20px;
-      font-size: 24px;
-      max-width: 500px;
+    @include media-breakpoint-down(lg) {
+      padding: 75px 30px;
     }
 
-    @media only screen and (max-width: 992px) {
-      padding: 70px 30px;
+    @include media-breakpoint-down(md) {
+      padding: 75px 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      font-size: 27px;
     }
 
     @include media-breakpoint-down(xs) {
-      padding: 20px 0 0 20px;
+      font-size: 23px;
     }
-
   }
 
   span {
@@ -53,41 +42,27 @@
     margin-top: 10px;
     padding: 0px 15px;
 
-    @media only screen and (max-width: 1024px) {
+    @include media-breakpoint-down(md) {
       margin-left: 30px;
-    }
-
-    @include media-breakpoint-down(xs) {
-      line-height: 40px;
-      margin: 0;
-      padding: 0;
-      font-size: 22px;
     }
   }
 
   &__img {
     display: none;
-
-    @include media-breakpoint-down(xs) {
-      background: url('../assets/img/header_1.svg') no-repeat;
-      background-position: center center;
-      background-size: cover;
-      display: block;
-      width: 100vw;
-      height: 240px;
-    }
   }
 }
 
 .background-image {
+  text-align: center;
   background: url('../assets/img/image_01.jpg') no-repeat;
   background-position: center center;
   background-size: cover;
-  height: 100vh;
+  flex: 1;
   width: 100vw;
+  min-height: 100vh;
 
-  @media only screen and (min-width: 1024px) {
-    width: 80vw;
+  @include media-breakpoint-down(lg) {
+    min-height: calc(100vh - 90px);
   }
 }
 

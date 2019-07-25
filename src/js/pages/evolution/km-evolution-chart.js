@@ -49,18 +49,17 @@ export function showChart(ctx, [regionalData, gfrData]) {
   );
   years = Array.from(new Set(years)).sort()
 
-  // For drawing the lines
-  const _createChartData = chartData => {
+
+  const _createChartData = data => {
     return years.map(year => {
-      const value = chartData.find(d => d['year'] == year) || {};
-      return value['cumulated_kilometers']
+      const value = data.find(d => d['year'] == year) || {};
+      return value['cumulated_kilometers'];
     })
   }
+
   datasets[0].data = _createChartData(regionalData)
 
   datasets[1].data = _createChartData(gfrData)
-
-  console.log(years);
 
   if (ctx) {
     evolutionChart = new Chart(ctx, {
@@ -96,7 +95,7 @@ export function onChangeLanguage(graph_legend) {
   if (!evolutionChart) {
     return;
   }
+
   evolutionChart.data.datasets[0].label = graph_legend
   evolutionChart.update()
-
 }
