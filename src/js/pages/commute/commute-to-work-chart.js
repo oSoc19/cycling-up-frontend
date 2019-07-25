@@ -26,7 +26,7 @@ export function showChart(ctx, chartData) {
         datasets: [
           {
             data: percentage,
-            label: '% of cyclist that commute to work',
+            label: '% of citizens that commute to work by bike',
             borderColor: 'rgba(185, 206, 228, .1)',
             fill: '#EAB818',
             backgroundColor: '#EAB818'

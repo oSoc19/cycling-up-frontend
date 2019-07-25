@@ -25,7 +25,7 @@ export function showChart(ctx, [regionalData, gfrData]) {
   const datasets = [
     {
       id: 'region',
-      label: 'Cumulated amount of km per year of regionnal paths',
+      label: 'Cumulated amount of km per year of RCI',
       borderColor: 'rgba(239, 185, 52, 1)',
       backgroundColor: 'rgba(239, 185, 52, 1)',
       data: [],
@@ -34,7 +34,7 @@ export function showChart(ctx, [regionalData, gfrData]) {
     },
     {
       id: 'gfr',
-      label: 'Cumulated amount of km per year of GFR paths',
+      label: 'Cumulated amount of km per year of GFR',
       borderColor: 'rgba(195, 214, 230, 1)',
       backgroundColor: 'rgba(195, 214, 230, 1)',
       data: [],
