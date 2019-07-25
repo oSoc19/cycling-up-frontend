@@ -6,7 +6,7 @@ const MAP_GFR_API_URL = `${process.env.API_URL}/map/general/bike_villo`;
 
 const MAP_BIKE_STATIONS_URL = process.env.API_URL + '/map/bike_count/historic_stations';
 
-const MAP_BIKE_LIVE_COUNT = "http://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting"
+const MAP_BIKE_LIVE_COUNT = "https://data-mobility.brussels/geoserver/bm_bike/wfs?service=wfs&version=1.1.0&request=GetFeature&srsName=EPSG:4326&outputFormat=json&typeName=bm_bike:rt_counting"
 
 
 let bikeMap;
