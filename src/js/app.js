@@ -46,33 +46,15 @@ const init = function () {
 
         if (page.hasOwnProperty('changeLanguage') && typeof page['changeLanguage'] === 'function') {
           Translation.subscribe(page.changeLanguage, page);
+        } else {
+          throw new Error (`'${page} must export a function changeLanguage()'`);
         }
       });
-
-
+    } else {
+      throw new Error (`'${page} must export a function init()'`);
     }
   }
 
-
-  // const $bikeMap = document.querySelector(`.js-map-bike`);
-  // if ($bikeMap) {
-  //   BikeMap.init({ctx:$bikeMap});
-  // }
-
-  // const $serviceMap = document.querySelector(`.js-map-service`);
-  // if ($serviceMap) {
-  //   ServiceMap.init({ctx : $serviceMap});
-  // }
-
-  // const $historicalMap = document.querySelector(`.js-map-historical`);
-  // if ($historicalMap) {
-  //   HistoricalMap.init({ctx: $historicalMap});
-  // }
-
-  // const $villoMap = document.querySelector(`.js-map-villo`);
-  // if ($villoMap) {
-  //   VilloMap.init({ctx: $villoMap});
-  // }
 };
 
 
