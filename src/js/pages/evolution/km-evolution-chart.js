@@ -70,7 +70,7 @@ export function showChart(ctx, [regionalData, gfrData]) {
         datasets
       },
       options: {
-        responsive: false,
+        responsive: true,
 				hover: {
 					mode: 'nearest',
 					intersect: true
