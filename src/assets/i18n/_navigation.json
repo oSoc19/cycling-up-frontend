@@ -23,5 +23,15 @@
     "en": "Bike count",
     "fr": "Comptabilité des vélos",
     "nl": "Fietsentellers"
+  },
+  "slogan_catch": {
+    "en": "A better Brussels starts on your bike",
+    "fr": "Bruxelles plus belle ? Mettez-vous en selle !",
+    "nl": "Een beter Brussel begint op de trappers"
+  },
+  "slogan_subtitle": {
+    "en": "The more people are cycling, the greener, safer and nicer life will be.",
+    "fr": "Plus les citadins prendront le vélo à Bruxelles, plus la vie en ville sera belle, verte, sûre et agréable.",
+    "nl": "Want hoe meer mensen gaan fietsen, hoe groener, veiliger en makkelijker het leven hier wordt."
   }
 }
