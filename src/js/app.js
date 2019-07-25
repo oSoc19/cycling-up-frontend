@@ -55,6 +55,11 @@ const init = function () {
     }
   }
 
+
+  if (previousLang !== 'en') {
+    Translation.updateLang(previousLang)
+  }
+
 };
 
 

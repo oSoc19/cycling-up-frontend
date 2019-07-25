@@ -38,10 +38,6 @@ export function updateLang(lang = "en", callbackFn) {
     throw new Error("Translation not initialized");
   }
 
-  // if (!slide_path) {
-  //   slide_path = window.location.pathname.substr(1).slice(0, -5);
-  // }
-
   instance.lang('_navigation', lang);
   instance.lang("active", lang);
 
