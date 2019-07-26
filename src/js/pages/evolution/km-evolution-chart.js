@@ -96,6 +96,7 @@ export function onChangeLanguage(graph_legend) {
     return;
   }
 
-  evolutionChart.data.datasets[0].label = graph_legend
-  evolutionChart.update()
+  evolutionChart.data.datasets[0].label = graph_legend.region;
+  evolutionChart.data.datasets[1].label = graph_legend.gfr;
+  evolutionChart.update();
 }
