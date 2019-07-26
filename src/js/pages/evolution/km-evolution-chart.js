@@ -91,12 +91,12 @@ export function showChart(ctx, [regionalData, gfrData]) {
   }
 };
 
-export function onChangeLanguage(graph_legend) {
+export function onChangeLanguage(regionLegend, gfrLegend) {
   if (!evolutionChart) {
     return;
   }
 
-  evolutionChart.data.datasets[0].label = graph_legend.region;
-  evolutionChart.data.datasets[1].label = graph_legend.gfr;
+  evolutionChart.data.datasets[0].label = regionLegend;
+  evolutionChart.data.datasets[1].label = gfrLegend;
   evolutionChart.update();
 }

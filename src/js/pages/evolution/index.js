@@ -47,5 +47,8 @@ export function init(callback) {
  */
 export function changeLanguage(lang){
   HistoricalMap.onChangeLanguage(lang, translations);
-  KmEvolutionChart.onChangeLanguage(translations['graph_legend'][lang]);
+  KmEvolutionChart.onChangeLanguage(
+    translations['graph_legend']['region'][lang],
+    translations['graph_legend']['gfr'][lang],
+    );
 }
