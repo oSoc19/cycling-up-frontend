@@ -36,4 +36,23 @@ git push deploy
 
 ## Run locally
 
+1. Copy the `.env.example` to `.env`
+   ``` bash
+   cp .env.example .env
+   ```
+2. Replace the `MY_SECRET_MAPBOX_ACCESS_TOKEN` value by your generated Mapbox access token
+3. Install the necessary package via npm or yarn
+   ``` bash
+   npm install
+
+   # or
+   yarn install
+   ```
+4. Run the sh!t
+   ``` bash
+   npm run dev
+
+   # or
+   yarn dev
+   ```
 ...
