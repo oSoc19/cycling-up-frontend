@@ -30,7 +30,7 @@ export function showChart(ctx, [regionalData, gfrData]) {
       backgroundColor: 'rgba(239, 185, 52, 1)',
       data: [],
       fill: false,
-      spanGaps: false,
+      spanGaps: true,
     },
     {
       id: 'gfr',
@@ -39,7 +39,7 @@ export function showChart(ctx, [regionalData, gfrData]) {
       backgroundColor: 'rgba(195, 214, 230, 1)',
       data: [],
       fill: false,
-      // spanGaps: false,
+      spanGaps: true,
     }
   ]
   // Our labels along the x-axis
