@@ -1,0 +1,74 @@
+.c-graph {
+  min-height: calc(100vh - 45vh);
+  background-color: pal-color(gray, lightest);
+  width: 45vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @include media-breakpoint-down(md) {
+    width: 100vw;
+    order: 2;
+    min-height: 100%;
+  }
+
+  &__section {
+    display: flex;
+    width: calc(100vw - 300px);
+
+    @include media-breakpoint-down(lg) {
+      width: 100vw;
+    }
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+    }
+  }
+
+  &__description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 60vw);
+
+    p {
+      padding: 70px;
+
+      @include media-breakpoint-down(sm) {
+        padding: 40px;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      order: 1;
+      width: 100vw;
+    }
+
+  }
+}
+
+.c-canvas {
+  padding: 20px;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 30px;
+  }
+}
+
+.c-graph--bike-count {
+  @include media-breakpoint-down(md) {
+    order: 1;
+  }
+}
+
+.h-header--bike-count {
+  @include media-breakpoint-down(md) {
+    order: 2;
+  }
+}
+
+ .c-canvas--bike-count {
+   padding: 0;
+ }

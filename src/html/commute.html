@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cycling Up - Commute to work</title>
+  </head>
+  <body>
+    <include>_navigation.html</include>
+    <main id="commute">
+      <header class="c-header-img">
+        <div class="c-header-img__img"></div>
+        <h1>
+          <span class="i18n" data-i18n-key="title-1">How many people ride</span>
+          <span class="i18n" data-i18n-key="title-2">their bike to work?</span>
+        </h1>
+      </header>
+      <section class="c-graph__section">
+        <div class="c-graph">
+          <canvas
+          class="c-canvas"id="js-canvas-commute"
+          ></canvas>
+         <p class="p--source">Source: SPF Mobilité et Transports (Diagnostic des déplacements domicile-travail)</p>
+        </div>
+        <div class="c-graph__description">
+          <p class="i18n" data-i18n-key="description">
+          The percentage of citizens using the bicycle to commute to work in Brussels increased from 1,2% in 2005 tot
+          4,4% in 2017. This growth shows an increase in the demand for sustainable solutions when moving between home
+          and work. Hence, the improvement of bicycle infrastructure within the Brussels Region helps this steady
+          increase in bicycle usage.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

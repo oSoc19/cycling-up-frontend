@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cycling Up - Evolution</title>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <include>_navigation.html</include>
+    <main class="c-graph__section" id="historical-map">
+      <div
+        class="historical-map js-map-historical"
+        id="js-map-historical"
+      ></div>
+      <div class="c-year__container">
+        <label class="c-year__label js-year-label"></label>
+      </div>
+      <div class="l-container--absolute">
+        <div class="c-btn__container">
+          <button class= "c-btn c-btn--previous is-hidden js-btn-prev"></button>
+          <button class="c-btn" id='pause'></button>
+          <button class="c-btn  c-btn--next is-hidden js-btn-next"></button>
+        </div>
+      </div>
+      <div class="h-graph">
+        <div class="c-graph">
+          <canvas class="c-canvas"
+            id="js-canvas-evolution"
+          ></canvas>
+         <p class="p--source">Source: Brussels Mobility </p>
+        </div>
+        <div class="h-header">
+          <h1 class="h-title i18n" data-i18n-key="title">
+            Evolution per year of the new infrastructure created
+          </h1>
+          <p class="i18n" data-i18n-key="description">
+          The total amount of infrastructure is calculated in kilometers and includes segregated & painted cycle lanes
+          as well as suggested cycle lanes. The Cycle Route Network consists of advisory routes for cyclists wishing to
+          commute medium to long distances. They use calmer streets and less stressful routes. 2003 is an important
+          year, as it saw the creation of a cycle lane on rue de la Loi. It was considered not realistic at the time to
+          take away a car lane to make way for wider sidewalks and cycle lanes. It is now considered insufficient
+          considering the volume of cyclists and pedestrians use the infrastructure.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cycling Up - Bike count</title>
+  </head>
+  <body>
+    <include>_navigation.html</include>
+    <main class="c-graph__section" id="bike-count">
+      <div class="bike-map js-map-bike" id="js-map-bike"></div>
+      <nav id="menu" class="bike-count-map__menu"></nav>
+      <div class="h-graph">
+        <div class="c-graph c-graph--bike-count">
+          <canvas id="js-canvas-season" style="height:20vw; width:auto" class="c-canvas c-canvas--bike-count"></canvas>
+          <p class="p--source">Source: Bruxelles Mobilité (Observatoire du vélo en Région de Bruxelles-Capitale - Pro Velo asbl)</p>
+        </div>
+        <div class="h-header h-header--bike-count">
+          <h1
+            class="h-title i18n"
+            data-i18n-key="title"
+          >
+            Amount of cyclists per season on the Brussels infrastructure
+          </h1>
+          <p class="i18n" data-i18n-key="description">
+            The evolution of the number of cyclists variates according to the
+            seasons. They are defined by the following months: January, May,
+            September and November. This graph depicts the gap between each
+            seasons from 1998 till 2017. Each data represents the number of
+            cyclists taken randomnly at a t-point. None of these should be taken
+            as granted and considered as absolute data.
+          </p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

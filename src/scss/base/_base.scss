@@ -1,0 +1,62 @@
+body {
+  @include font-smoothing(antialiased);
+  color: $font-color;
+  font-family: font-family(base);
+  font-size: font-size(base);
+  line-height: $line-height;
+  user-select: none;
+  display: flex;
+
+  @include media-breakpoint-down(lg) {
+    flex-direction: column;
+  }
+
+  @include media-breakpoint-down(md) {
+    overflow: overlay;
+  }
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 $paragraph-whitespace;
+}
+
+p,
+.paragraph {
+  color: pal-color(gray, light);
+  font-family: font-family(paragraph);
+}
+
+.p--source {
+  font-style: italic;
+  font-size: 14px;
+  padding: 0 40px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+a,
+.anchor {
+  text-decoration: $anchor-decoration;
+  color: pal-color(white);
+}
+
+b,
+strong {
+  font-weight: font-weight(bold);
+}
+
+svg {
+  box-sizing: initial;
+}
+
+.disable-scroll {
+  position: fixed;
+  width: 100%;
+  overflow: hidden!important;
+}
+
+.is-hidden {
+  visibility: hidden;
+}

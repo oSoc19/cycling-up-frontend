@@ -1,0 +1,79 @@
+.service-map {
+  width: calc(100vw - 300px);
+  height: 100vh;
+
+  @include media-breakpoint-down(lg) {
+    height: calc(100vh - 90px);
+    width: 100vw;
+  }
+
+  &__menu {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    bottom: 40px;
+    right: 20px;
+    border-radius: 3px;
+    width: 160px;
+    border: 1px solid rgba(0,0,0,0.2);
+
+    @include media-breakpoint-down(xs) {
+      display: flex;
+      width: 87vw;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      color: #404040;
+      margin: 0;
+      padding: 0;
+      padding: 10px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,0.2);
+      text-align: center;
+
+      @include media-breakpoint-down(sm) {
+        width: 153px;
+        border: none;
+      }
+    }
+
+
+    a:last-child {
+      border: none;
+    }
+
+    a.active,  a:hover {
+      background-color:  pal-color(gray, lightest);
+    }
+
+    a.active:hover {
+      background: pal-color(gray, lightest);
+    }
+  }
+}
+
+
+.point {
+  width: 22px;
+  height: 22px;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 100px;
+  margin-right: 10px;
+}
+
+.line {
+  width: 15px;
+  height: 5px;
+  margin-right: 10px;
+}

@@ -1,0 +1,85 @@
+.l-navigation {
+  padding-top: 100px;
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 130px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 15px;
+
+    &__item {
+      padding: 20px 0px 20px 45px;
+
+      @include media-breakpoint-only(md) {
+        padding: 20px 0px 20px 85px;
+      }
+
+      @include media-breakpoint-only(lg) {
+        padding: 20px 0px 20px 85px;
+      }
+
+      &:hover {
+        background-color: pal-color(yellow);
+        cursor: pointer;
+      }
+
+      & a {
+        display: block;
+        width: -webkit-fill-available;
+      }
+    }
+  }
+
+  &__icon {
+    padding-right: 20px;
+  }
+}
+
+.is-current {
+  background-color: pal-color(yellow);
+}
+
+.center-item {
+  display: flex;
+  align-items: center;
+}
+
+.lang {
+  margin-left: 30px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+
+  @include media-breakpoint-only(md) {
+    margin-left: 70px;
+  }
+
+  @include media-breakpoint-only(lg) {
+    margin-left: 70px;
+  }
+}
+
+.lang-btn {
+  padding: 0.5rem;
+  border: none;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border-radius: 50%;
+  font-size: 16px;
+  font-family: "CircularStd-Black";
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+    color: pal-color(yellow);
+  }
+}
+
+.active {
+  color: pal-color(yellow);
+}
+

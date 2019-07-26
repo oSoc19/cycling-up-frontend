@@ -1,0 +1,68 @@
+.c-header-img {
+  width: calc(100vw - 300px);
+  background: url('../assets/img/header-1.svg') no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 45vh;
+
+  @include media-breakpoint-down(lg) {
+    width: 100vw;
+    min-height: 250px;
+  }
+
+  //Permission granted for use of the atomium illustration by www.atomium.be
+
+  & h1 {
+    max-width: 640px;
+    padding: 25px 30px;
+
+    @include media-breakpoint-down(lg) {
+      padding: 75px 30px;
+    }
+
+    @include media-breakpoint-down(md) {
+      padding: 75px 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      font-size: 27px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      font-size: 23px;
+    }
+  }
+
+  span {
+    color: pal-color(blue);
+    background-color: pal-color(white);
+    display: inline-block;
+    line-height: 55px;
+    margin-left: 50px;
+    margin-top: 10px;
+    padding: 0px 15px;
+
+    @include media-breakpoint-down(md) {
+      margin-left: 30px;
+    }
+  }
+
+  &__img {
+    display: none;
+  }
+}
+
+.background-image {
+  text-align: center;
+  background: url('../assets/img/image_01.jpg') no-repeat;
+  background-position: center center;
+  background-size: cover;
+  flex: 1;
+  width: 100vw;
+  min-height: 100vh;
+
+  @include media-breakpoint-down(lg) {
+    min-height: calc(100vh - 90px);
+  }
+}
+

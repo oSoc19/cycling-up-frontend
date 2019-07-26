@@ -1,0 +1,22 @@
+{
+  "title-1": {
+    "en": "Total amount of Villo! rentals",
+    "fr": "Nombre total de locations Villo!",
+    "nl": "Totaal aantal Villo! ritten"
+  },
+  "description": {
+    "en": "Villo! Is a bike sharing scheme run in the Brussels Capital Region. Villo! Wants to improve and encourage sustainable mobility for Brussels citizens. Bicycles can be rented from 364 stations. The graph shows the total number of Villo! rentals from 2010 to 2017. The steady increase in this period is related to increased cycling as well as to the rise of the number of available bicycle stations.",
+    "fr": "Villo! est un programme de location développé en région de Bruxelles Capitale. Il a pour but de soutenir et encourager la mobilité durable des citoyens. Les vélos peuvent être loués parmi plus de 360 stations actuellement existantes. Le graphique montre le nombre total d’utilisateurs Villo ! depuis 2010 jusqu’à 2017. La hausse constante durant cette période est liée à l’augmentation de la demande ainsi qu’à l’accroissement du nombre de stations disponibles. ",
+    "nl": "Villo! is het Brusselse Gewestelijke fietsdeelsysteem. Villo ! wil de mobiliteit van de Brusselaars verbeteren door het fietsgebruik te stimuleren. Fietsen kunnen in 360 vaste stations worden gehuurd. De grafiek toont het aantal ritten dat met een Villo!-fiets werd gedaan tussen 2010 en 2017. De gestage stijging in deze periode is het gevolg van stijgend fietsgebruik maar ook van de toename van het aantal Villo!-stations."
+  },
+  "icr_description": {
+    "en": "The Regional Cycling Routes are suggested paths for cyclists willing to commute on a medium to long distance. They take into account the calmest streets and the less stressful paths for the users.",
+    "fr": "Les Itinéraires Cyclables Régionaux sont des pistes cyclables proposées pour les cyclistes souhaitant se déplacer sur de moyenne à longue distance. Ces itinéraires prennent en compte les rues les plus calmes afin de rendre les trajets le moins stressant possible pour le cycliste.",
+    "nl": "De Regionale Fiets Routes zijn fietspaden voor fietsers die gemiddeld tot ver willen reizen. Deze routes houden rekening met de rustigste straten om de ritten het minst stressvol te maken voor de fietser."
+  },
+  "graph_legend": {
+    "en": "Total amount of Villo ! rentals per year",
+    "fr": "Nombre total de locations de Villo! par an",
+    "nl": "Totaal aantal Villo! ritten per jaar"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title-1": {
+    "en": "How many people ride",
+    "fr": "Combien de citoyens prennent",
+    "nl": "Hoe veel inwoners gaan met de "
+  },
+  "title-2": {
+    "en": "their bike to work ?",
+    "fr": "le vélo pour aller travailler ?",
+    "nl": "fiets naar het werk?"
+  },
+  "description": {
+    "en": "The percentage of citizens using the bicycle to commute to work in Brussels increased from 1,2% in 2005 tot 4,4% in 2017. This growth shows an increase in the demand for sustainable solutions when moving between home and work. Hence, the improvement of bicycle infrastructure within the Brussels Region helps this steady increase in bicycle usage.",
+    "fr": "Le pourcentage de Bruxellois se rendant au travail à vélo s'est augmenté de 1,2% en 2005 à 4,4% en 2017. Cette augmentation démontre un intérêt pour les transports durables entre la maison et le travail. Ainsi, l’amélioration des infrastructures cyclables dans Bruxelles vient soutenir cette hausse.",
+    "nl": "Het percentage inwoners dat in het Brussels Gewest met fiets naar het werk pendelt steeg van 1,2% in 2005 naar 4,4% in 2017. Deze stijging wijst op een toenemend bewustzijn ivm met duurzame verplaatsingen tussen werk en thuis. De verbeteringen in de fietsinfrastructuur in het Brussels Gewest versterken deze tendens."
+  },
+  "graph_legend": {
+    "en": "% of citizens that commute to work by bike",
+    "fr": "% citoyens se rendant au travail en vélo",
+    "nl": "% inwoners die met de fiets naar het werk gaan"
+  }
+}

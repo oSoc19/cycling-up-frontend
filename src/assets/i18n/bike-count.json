@@ -1,0 +1,22 @@
+{
+  "title": {
+    "en": "Overview of the amount of cyclists per season on the Brussels infrastructure",
+    "fr": "Aperçu du nombre de cyclistes par saison sur l’infrastructure cyclable Bruxelloise",
+    "nl": "Overzicht van het aantal fietsers per seizoen op de Brusselse infrastructuur"
+  },
+  "description": {
+    "en": "The evolution of the number of cyclists variates according to the seasons. They are defined by the following months: January, May,September and November. This graph depicts the gap between eachseasons from 1998 till 2017. Each data represents the number of cyclists taken randomnly at a t-point. None of these should be takenas granted and considered as absolute data.",
+    "fr": "L’évolution du nombre de cyclistes varie selon les saisons. Elles sont définies par les mois suivants : Janvier, Mai, Septembre et Novembre. Ce graphique dépeint la différence entre chaque saison depuis 1998 jusqu’à 2017. Toutes les données représentent un nombre de cyclistes pris à un instant t de façon aléatoire. Aucunes d’entre-elles ne doit être prises comme acquises ou absolues.",
+    "nl": "Fietsers worden elke seizoen geteld, in de maanden januari, mei, september en november. Deze grafiek geeft de evolutie per seizoen weer voor elk jaar vanaf 1998 tot 2017. De gegevens geven het aantal fietsers weer dat op het spitsuur (8-9u) wordt geteld op een bepaald punt. Deze cijfers moeten niet worden beschouwd als vastliggende en absolute telgegevens."
+  },
+  "graph_legend": {
+    "en": "January ; May ; September ; November",
+    "fr": "Janvier ; Mai ; Septembre ; Novembre",
+    "nl": "Januari ; Mei ; September ; November"
+  },
+  "graph_title": {
+    "en": "Click on a blue circle on the map to get the historical data of this place.",
+    "fr": "Cliquez sur un point bleu dans la carte pour avoir l'historique cet endroit.",
+    "nl": "Klik op een blauwe cirkel om historische gegevens te verkrijgen over deze locatie"
+  }
+}

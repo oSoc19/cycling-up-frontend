@@ -1,0 +1,21 @@
+main {
+  width: calc(100vw - 300px);
+
+  @include media-breakpoint-down(lg) {
+    width: 100vw;
+    margin-top: -65px;
+  }
+  @include media-breakpoint-down(sm) {
+    width: 100vw;
+    margin-top: -40px;
+  }
+}
+
+.l-container--fixed {
+  position: fixed;
+  width: 330.5px;
+
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+  }
+}

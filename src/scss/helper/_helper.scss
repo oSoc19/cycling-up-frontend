@@ -1,0 +1,78 @@
+// -- Margin & padding
+
+$map-distance-selector: (
+  'margin-top',
+  'margin-bottom',
+  'padding-top',
+  'padding-bottom'
+);
+
+$map-distance-variant: (
+  none:       0,
+  tiny:       map-get($map-spacing, tiny),
+  small:      map-get($map-spacing, small),
+  base:       map-get($map-spacing, base),
+  medium:     map-get($map-spacing, medium),
+  large:      map-get($map-spacing, large)
+);
+
+@each $selector in $map-distance-selector {
+  @each $variant, $value in $map-distance-variant {
+    .h-#{$selector}-#{$variant} {
+      #{$selector}: #{$value};
+    }
+  }
+}
+
+
+
+// -- Text size
+
+@each $size in $map-font-size {
+  .h-fs-#{ nth($size, 1) } {
+    font-size: nth($size, 2);
+  }
+}
+
+
+
+// -- Text align
+
+.h- {
+  &text-left {
+    text-align: left;
+  }
+
+  &text-center {
+    text-align: center;
+  }
+
+  &text-right {
+    text-align: right;
+  }
+}
+
+
+
+// -- Font weight
+
+@each $weight in $map-font-weight {
+  .h-fw-#{ nth($weight, 1) } {
+    font-weight: nth($weight, 2);
+  }
+}
+
+
+// -- Heading helpers
+
+@each $h in $map-heading-size {
+  .h-#{ nth($h, 1) } {
+    color: $heading-color;
+    font-family: font-family(heading);
+    font-size: nth($h, 2);
+    font-weight: font-weight(heading);
+  }
+}
+
+
+

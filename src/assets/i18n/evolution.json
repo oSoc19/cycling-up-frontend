@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "Evolution per year of the new infrastructure created",
+    "fr": "Evolution par an des nouvelles infrastructures cyclables créées",
+    "nl": "Evolutie per jaar van nieuw aangelegde fietsinfrastructuur"
+  },
+  "description": {
+    "en": "The total amount of infrastructure is calculated in kilometers and includes segregated & painted cycle lanes as well as suggested cycle lanes. The Cycle Route Network consists of advisory routes for cyclists wishing to commute medium to long distances. They use calmer streets and less stressful routes. 2003 is an important year, as it saw the creation of a cycle lane on rue de la Loi. It was considered not realistic at the time to take away a car lane to make way for wider sidewalks and cycle lanes. It is now considered insufficient considering the volume of cyclists and pedestrians use the infrastructure.",
+    "fr": "Le nombre total d'infrastructures cyclables est calculé en kilomètres et inclut les pistes cyclables séparées et marquées ainsi que les bandes cyclables suggérées. Les ICR sont des infrastructures cyclables proposées pour les cyclistes souhaitant se déplacer sur de moyenne à longue distance. Ces itinéraires prennent en compte les rues les plus calmes afin de rendre les trajets le moins stressant possible pour le cycliste. Une importante année à mentionner est 2002 où un projet  considéré comme irréaliste a pu voir le jour grâce au courage politique de cette époque. Celui-ci consistait en la suppression d’une voie de la Rue de la Loi attribué aux voitures afin de pouvoir en faire une voie partagé en un trottoir et une piste cyclable hors de la route.",
+    "nl": "Het totale aantal km fietsinfrastructuur omvat de afgescheiden en gemarkeerde fietspaden en de suggestiestroken meestal op de grotere assen. De GFRs  (Gewestelijke Fietsroutes) zijn aangeraden routes voor fietsers die middellange tot lange afstanden pendelen. Ze volgen rustige straten waar het fietsen aangenamer is. 2003 is duidelijk een scharnierjaar, toen voor het eerst een vak voor auto's op de Wetstraat werd afgenomen, om er fietspaden aan te leggen."
+  },
+  "graph_legend": {
+    "region": {
+      "en": "Cumulated amount of km per year of bicycle infrastructure",
+      "fr": "Nombre total de km par an d'infrastructures cyclables crées",
+      "nl": "Totaal aantal km per jaar van aangelegde fietsinfrastructuur"
+    },
+    "gfr": {
+      "en": "Cumulated amount of km per year of cycle route network",
+      "fr": "Nombre de km d'ICR créés par an",
+      "nl": "Cumulated amount of km per year of cycle route network"
+    }
+  }
+}

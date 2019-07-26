@@ -1,0 +1,53 @@
+.background-title {
+  color: pal-color(blue);
+  background-color: pal-color(white);
+  padding: 0px 5px 15px 5px;
+  width: fit-content;
+  display: inline-block;
+}
+
+.background-color {
+  color: pal-color(blue);
+  background-color: pal-color(white);
+  display: inline-block;
+  line-height: 55px;
+  padding: 0px 15px;
+
+  @include media-breakpoint-down(xs) {
+    padding: 5px 66px;
+    line-height: 40px;
+  }
+}
+
+.header-page-title {
+  font-size: 50px;
+  margin-top: 10rem;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 40px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 30px;
+  }
+}
+
+.header-page-subtitle {
+  color: #EAB818;
+  font-size: 28px;
+  background-color: white;
+  padding: 10px 5px 15px 10px;
+  margin-top: -1rem;
+  display: inline-block;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 20px;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: 16px;
+  }
+  @include media-breakpoint-down(xs) {
+    display: none;
+  }
+}
+

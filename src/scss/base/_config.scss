@@ -1,0 +1,93 @@
+$map-color-palette: (
+  white: (base: #fff),
+  blue:  (base: #2D3E71),
+  yellow:  (base: #EAB818),
+  gray:  (
+    base:     #19191a,
+    light:    #4b5358,
+    lighter:  #ccc,
+    lightest:  #efefef
+  )
+);
+
+// Font size:
+
+$map-font-size: (
+  small:                    14px,
+  base:                     16px,
+  medium:                   18px,
+  large:                    34px
+);
+
+
+$map-heading-size: (
+  h1:                       font-size(large),
+  h2:                       font-size(medium),
+  h3:                       font-size(base),
+  h4:                       font-size(base),
+  h5:                       font-size(base),
+  h6:                       font-size(base)
+);
+
+$map-font-size: map-merge($map-font-size, $map-heading-size);
+
+
+
+// Font weight
+
+$map-font-weight: (
+  lightest:                 100,
+  lighter:                  200,
+  light:                    300,
+  normal:                   400,
+  bold:                     600,
+  bolder:                   700,
+  boldest:                  900
+);
+
+$map-font-weight-elements: (
+  heading:                  font-weight(bold)
+);
+
+$map-font-weight: map-merge($map-font-weight, $map-font-weight-elements);
+
+
+
+// Typography
+
+$line-height:               150%;
+
+$anchor-color:              pal-color(blue);
+$anchor-decoration:         none;
+$anchor-hover-color:        pal-color(blue);
+$anchor-hover-decoration:   none;
+
+$paragraph-whitespace:      $line-height + em;
+
+
+$map-font-family: (
+base:                     ('CircularStd-Book', arial, sans-serif),
+heading:                  ('CircularStd-Black', arial, sans-serif),
+paragraph:                ('CircularStd-Book', arial, sans-serif),
+navigation:               ('CircularStd-Book', arial, sans-serif),
+button:                   ('CircularStd-Book', arial, sans-serif),
+button-bold:              ('CircularStd-Bold', arial, sans-serif),
+);
+
+$heading-color:             pal-color(gray);
+
+
+
+// Spacing
+
+$map-spacing: (
+  tiny:                     10px,
+  small:                    20px,
+  base:                     30px,
+  medium:                   40px,
+  large:                    50px
+);
+
+// Global application configuration
+
+$font-color:                  pal-color(gray, light);

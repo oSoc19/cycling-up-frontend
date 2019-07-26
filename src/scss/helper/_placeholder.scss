@@ -1,0 +1,39 @@
+%clean-list-container {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+%horizontal-list-container {
+  @extend %clean-list-container;
+  display: inline-block;
+}
+
+%horizontal-list-item { display: inline-block; }
+
+%clearfix {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+%text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%translate-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+%absolute-full {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
