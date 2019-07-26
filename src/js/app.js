@@ -25,6 +25,21 @@ const getDomElements = () => {
   $mobileMenu = document.querySelector('.l-header__toggle');
   $mobileMenu.addEventListener('click', onHandlerMenuClick);
   $('.lang_selector').click(onLangSelectorClick);
+
+  const navItems = document.getElementsByClassName('l-navigation__list__item');
+  Array.from(navItems).forEach(item => {
+    item.addEventListener('click', e => {
+      let link = null;
+      if (e.target.localName == 'img') {
+        link = e.target.nextElementSibling;
+      } else {
+        link = e.target.children[1];
+      }
+      link.click()
+    }, false)
+  });
+
+
 };
 
 const init = function () {
@@ -40,15 +55,16 @@ const init = function () {
   Translation.addTranslation('_navigation', navigationTranslation)
 
   for (const page of pages) {
+    if (page.hasOwnProperty('changeLanguage') && typeof page['changeLanguage'] === 'function') {
+      Translation.subscribe(page.changeLanguage, page);
+    } else {
+      throw new Error (`'${page} must export a function changeLanguage()'`);
+    }
+
     if (page.hasOwnProperty('init') && typeof page['init'] === 'function') {
       page.init.call(page, (trans) => {
         Translation.addTranslation('active', trans)
 
-        if (page.hasOwnProperty('changeLanguage') && typeof page['changeLanguage'] === 'function') {
-          Translation.subscribe(page.changeLanguage, page);
-        } else {
-          throw new Error (`'${page} must export a function changeLanguage()'`);
-        }
       });
     } else {
       throw new Error (`'${page} must export a function init()'`);
@@ -57,7 +73,8 @@ const init = function () {
 
 
   if (previousLang !== 'en') {
-    Translation.updateLang(previousLang)
+    Translation.updateLang(previousLang);
+    Translation.notifyAll(previousLang);
   }
 
 };
@@ -97,6 +114,8 @@ const onLangSelectorClick = function (ev) {
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
+
+  // Make the current navigation link active
   const path = window.location.pathname.substr(1).slice(0, -5);
   $(`.l-navigation__list__item > a[href*="${path}"]`)
     .parent()
