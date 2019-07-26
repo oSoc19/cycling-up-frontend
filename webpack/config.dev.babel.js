@@ -55,7 +55,7 @@ const getPlugins = () => {
     return plugins;
 };
 
-module.exports = {
+const config = {
     entry: getEntries(),
     output: {
         filename: 'bundle.js',
@@ -137,3 +137,6 @@ module.exports = {
         extensions: ['.js', '.jpg', '.html', '.scss'],
     },
 };
+
+
+module.exports = config
