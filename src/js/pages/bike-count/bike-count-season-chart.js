@@ -86,10 +86,6 @@ export function onChangeLanguage({labels, title}) {
     return;
   }
 
-  if (!bikeCountChart.options.title.text.startsWith('Station')) {
-    bikeCountChart.options.title.text = title;
-  }
-
   for (const dataset of bikeCountChart.data.datasets) {
     const newLabel = labels[dataset.id];
     dataset.label = newLabel.trim();
@@ -117,7 +113,7 @@ export function onSelectedBikeStation(stationId, stationName) {
         display: true,
         position: 'bottom',
         fontSize: 16,
-        text: 'Station : ' + stationName
+        text: stationName
       };
       bikeCountChart.update();
     });
